@@ -63,6 +63,30 @@ public class Produto {
     public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
     }
+
+    public List<Saida> getListaSaida() {
+        return listaSaida;
+    }
+
+    public void setListaSaida(List<Saida> listaSaida) {
+        this.listaSaida = listaSaida;
+    }
+
+    public List<Entrada> getListaEntradas() {
+        return listaEntradas;
+    }
+
+    public void setListaEntradas(List<Entrada> listaEntradas) {
+        this.listaEntradas = listaEntradas;
+    }
+
+    public List<Caracteristica> getListaCaracteristicas() {
+        return listaCaracteristicas;
+    }
+
+    public void setListaCaracteristicas(List<Caracteristica> listaCaracteristicas) {
+        this.listaCaracteristicas = listaCaracteristicas;
+    }
     
     
     
