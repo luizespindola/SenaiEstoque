@@ -11,6 +11,8 @@ import br.com.senai.senaiEstoque.hibernate.HibernateUtil;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 /**
  *
@@ -19,7 +21,9 @@ import org.hibernate.Session;
 public class FotoDao {
     
       public Foto insert(Foto foto){
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        SessionFactory sf = new Configuration().configure().buildSessionFactory();
+        Session session = sf.openSession();
+        //Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(foto);
         session.getTransaction().commit();

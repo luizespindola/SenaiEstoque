@@ -16,7 +16,7 @@ import org.hibernate.Session;
  *
  * @author luiz_espindola
  */
-public class FornercedorDao {
+public class FornecedorDao {
     
        public Fornecedor insert(Fornecedor fornecedor){
         Session session = HibernateUtil.getSessionFactory().openSession();

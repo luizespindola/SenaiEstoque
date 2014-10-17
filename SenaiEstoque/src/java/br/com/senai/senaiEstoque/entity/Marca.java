@@ -18,7 +18,7 @@ import javax.persistence.Id;
 @Entity
 public class Marca implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTOs)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String nome;
 
