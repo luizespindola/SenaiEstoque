@@ -6,20 +6,32 @@
 
 package br.com.senai.senaiEstoque.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
  * @author luiz_espindola
  */
-public class Produto {
+@Entity
+public class Produto implements Serializable{
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String nome;
     private Integer codigo;
     private Double precoCusto;
     private Integer quantidade;
+    private Foto foto;
+    private Cor cor;
+    private Fornecedor fornecedor;
+    private Marca marca;
     private List<Saida> listaSaida=new ArrayList<Saida>();
     private List<Entrada> listaEntradas=new ArrayList<Entrada>();
     private List<Caracteristica> listaCaracteristicas=new ArrayList<Caracteristica>();
@@ -64,6 +76,38 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
+    public Foto getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Foto foto) {
+        this.foto = foto;
+    }
+
+    public Cor getCor() {
+        return cor;
+    }
+
+    public void setCor(Cor cor) {
+        this.cor = cor;
+    }
+
+    public Fornecedor getFornecedor() {
+        return fornecedor;
+    }
+
+    public void setFornecedor(Fornecedor fornecedor) {
+        this.fornecedor = fornecedor;
+    }
+
+    public Marca getMarca() {
+        return marca;
+    }
+
+    public void setMarca(Marca marca) {
+        this.marca = marca;
+    }
+    
     public List<Saida> getListaSaida() {
         return listaSaida;
     }

@@ -13,7 +13,6 @@ public class Foto {
     
     private Integer id;
     private String endereco;
-    private Produto produto;
 
     public Integer getId() {
         return id;
@@ -31,14 +30,5 @@ public class Foto {
         this.endereco = endereco;
     }
 
-    public Produto getProduto() {
-        return produto;
-    }
-
-    public void setProduto(Produto produto) {
-        this.produto = produto;
-    }
-    
-    
     
 }

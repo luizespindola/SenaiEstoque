@@ -16,7 +16,6 @@ public class Fornecedor {
     private String email;
     private String site;
     private String observacao;
-    private Produto produto;
 
     public Integer getId() {
         return id;
@@ -57,15 +56,5 @@ public class Fornecedor {
     public void setObservacao(String observacao) {
         this.observacao = observacao;
     }
-
-    public Produto getProduto() {
-        return produto;
-    }
-
-    public void setProduto(Produto produto) {
-        this.produto = produto;
-    }
-    
-    
     
 }
