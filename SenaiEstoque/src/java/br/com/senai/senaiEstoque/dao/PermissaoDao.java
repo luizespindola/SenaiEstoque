@@ -1,0 +1,65 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package br.com.senai.senaiEstoque.dao;
+
+import br.com.senai.senaiEstoque.entity.Permissao;
+import br.com.senai.senaiEstoque.hibernate.HibernateUtil;
+import java.util.List;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+/**
+ *
+ * @author luiz_espindola
+ */
+public class PermissaoDao {
+    
+     public Permissao insert(Permissao permissao){
+        SessionFactory sf = new Configuration().configure().buildSessionFactory();
+        Session session = sf.openSession();
+        //Session session = HibernateUtil.getSessionFactory().openSession();
+        session.getTransaction().begin();
+        session.saveOrUpdate(permissao);
+        session.getTransaction().commit();
+        return permissao;
+    }
+    
+    public void delete(Permissao permissao) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.getTransaction().begin();
+        session.delete(permissao);
+        session.getTransaction().commit();
+        session.close();
+    }
+    
+    public void update(Permissao permissao) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.getTransaction().begin();
+        session.update(permissao);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    public Permissao getById(Integer id) {
+        Permissao permissao = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.getTransaction().begin();
+        permissao = (Permissao) session.get(Permissao.class, id);
+        session.getTransaction().commit();
+        return permissao;
+    }
+
+
+    public List<Permissao> getAll() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Query query = session.createQuery("SELECT p FROM Permissao p");
+        return query.list();
+    }
+    
+}

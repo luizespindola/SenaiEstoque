@@ -5,18 +5,30 @@
  */
 package br.com.senai.senaiEstoque.entity;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author User
  */
-public class Caracteristica {
-    
+@Entity
+public class Caracteristica implements Serializable{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String nome;
+    @OneToOne
     private ValorCaracteristica valorCaracteristica;
+    @ManyToMany
     private List<Produto> listaProduto=new ArrayList<Produto>();
 
     public Integer getId() {
