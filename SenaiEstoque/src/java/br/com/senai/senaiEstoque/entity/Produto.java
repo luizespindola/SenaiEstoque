@@ -13,6 +13,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -28,12 +30,19 @@ public class Produto implements Serializable{
     private Integer codigo;
     private Double precoCusto;
     private Integer quantidade;
+    @OneToMany
     private Foto foto;
+    @OneToMany
     private Cor cor;
+    @OneToMany
     private Fornecedor fornecedor;
+    @OneToMany
     private Marca marca;
+    @ManyToMany
     private List<Saida> listaSaida=new ArrayList<Saida>();
+    @ManyToMany
     private List<Entrada> listaEntradas=new ArrayList<Entrada>();
+    @ManyToMany
     private List<Caracteristica> listaCaracteristicas=new ArrayList<Caracteristica>();
 
     public Integer getId() {
