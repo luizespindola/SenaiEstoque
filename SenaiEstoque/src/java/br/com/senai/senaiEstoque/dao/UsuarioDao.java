@@ -51,6 +51,7 @@ public class UsuarioDao {
         session.getTransaction().begin();
         usuario = (Usuario) session.get(Usuario.class, id);
         session.getTransaction().commit();
+        session.close();
         return usuario;
     }
 

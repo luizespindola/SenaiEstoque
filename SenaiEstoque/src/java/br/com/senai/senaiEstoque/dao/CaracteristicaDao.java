@@ -51,6 +51,7 @@ public class CaracteristicaDao {
         session.getTransaction().begin();
         caracteristica = (Caracteristica) session.get(Caracteristica.class, id);
         session.getTransaction().commit();
+        session.close();
         return caracteristica;
     }
 

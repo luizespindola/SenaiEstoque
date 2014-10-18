@@ -49,6 +49,7 @@ public class CorDao {
         session.getTransaction().begin();
         cor = (Cor) session.get(Cor.class, id);
         session.getTransaction().commit();
+        session.close();
         return cor;
     }
 
@@ -57,7 +58,6 @@ public class CorDao {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT c FROM Cor c");
         return query.list();
-    }
-    
+    } 
 }
 

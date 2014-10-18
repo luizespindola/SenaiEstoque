@@ -49,6 +49,7 @@ public class FornecedorDao {
         session.getTransaction().begin();
         fornecedor = (Fornecedor) session.get(Fornecedor.class, id);
         session.getTransaction().commit();
+        session.close();
         return fornecedor;
     }
 

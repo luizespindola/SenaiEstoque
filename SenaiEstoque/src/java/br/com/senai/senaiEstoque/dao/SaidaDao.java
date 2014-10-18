@@ -51,6 +51,7 @@ public class SaidaDao {
         session.getTransaction().begin();
         saida = (Saida) session.get(Saida.class, id);
         session.getTransaction().commit();
+        session.close();
         return saida;
     }
 

@@ -49,6 +49,7 @@ public class ProdutoDao {
         session.getTransaction().begin();
         produto = (Produto) session.get(Produto.class, id);
         session.getTransaction().commit();
+        session.close();
         return produto;
     }
 

@@ -51,6 +51,7 @@ public class FotoDao {
         session.getTransaction().begin();
         foto = (Foto) session.get(Foto.class, id);
         session.getTransaction().commit();
+        session.close();
         return foto;
     }
 

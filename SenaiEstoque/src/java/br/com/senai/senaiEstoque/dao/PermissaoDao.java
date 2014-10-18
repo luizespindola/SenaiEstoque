@@ -51,6 +51,7 @@ public class PermissaoDao {
         session.getTransaction().begin();
         permissao = (Permissao) session.get(Permissao.class, id);
         session.getTransaction().commit();
+        session.close();
         return permissao;
     }
 

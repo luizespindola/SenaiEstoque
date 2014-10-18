@@ -49,6 +49,7 @@ public class MarcaDao {
         session.getTransaction().begin();
         marca = (Marca) session.get(Marca.class, id);
         session.getTransaction().commit();
+        session.close();
         return marca;
     }
 

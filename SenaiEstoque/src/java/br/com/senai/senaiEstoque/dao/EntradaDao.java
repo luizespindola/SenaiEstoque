@@ -51,6 +51,7 @@ public class EntradaDao {
         session.getTransaction().begin();
         entrada = (Entrada) session.get(Entrada.class, id);
         session.getTransaction().commit();
+        session.close();
         return entrada;
     }
 
