@@ -21,9 +21,7 @@ import org.hibernate.cfg.Configuration;
 public class UsuarioDao {
     
      public Usuario insert(Usuario usuario){
-        SessionFactory sf = new Configuration().configure().buildSessionFactory();
-        Session session = sf.openSession();
-        //Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(usuario);
         session.getTransaction().commit();

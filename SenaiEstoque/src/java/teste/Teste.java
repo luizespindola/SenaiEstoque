@@ -9,11 +9,13 @@ import br.com.senai.senaiEstoque.dao.CorDao;
 import br.com.senai.senaiEstoque.dao.FornecedorDao;
 import br.com.senai.senaiEstoque.dao.FotoDao;
 import br.com.senai.senaiEstoque.dao.MarcaDao;
+import br.com.senai.senaiEstoque.dao.UsuarioDao;
 import br.com.senai.senaiEstoque.entity.Cor;
 import br.com.senai.senaiEstoque.entity.Fornecedor;
 import br.com.senai.senaiEstoque.entity.Foto;
 import br.com.senai.senaiEstoque.entity.Marca;
 import br.com.senai.senaiEstoque.entity.Produto;
+import br.com.senai.senaiEstoque.entity.Usuario;
 import br.com.senai.senaiEstoque.hibernate.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -30,6 +32,17 @@ public class Teste {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        Usuario usuario = new Usuario();
+        usuario.setNome("Luiz");
+        usuario.setLogin("luiz");
+        usuario.setSenha("luiz");
+
+        
+      
+
+        UsuarioDao dao = new UsuarioDao();
+        dao.insert(usuario);
 
 //        Foto foto = new Foto();
 //        foto.setEndereco("dada");
@@ -42,7 +55,6 @@ public class Teste {
 //        session.saveOrUpdate(foto);
 //        session.getTransaction().commit();
 //        session.close();
-
 //
 //        Cor cor = new Cor();
 //        cor.setNome("preto");

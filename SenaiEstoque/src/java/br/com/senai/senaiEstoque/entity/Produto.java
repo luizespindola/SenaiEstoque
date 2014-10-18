@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 /**
@@ -30,13 +31,13 @@ public class Produto implements Serializable{
     private Integer codigo;
     private Double precoCusto;
     private Integer quantidade;
-    @OneToMany
+    @ManyToOne
     private Foto foto;
-    @OneToMany
+    @ManyToOne
     private Cor cor;
-    @OneToMany
+    @ManyToOne
     private Fornecedor fornecedor;
-    @OneToMany
+    @ManyToOne
     private Marca marca;
     @ManyToMany
     private List<Saida> listaSaida=new ArrayList<Saida>();

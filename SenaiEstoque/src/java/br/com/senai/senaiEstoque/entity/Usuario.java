@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -24,7 +24,7 @@ public class Usuario implements Serializable{
     private String nome;
     private String login;
     private String senha;
-    @OneToOne
+    @ManyToOne
     private TipoUsuario tipoUsuario;
 
     public Integer getId() {

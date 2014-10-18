@@ -8,7 +8,7 @@
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/SenaiEstoque?zeroDateTimeBehavior=convertToNull</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password"></property>
-        <property name="hibernate.hbm2ddl.auto">Create-drop</property>
+        <property name="hibernate.hbm2ddl.auto">create-drop</property>
         <property name="hibernate.show_sql">true</property>
         <mapping class="br.com.senai.senaiEstoque.entity.Produto"/>
         <mapping class="br.com.senai.senaiEstoque.entity.Foto"/>
