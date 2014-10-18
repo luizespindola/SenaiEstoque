@@ -21,12 +21,11 @@ import org.hibernate.cfg.Configuration;
 public class SaidaDao {
     
      public Saida insert(Saida saida){
-        SessionFactory sf = new Configuration().configure().buildSessionFactory();
-        Session session = sf.openSession();
-        //Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(saida);
         session.getTransaction().commit();
+        session.close();
         return saida;
     }
     

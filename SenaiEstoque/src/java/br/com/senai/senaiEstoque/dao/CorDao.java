@@ -23,6 +23,7 @@ public class CorDao {
         session.getTransaction().begin();
         session.saveOrUpdate(cor);
         session.getTransaction().commit();
+        session.close();
         return cor;
     }
     

@@ -6,6 +6,7 @@
 
 package br.com.senai.senaiEstoque.dao;
 
+import br.com.senai.senaiEstoque.entity.Caracteristica;
 import br.com.senai.senaiEstoque.hibernate.HibernateUtil;
 import java.util.List;
 import org.hibernate.Query;
@@ -17,15 +18,14 @@ import org.hibernate.cfg.Configuration;
  *
  * @author luiz_espindola
  */
-public class Caracteristica {
+public class CaracteristicaDao {
     
      public Caracteristica insert(Caracteristica caracteristica){
-        SessionFactory sf = new Configuration().configure().buildSessionFactory();
-        Session session = sf.openSession();
-        //Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(caracteristica);
         session.getTransaction().commit();
+        session.close();
         return caracteristica;
     }
     

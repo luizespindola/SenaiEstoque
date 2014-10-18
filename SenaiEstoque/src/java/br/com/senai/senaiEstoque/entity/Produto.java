@@ -16,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -31,19 +32,19 @@ public class Produto implements Serializable{
     private Integer codigo;
     private Double precoCusto;
     private Integer quantidade;
-    @ManyToOne
+    @OneToOne
     private Foto foto;
-    @ManyToOne
+    @OneToOne
     private Cor cor;
-    @ManyToOne
+    @OneToOne
     private Fornecedor fornecedor;
-    @ManyToOne
+    @OneToOne
     private Marca marca;
-    @ManyToMany
+    @ManyToMany (mappedBy = "listaProduto")
     private List<Saida> listaSaida=new ArrayList<Saida>();
-    @ManyToMany
+    @ManyToMany (mappedBy = "listaProduto")
     private List<Entrada> listaEntradas=new ArrayList<Entrada>();
-    @ManyToMany
+    @ManyToMany (mappedBy = "listaProduto")
     private List<Caracteristica> listaCaracteristicas=new ArrayList<Caracteristica>();
 
     public Integer getId() {

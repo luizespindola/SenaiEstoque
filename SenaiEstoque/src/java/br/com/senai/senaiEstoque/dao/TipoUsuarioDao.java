@@ -21,12 +21,11 @@ import org.hibernate.cfg.Configuration;
 public class TipoUsuarioDao {
     
      public TipoUsuario insert(TipoUsuario tipoUsuario){
-        SessionFactory sf = new Configuration().configure().buildSessionFactory();
-        Session session = sf.openSession();
-        //Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(tipoUsuario);
         session.getTransaction().commit();
+        session.close();
         return tipoUsuario;
     }
     

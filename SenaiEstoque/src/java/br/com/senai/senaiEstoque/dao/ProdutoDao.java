@@ -23,6 +23,7 @@ public class ProdutoDao {
         session.getTransaction().begin();
         session.saveOrUpdate(produto);
         session.getTransaction().commit();
+        session.close();
         return produto;
     }
     

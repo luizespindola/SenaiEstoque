@@ -23,6 +23,7 @@ public class MarcaDao {
         session.getTransaction().begin();
         session.saveOrUpdate(marca);
         session.getTransaction().commit();
+        session.close();
         return marca;
     }
     

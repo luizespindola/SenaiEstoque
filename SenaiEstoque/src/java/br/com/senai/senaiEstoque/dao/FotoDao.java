@@ -21,12 +21,11 @@ import org.hibernate.cfg.Configuration;
 public class FotoDao {
     
       public Foto insert(Foto foto){
-        SessionFactory sf = new Configuration().configure().buildSessionFactory();
-        Session session = sf.openSession();
-        //Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(foto);
         session.getTransaction().commit();
+        session.close();
         return foto;
     }
     

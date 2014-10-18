@@ -23,6 +23,7 @@ public class FornecedorDao {
         session.getTransaction().begin();
         session.saveOrUpdate(fornecedor);
         session.getTransaction().commit();
+        session.close();
         return fornecedor;
     }
     

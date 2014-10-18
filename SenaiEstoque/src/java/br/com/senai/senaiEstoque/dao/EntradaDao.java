@@ -21,12 +21,11 @@ import org.hibernate.cfg.Configuration;
 public class EntradaDao {
     
      public Entrada insert(Entrada entrada){
-        SessionFactory sf = new Configuration().configure().buildSessionFactory();
-        Session session = sf.openSession();
-        //Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(entrada);
         session.getTransaction().commit();
+        session.close();
         return entrada;
     }
     

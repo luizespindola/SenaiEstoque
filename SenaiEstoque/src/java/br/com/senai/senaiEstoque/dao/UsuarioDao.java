@@ -25,6 +25,7 @@ public class UsuarioDao {
         session.getTransaction().begin();
         session.saveOrUpdate(usuario);
         session.getTransaction().commit();
+        session.close();
         return usuario;
     }
     

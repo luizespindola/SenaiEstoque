@@ -5,18 +5,32 @@
  */
 package teste;
 
+import br.com.senai.senaiEstoque.dao.CaracteristicaDao;
 import br.com.senai.senaiEstoque.dao.CorDao;
+import br.com.senai.senaiEstoque.dao.EntradaDao;
 import br.com.senai.senaiEstoque.dao.FornecedorDao;
 import br.com.senai.senaiEstoque.dao.FotoDao;
 import br.com.senai.senaiEstoque.dao.MarcaDao;
+import br.com.senai.senaiEstoque.dao.PermissaoDao;
+import br.com.senai.senaiEstoque.dao.ProdutoDao;
+import br.com.senai.senaiEstoque.dao.SaidaDao;
+import br.com.senai.senaiEstoque.dao.TipoUsuarioDao;
 import br.com.senai.senaiEstoque.dao.UsuarioDao;
+import br.com.senai.senaiEstoque.dao.ValorCaracteristicaDao;
+import br.com.senai.senaiEstoque.entity.Caracteristica;
 import br.com.senai.senaiEstoque.entity.Cor;
+import br.com.senai.senaiEstoque.entity.Entrada;
 import br.com.senai.senaiEstoque.entity.Fornecedor;
 import br.com.senai.senaiEstoque.entity.Foto;
 import br.com.senai.senaiEstoque.entity.Marca;
+import br.com.senai.senaiEstoque.entity.Permissao;
 import br.com.senai.senaiEstoque.entity.Produto;
+import br.com.senai.senaiEstoque.entity.Saida;
+import br.com.senai.senaiEstoque.entity.TipoUsuario;
 import br.com.senai.senaiEstoque.entity.Usuario;
+import br.com.senai.senaiEstoque.entity.ValorCaracteristica;
 import br.com.senai.senaiEstoque.hibernate.HibernateUtil;
+import java.util.Date;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -32,56 +46,90 @@ public class Teste {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+        Permissao permissao = new Permissao();
+        permissao.setEditar(true);
+        permissao.setEditarPermissao(true);
+        permissao.setVisualizar(true);
+        PermissaoDao permissaoDao = new PermissaoDao();
+        permissaoDao.insert(permissao);
+
+        TipoUsuario tipoUsuario = new TipoUsuario();
+        tipoUsuario.setNome("fODAO");
+        tipoUsuario.setPermissao(permissao);
+        TipoUsuarioDao tipoUsuarioDao = new TipoUsuarioDao();
+        tipoUsuarioDao.insert(tipoUsuario);
+
         Usuario usuario = new Usuario();
-        usuario.setNome("Luiz");
+        usuario.setNome("maria");
         usuario.setLogin("luiz");
         usuario.setSenha("luiz");
-
-        
-      
-
+        usuario.setTipoUsuario(tipoUsuario);
         UsuarioDao dao = new UsuarioDao();
         dao.insert(usuario);
 
-//        Foto foto = new Foto();
-//        foto.setEndereco("dada");
-//       
-//        
-//        SessionFactory sf = new Configuration().configure().buildSessionFactory();
-//        Session session = sf.openSession();
-//        Session session = HibernateUtil.getSessionFactory().openSession();
-//        session.getTransaction().begin();
-//        session.saveOrUpdate(foto);
-//        session.getTransaction().commit();
-//        session.close();
-//
-//        Cor cor = new Cor();
-//        cor.setNome("preto");
-//        CorDao dao1 = new CorDao();
-//        dao1.insert(cor);
-//
-//        Fornecedor fornecedor = new Fornecedor();
-//        fornecedor.setEmail("@gmail.com");
-//        fornecedor.setNome("dwsdqa");
-//        fornecedor.setObservacao("dcsds");
-//        fornecedor.setSite("www.www.www");
-//        FornecedorDao fornecedorDao = new FornecedorDao();
-//        fornecedorDao.insert(fornecedor);
-//
-//        Marca marca = new Marca();
-//        marca.setNome("caca");
-//        MarcaDao marcaDao = new MarcaDao();
-//        marcaDao.insert(marca);
-//
-//        Produto produto = new Produto();
-//        produto.setCodigo(123456789);
-//        produto.setNome("ventilador");
-//        produto.setPrecoCusto(12.12);
-//        produto.setQuantidade(1000);
-//        produto.setCor(cor);
-//        produto.setFornecedor(fornecedor);
-//        produto.setMarca(marca);
-//        produto.setFoto(foto);
+        ValorCaracteristica valorCaracteristica = new ValorCaracteristica();
+        valorCaracteristica.setValorCaracteristica("wsws");
+        ValorCaracteristicaDao valorcaracteristicaDao = new ValorCaracteristicaDao();
+        valorcaracteristicaDao.insert(valorCaracteristica);
+
+        Caracteristica caracteristica = new Caracteristica();
+        caracteristica.setNome("ddwdw");
+        caracteristica.setValorCaracteristica(valorCaracteristica);
+        CaracteristicaDao caracteristicaDao = new CaracteristicaDao();
+        caracteristicaDao.insert(caracteristica);
+
+        Foto foto = new Foto();
+        foto.setEndereco("dadasa");
+        FotoDao fotoDao = new FotoDao();
+        fotoDao.insert(foto);
+
+        Cor cor = new Cor();
+        cor.setNome("azul");
+        CorDao corDao = new CorDao();
+        corDao.insert(cor);
+
+        Fornecedor fornecedor = new Fornecedor();
+        fornecedor.setNome("daas");
+        fornecedor.setEmail("dsa");
+        fornecedor.setSite("www");
+        fornecedor.setObservacao("dasqa");
+        FornecedorDao fornecedorDao = new FornecedorDao();
+        fornecedorDao.insert(fornecedor);
+
+        Marca marca = new Marca();
+        marca.setNome("daq");
+        MarcaDao marcaDao = new MarcaDao();
+        marcaDao.insert(marca);
+
+        Produto produto = new Produto();
+        produto.setCodigo(12345);
+        produto.setNome("ventilador");
+        produto.setPrecoCusto(1.1);
+        produto.setQuantidade(1000);
+        produto.setFoto(foto);
+        produto.setFornecedor(fornecedor);
+        produto.setCor(cor);
+        produto.setMarca(marca);
+        ProdutoDao produtoDao = new ProdutoDao();
+        produtoDao.insert(produto);
+
+        Entrada entrada = new Entrada();
+        entrada.setQuantidade(100);
+        entrada.setData(new Date());
+        entrada.getListaProduto().add(produto);
+        EntradaDao entradaDao=new EntradaDao();
+        entradaDao.insert(entrada);
+        
+        produto.getListaEntradas().add(entrada);
+        produto.getListaCaracteristicas().add(caracteristica);
+        produtoDao.insert(produto);
+        
+        Saida saida=new Saida();
+        saida.setData(new Date());
+        saida.setQuantidade(100);
+        saida.getListaProduto().add(produto);
+        SaidaDao saidaDao=new SaidaDao();
+        saidaDao.insert(saida);
     }
+
 }

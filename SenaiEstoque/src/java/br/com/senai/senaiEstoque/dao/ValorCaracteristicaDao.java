@@ -21,12 +21,11 @@ import org.hibernate.cfg.Configuration;
 public class ValorCaracteristicaDao {
     
      public ValorCaracteristica insert(ValorCaracteristica valorCaracteristica){
-        SessionFactory sf = new Configuration().configure().buildSessionFactory();
-        Session session = sf.openSession();
-        //Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(valorCaracteristica);
         session.getTransaction().commit();
+        session.close();
         return valorCaracteristica;
     }
     
