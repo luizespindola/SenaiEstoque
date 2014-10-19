@@ -27,20 +27,22 @@ public class FornecedorDao {
         return fornecedor;
     }
     
-    public void delete(Fornecedor fornecedor) {
+    public boolean delete(Fornecedor fornecedor) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.delete(fornecedor);
         session.getTransaction().commit();
         session.close();
+        return true;
     }
     
-    public void update(Fornecedor fornecedor) {
+    public boolean update(Fornecedor fornecedor) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.update(fornecedor);
         session.getTransaction().commit();
         session.close();
+        return true;
     }
 
     public Fornecedor getById(Integer id) {

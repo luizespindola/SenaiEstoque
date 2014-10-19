@@ -27,20 +27,22 @@ public class MarcaDao {
         return marca;
     }
     
-    public void delete(Marca marca) {
+    public boolean delete(Marca marca) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.delete(marca);
         session.getTransaction().commit();
         session.close();
+        return true;
     }
     
-    public void update(Marca marca) {
+    public boolean update(Marca marca) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.update(marca);
         session.getTransaction().commit();
         session.close();
+        return true;
     }
 
     public Marca getById(Integer id) {

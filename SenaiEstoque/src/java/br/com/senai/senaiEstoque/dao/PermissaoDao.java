@@ -8,6 +8,7 @@ package br.com.senai.senaiEstoque.dao;
 
 import br.com.senai.senaiEstoque.entity.Permissao;
 import br.com.senai.senaiEstoque.hibernate.HibernateUtil;
+import com.mchange.v2.c3p0.C3P0Registry;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -29,20 +30,22 @@ public class PermissaoDao {
         return permissao;
     }
     
-    public void delete(Permissao permissao) {
+    public boolean delete(Permissao permissao) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.delete(permissao);
         session.getTransaction().commit();
         session.close();
+        return true;
     }
     
-    public void update(Permissao permissao) {
+    public boolean update(Permissao permissao) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.update(permissao);
         session.getTransaction().commit();
         session.close();
+        return true;
     }
 
     public Permissao getById(Integer id) {

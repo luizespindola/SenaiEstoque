@@ -29,20 +29,22 @@ public class FotoDao {
         return foto;
     }
     
-    public void delete(Foto foto) {
+    public boolean delete(Foto foto) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.delete(foto);
         session.getTransaction().commit();
         session.close();
+        return true;
     }
     
-    public void update(Foto foto) {
+    public boolean update(Foto foto) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.update(foto);
         session.getTransaction().commit();
         session.close();
+        return true;
     }
 
     public Foto getById(Integer id) {

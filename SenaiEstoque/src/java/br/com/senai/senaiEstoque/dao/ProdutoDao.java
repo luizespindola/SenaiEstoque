@@ -27,20 +27,22 @@ public class ProdutoDao {
         return produto;
     }
     
-    public void delete(Produto produto) {
+    public boolean delete(Produto produto) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.delete(produto);
         session.getTransaction().commit();
         session.close();
+        return  true;
     }
     
-    public void update(Produto produto) {
+    public boolean update(Produto produto) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.update(produto);
         session.getTransaction().commit();
         session.close();
+        return true;
     }
 
     public Produto getById(Integer id) {

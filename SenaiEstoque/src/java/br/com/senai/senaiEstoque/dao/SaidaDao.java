@@ -29,20 +29,22 @@ public class SaidaDao {
         return saida;
     }
     
-    public void delete(Saida saida) {
+    public boolean delete(Saida saida) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.delete(saida);
         session.getTransaction().commit();
         session.close();
+        return true;
     }
     
-    public void update(Saida saida) {
+    public boolean update(Saida saida) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.update(saida);
         session.getTransaction().commit();
         session.close();
+        return true;
     }
 
     public Saida getById(Integer id) {

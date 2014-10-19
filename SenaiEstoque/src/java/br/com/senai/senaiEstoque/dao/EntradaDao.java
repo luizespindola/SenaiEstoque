@@ -29,20 +29,22 @@ public class EntradaDao {
         return entrada;
     }
     
-    public void delete(Entrada entrada) {
+    public boolean delete(Entrada entrada) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.delete(entrada);
         session.getTransaction().commit();
         session.close();
+        return true;
     }
     
-    public void update(Entrada entrada) {
+    public boolean update(Entrada entrada) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.update(entrada);
         session.getTransaction().commit();
         session.close();
+        return true;
     }
 
     public Entrada getById(Integer id) {

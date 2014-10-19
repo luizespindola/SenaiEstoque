@@ -29,20 +29,22 @@ public class CaracteristicaDao {
         return caracteristica;
     }
     
-    public void delete(Caracteristica caracteristica) {
+    public boolean delete(Caracteristica caracteristica) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.delete(caracteristica);
         session.getTransaction().commit();
         session.close();
+        return true;
     }
     
-    public void update(Caracteristica caracteristica) {
+    public boolean update(Caracteristica caracteristica) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.update(caracteristica);
         session.getTransaction().commit();
         session.close();
+        return true;
     }
 
     public Caracteristica getById(Integer id) {

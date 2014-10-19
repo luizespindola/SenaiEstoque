@@ -27,20 +27,22 @@ public class CorDao {
         return cor;
     }
     
-    public void delete(Cor cor) {
+    public boolean delete(Cor cor) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.delete(cor);
         session.getTransaction().commit();
         session.close();
+        return true;
     }
     
-    public void update(Cor cor) {
+    public boolean update(Cor cor) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.update(cor);
         session.getTransaction().commit();
         session.close();
+        return true;
     }
 
     public Cor getById(Integer id) {

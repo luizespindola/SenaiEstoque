@@ -29,20 +29,22 @@ public class TipoUsuarioDao {
         return tipoUsuario;
     }
     
-    public void delete(TipoUsuario tipoUsuario) {
+    public boolean delete(TipoUsuario tipoUsuario) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.delete(tipoUsuario);
         session.getTransaction().commit();
         session.close();
+        return  true;
     }
     
-    public void update(TipoUsuario tipoUsuario) {
+    public boolean update(TipoUsuario tipoUsuario) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.update(tipoUsuario);
         session.getTransaction().commit();
         session.close();
+        return true;
     }
 
     public TipoUsuario getById(Integer id) {
