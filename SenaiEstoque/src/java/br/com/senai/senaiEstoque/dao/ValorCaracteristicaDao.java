@@ -29,20 +29,22 @@ public class ValorCaracteristicaDao {
         return valorCaracteristica;
     }
     
-    public void delete(ValorCaracteristica valorCaracteristica) {
+    public boolean delete(ValorCaracteristica valorCaracteristica) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.delete(valorCaracteristica);
         session.getTransaction().commit();
         session.close();
+        return true;
     }
     
-    public void update(ValorCaracteristica valorCaracteristica) {
+    public boolean update(ValorCaracteristica valorCaracteristica) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.update(valorCaracteristica);
         session.getTransaction().commit();
         session.close();
+        return true;
     }
 
     public ValorCaracteristica getById(Integer id) {

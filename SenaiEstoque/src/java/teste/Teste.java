@@ -5,6 +5,7 @@
  */
 package teste;
 
+import br.com.senai.senaiEstoque.controller.UsuarioController;
 import br.com.senai.senaiEstoque.dao.CaracteristicaDao;
 import br.com.senai.senaiEstoque.dao.CorDao;
 import br.com.senai.senaiEstoque.dao.EntradaDao;
@@ -72,8 +73,10 @@ public class Teste {
 //        usuario.setLogin("luiz");
 //        usuario.setSenha("luiz");
 //        usuario.setTipoUsuario(tipoUsuario);
-//        UsuarioDao dao = new UsuarioDao();
-//        dao.insert(usuario);
+//        UsuarioController controller=new UsuarioController();
+//        controller.insert(usuario);
+//        
+//        System.out.println(controller.getAll());     
 //
 //        ValorCaracteristica valorCaracteristica = new ValorCaracteristica();
 //        valorCaracteristica.setValorCaracteristica("wsws");

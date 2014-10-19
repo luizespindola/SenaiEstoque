@@ -8,6 +8,7 @@ package br.com.senai.senaiEstoque.dao;
 
 import br.com.senai.senaiEstoque.entity.Usuario;
 import br.com.senai.senaiEstoque.hibernate.HibernateUtil;
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -29,20 +30,22 @@ public class UsuarioDao {
         return usuario;
     }
     
-    public void delete(Usuario usuario) {
+    public boolean delete(Usuario usuario) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.delete(usuario);
         session.getTransaction().commit();
         session.close();
+        return true;
     }
     
-    public void update(Usuario usuario) {
+    public boolean update(Usuario usuario) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.update(usuario);
         session.getTransaction().commit();
         session.close();
+        return true;
     }
 
     public Usuario getById(Integer id) {
@@ -57,9 +60,12 @@ public class UsuarioDao {
 
 
     public List<Usuario> getAll() {
+        List<Usuario> listaUsuarios=new ArrayList<Usuario>();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT u FROM Usuario u");
-        return query.list();
+        listaUsuarios=query.list();
+        session.close();
+        return listaUsuarios;
     }
         
 }
