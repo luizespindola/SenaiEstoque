@@ -8,11 +8,13 @@ package br.com.senai.senaiEstoque.controller;
 import br.com.senai.senaiEstoque.dao.FotoDao;
 import br.com.senai.senaiEstoque.entity.Foto;
 import java.util.List;
+import javax.faces.bean.ManagedBean;
 
 /**
  *
  * @author User
  */
+@ManagedBean
 public class FotoController {
     
     private final FotoDao fotoDao = new FotoDao();

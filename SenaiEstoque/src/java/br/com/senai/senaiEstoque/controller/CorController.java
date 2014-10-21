@@ -8,29 +8,48 @@ package br.com.senai.senaiEstoque.controller;
 import br.com.senai.senaiEstoque.dao.CorDao;
 import br.com.senai.senaiEstoque.entity.Cor;
 import java.util.List;
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 /**
  *
  * @author User
  */
+@ManagedBean
 public class CorController {
-    
-    private final CorDao corDao = new CorDao();
 
-    public String insert(Cor cor) {
-        if (corDao.insert(cor) != null) {
-            return "Salvo com sucesso";
+    private final CorDao corDao = new CorDao();
+    private Cor cor = new Cor();
+
+    public Cor getCor() {
+        return cor;
+    }
+
+    public void setCor(Cor cor) {
+        this.cor = cor;
+    }
+
+    public String insert() {  
+        if (corDao.insert(cor) == true) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
+            return "listCor.xhtml";
         } else {
-            return "Não foi possível cadastrar nova cor";
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
+            return "listCor.xhtml";
         }
     }
 
     public String delete(Cor cor) {
+        
         if (corDao.delete(cor) == true) {
-            return "Removido com sucesso";
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
+            return "listDeCor.xhtml";
         } else {
-            return "Não foi possível remover cor";
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover cor"));
+            return "listCor.xhtml";
         }
+        
     }
 
     public String update(Cor cor) {
@@ -48,5 +67,5 @@ public class CorController {
     public List<Cor> getAll() {
         return corDao.getAll();
     }
-    
+
 }

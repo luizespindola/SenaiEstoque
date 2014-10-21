@@ -8,17 +8,19 @@ package br.com.senai.senaiEstoque.controller;
 import br.com.senai.senaiEstoque.dao.CaracteristicaDao;
 import br.com.senai.senaiEstoque.entity.Caracteristica;
 import java.util.List;
+import javax.faces.bean.ManagedBean;
 
 /**
  *
  * @author User
  */
+@ManagedBean
 public class CaracteristicaController {
 
     private final CaracteristicaDao caracteristicaDao = new CaracteristicaDao();
 
     public String insert(Caracteristica caracteristica) {
-        if (caracteristicaDao.insert(caracteristica) != null) {
+        if (caracteristicaDao.insert(caracteristica) != false) {
             return "Salvo com sucesso";
         } else {
             return "Não foi possível cadastrar nova característica";

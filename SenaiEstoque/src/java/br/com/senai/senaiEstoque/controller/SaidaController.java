@@ -8,11 +8,13 @@ package br.com.senai.senaiEstoque.controller;
 import br.com.senai.senaiEstoque.dao.SaidaDao;
 import br.com.senai.senaiEstoque.entity.Saida;
 import java.util.List;
+import javax.faces.bean.ManagedBean;
 
 /**
  *
  * @author User
  */
+@ManagedBean
 public class SaidaController {
     
     private final SaidaDao saidaDao = new SaidaDao();

@@ -18,13 +18,13 @@ import org.hibernate.Session;
  */
 public class CorDao {  
  
-   public Cor insert(Cor cor){
+   public boolean insert(Cor cor){
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(cor);
         session.getTransaction().commit();
         session.close();
-        return cor;
+        return true;
     }
     
     public boolean delete(Cor cor) {

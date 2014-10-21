@@ -8,11 +8,13 @@ package br.com.senai.senaiEstoque.controller;
 import br.com.senai.senaiEstoque.dao.UsuarioDao;
 import br.com.senai.senaiEstoque.entity.Usuario;
 import java.util.List;
+import javax.faces.bean.ManagedBean;
 
 /**
  *
  * @author User
  */
+@ManagedBean
 public class UsuarioController {
     
     private final UsuarioDao usuarioDao = new UsuarioDao();

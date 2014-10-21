@@ -8,11 +8,13 @@ package br.com.senai.senaiEstoque.controller;
 import br.com.senai.senaiEstoque.dao.PermissaoDao;
 import br.com.senai.senaiEstoque.entity.Permissao;
 import java.util.List;
+import javax.faces.bean.ManagedBean;
 
 /**
  *
  * @author User
  */
+@ManagedBean
 public class PermissaoController {
     
     private final PermissaoDao permissaoDao=new PermissaoDao();

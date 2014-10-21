@@ -20,13 +20,18 @@ import org.hibernate.cfg.Configuration;
  */
 public class CaracteristicaDao {
     
-     public Caracteristica insert(Caracteristica caracteristica){
+     public boolean insert(Caracteristica caracteristica){
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(caracteristica);
-        session.getTransaction().commit();
-        session.close();
-        return caracteristica;
+        try{
+            session.getTransaction().commit();
+        }catch(Exception ex){
+            return false;
+        }finally{
+            session.close();
+        }
+        return true;
     }
     
     public boolean delete(Caracteristica caracteristica) {
