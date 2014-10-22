@@ -3,60 +3,72 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.senai.senaiEstoque.ManegedBean;
 
 import br.com.senai.senaiEstoque.controller.EntradaController;
 import br.com.senai.senaiEstoque.entity.Entrada;
 import java.io.Serializable;
+import java.util.List;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 
 /**
  *
  * @author luiz_espindola
  */
 @ManagedBean(name = "entradaMB")
-public class EntradaMB implements Serializable{
-    
-    private Entrada entrada=new Entrada();
+public class EntradaMB implements Serializable {
 
-    public Entrada getCor(){
+    private Entrada entrada = new Entrada();
+
+    public Entrada getCor() {
         return entrada;
     }
 
     public void setCaracterisitca(Entrada entrada) {
-        this.entrada=entrada;
+        this.entrada = entrada;
     }
 
     public String insert() {
         EntradaController entradaController = new EntradaController();
-        entradaController.insert(entrada);
+        if (entradaController.insert(entrada) == true) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
+            return "listEntrada.xhtml";
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
+            return "listEntrada.xhtml";
+        }
+    }
+
+    public String novo() {
+        entrada = new Entrada();
+        return "editEntrada.xhtml";
+    }
+
+    public String editar() {
+        return "editEntrada.xhtml";
+    }
+
+    public String excluir() {
+        EntradaController entradaController = new EntradaController();
+        if (entradaController.delete(entrada) == true) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
+            return "listEntrada.xhtml";
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
+            return "listEntrada.xhtml";
+        }
+
+    }
+
+    public List<Entrada> getAll() {
+        EntradaController entradaController = new EntradaController();
+        return entradaController.getAll();
+    }
+
+    public String listEntrada() {
         return "listEntrada.xhtml";
     }
 
-//    public String novo() {
-//        cor = new Cor();
-//        return "editCor.xhtml";
-//    }
-//
-//    public String editar() {
-//        return "editCor.xhtml";
-//    }
-
-//    public String excluir() {
-//        CorController corController=new CorController();
-//        corController.delete(cor);
-//        return "listCor.xhtml";
-//    }
-//    
-//    public List<Cor> getAll() {
-//        CorController corController=new CorController();
-//        return corController.getAll();
-//    }
-//
-//    public String listProduto() {
-//        return "listCaracteristica.xhtml";
-//    }
-//    
-//}
 }

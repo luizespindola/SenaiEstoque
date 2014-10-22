@@ -17,13 +17,18 @@ import org.hibernate.Session;
  */
 public class MarcaDao {
     
-       public Marca insert(Marca marca){
+       public boolean insert(Marca marca){
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(marca);
-        session.getTransaction().commit();
-        session.close();
-        return marca;
+        try{
+            session.getTransaction().commit();
+        }catch(Exception ex){
+            return false;
+        }finally{
+            session.close();
+        }
+        return true;
     }
     
     public boolean delete(Marca marca) {

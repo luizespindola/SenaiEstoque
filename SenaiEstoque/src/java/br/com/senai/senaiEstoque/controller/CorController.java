@@ -33,11 +33,11 @@ public class CorController {
         }
     }
 
-    public String update(Cor cor) {
+    public boolean update(Cor cor) {
         if (corDao.update(cor) == true) {
-            return "Atualizado com sucesso";
+            return true;
         } else {
-            return "Não foi possível atualizar cor";
+            return false;
         }
     }
 

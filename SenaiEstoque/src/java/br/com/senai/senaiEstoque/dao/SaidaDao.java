@@ -3,31 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.senai.senaiEstoque.dao;
 
 import br.com.senai.senaiEstoque.entity.Saida;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 /**
  *
  * @author luiz_espindola
  */
 public class SaidaDao {
-    
-     public Saida insert(Saida saida){
+
+    public boolean insert(Saida saida) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(saida);
-        session.getTransaction().commit();
-        session.close();
-        return saida;
+        try {
+            session.getTransaction().commit();
+        } catch (Exception ex) {
+            return false;
+        } finally {
+            session.close();
+        }
+        return true;
     }
-    
+
     public boolean delete(Saida saida) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
@@ -36,7 +38,7 @@ public class SaidaDao {
         session.close();
         return true;
     }
-    
+
     public boolean update(Saida saida) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
@@ -56,11 +58,10 @@ public class SaidaDao {
         return saida;
     }
 
-
     public List<Saida> getAll() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT s FROM Saida s");
         return query.list();
     }
-    
+
 }

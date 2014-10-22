@@ -3,31 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.senai.senaiEstoque.dao;
 
 import br.com.senai.senaiEstoque.entity.Entrada;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 /**
  *
  * @author luiz_espindola
  */
 public class EntradaDao {
-    
-     public Entrada insert(Entrada entrada){
+
+    public boolean insert(Entrada entrada) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(entrada);
-        session.getTransaction().commit();
-        session.close();
-        return entrada;
+        try {
+            session.getTransaction().commit();
+        } catch (Exception ex) {
+            return false;
+        } finally {
+            session.close();
+        }
+        return true;
     }
-    
+
     public boolean delete(Entrada entrada) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
@@ -36,7 +38,7 @@ public class EntradaDao {
         session.close();
         return true;
     }
-    
+
     public boolean update(Entrada entrada) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
@@ -56,12 +58,10 @@ public class EntradaDao {
         return entrada;
     }
 
-
     public List<Entrada> getAll() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT e FROM Entrada e");
         return query.list();
     }
-    
-    
+
 }

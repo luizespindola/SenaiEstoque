@@ -56,7 +56,7 @@ public class CorMB implements Serializable {
     public String delete() {
         CorController corController = new CorController();
        if (corController.delete(cor) == true) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("removido com sucesso"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
             return "listCor.xhtml";
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
@@ -69,8 +69,8 @@ public class CorMB implements Serializable {
         return corController.getAll();
     }
 
-    public String listProduto() {
-        return "listCaracteristica.xhtml";
+    public String listCor() {
+        return "listCor.xhtml";
     }
 
 }

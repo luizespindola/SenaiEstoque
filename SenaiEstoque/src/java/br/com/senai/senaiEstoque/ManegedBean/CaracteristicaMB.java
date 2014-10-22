@@ -9,8 +9,10 @@ import br.com.senai.senaiEstoque.controller.CaracteristicaController;
 import br.com.senai.senaiEstoque.entity.Caracteristica;
 import java.io.Serializable;
 import java.util.List;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -27,13 +29,18 @@ public class CaracteristicaMB implements Serializable {
     }
 
     public void setCaracterisitca(Caracteristica caracteristica) {
-        this.caracteristica=caracteristica;
+        this.caracteristica = caracteristica;
     }
 
     public String insert() {
         CaracteristicaController caracteristicaController = new CaracteristicaController();
-        caracteristicaController.insert(caracteristica);
-        return "listCaracteristica.xhtml";
+        if (caracteristicaController.insert(caracteristica) == true) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadatrado com sucesso"));
+            return "listCaracteristica.xhtml";
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
+            return "listCaracteristica.xhtml";
+        }
     }
 
     public String novo() {
@@ -46,19 +53,23 @@ public class CaracteristicaMB implements Serializable {
     }
 
     public String delete() {
-        CaracteristicaController caracteristicaController=new CaracteristicaController();
-        caracteristicaController.delete(caracteristica);
-        return "listCaracteristica.xhtml";
+        CaracteristicaController caracteristicaController = new CaracteristicaController();
+        if (caracteristicaController.delete(caracteristica) == true) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
+            return "listCaracteristica.xhtml";
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
+            return "listCaracteristica.xhtml";
+        }
     }
-    
+
     public List<Caracteristica> getAll() {
-        CaracteristicaController caracteristicaController=new CaracteristicaController();
+        CaracteristicaController caracteristicaController = new CaracteristicaController();
         return caracteristicaController.getAll();
     }
 
-    public String listProduto() {
+    public String listCor() {
         return "listCaracteristica.xhtml";
     }
 
 }
-

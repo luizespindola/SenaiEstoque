@@ -3,31 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.senai.senaiEstoque.dao;
 
 import br.com.senai.senaiEstoque.entity.ValorCaracteristica;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 /**
  *
  * @author luiz_espindola
  */
 public class ValorCaracteristicaDao {
-    
-     public ValorCaracteristica insert(ValorCaracteristica valorCaracteristica){
+
+    public boolean insert(ValorCaracteristica valorCaracteristica) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(valorCaracteristica);
-        session.getTransaction().commit();
-        session.close();
-        return valorCaracteristica;
+        try {
+            session.getTransaction().commit();
+        } catch (Exception ex) {
+            return false;
+        } finally {
+            session.close();
+        }
+        return true;
     }
-    
+
     public boolean delete(ValorCaracteristica valorCaracteristica) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
@@ -36,7 +38,7 @@ public class ValorCaracteristicaDao {
         session.close();
         return true;
     }
-    
+
     public boolean update(ValorCaracteristica valorCaracteristica) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
@@ -56,11 +58,10 @@ public class ValorCaracteristicaDao {
         return valorCaracteristica;
     }
 
-
     public List<ValorCaracteristica> getAll() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT v FROM ValorCaracteristica V");
         return query.list();
     }
-    
+
 }

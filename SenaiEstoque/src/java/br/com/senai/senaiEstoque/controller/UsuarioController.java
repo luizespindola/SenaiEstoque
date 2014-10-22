@@ -16,27 +16,27 @@ public class UsuarioController {
     
     private final UsuarioDao usuarioDao = new UsuarioDao();
 
-    public String insert(Usuario usuario) {
-        if (usuarioDao.insert(usuario)!= null) {
-            return "Salvo com sucesso";
+    public boolean insert(Usuario usuario) {
+        if (usuarioDao.insert(usuario) == true) {
+            return true;
         } else {
-            return "Não foi possível cadastrar novo usuário";
+            return false;
         }
     }
 
-    public String delete(Usuario usuario) {
+    public boolean delete(Usuario usuario) {
         if (usuarioDao.delete(usuario) == true) {
-            return "Removido com sucesso";
+            return true;
         } else {
-            return "Não foi possível remover usuário";
+            return false;
         }
     }
 
-    public String update(Usuario usuario){
+    public boolean update(Usuario usuario){
         if (usuarioDao.update(usuario) == true) {
-            return "Atualizado com sucesso";
+            return true;
         } else {
-            return "Não foi possível atualizar usuário";
+            return false;
         }
     }
 

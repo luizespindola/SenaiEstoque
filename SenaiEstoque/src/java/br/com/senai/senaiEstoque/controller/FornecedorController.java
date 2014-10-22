@@ -17,27 +17,27 @@ public class FornecedorController {
     
     private final FornecedorDao fornecedorDao = new FornecedorDao();
 
-    public String insert(Fornecedor fornecedor) {
-        if (fornecedorDao.insert(fornecedor) != null) {
-            return "Salvo com sucesso";
+    public boolean insert(Fornecedor fornecedor) {
+        if (fornecedorDao.insert(fornecedor) == true) {
+            return true;
         } else {
-            return "Não foi possível cadastrar novo fornecedor";
+            return false;
         }
     }
 
-    public String delete(Fornecedor fornecedor) {
+    public boolean delete(Fornecedor fornecedor) {
         if (fornecedorDao.delete(fornecedor) == true) {
-            return "Removido com sucesso";
+            return true;
         } else {
-            return "Não foi possível remover fornecedor";
+            return false;
         }
     }
 
-    public String update(Fornecedor fornecedor) {
+    public boolean update(Fornecedor fornecedor) {
         if (fornecedorDao.update(fornecedor) == true) {
-            return "Atualizado com sucesso";
+            return true;
         } else {
-            return "Não foi possível atualizar fornecedor";
+            return false;
         }
     }
 

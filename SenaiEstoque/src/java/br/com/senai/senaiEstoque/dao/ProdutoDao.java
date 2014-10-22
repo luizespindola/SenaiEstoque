@@ -17,13 +17,18 @@ import org.hibernate.Session;
  */
 public class ProdutoDao {
     
-    public Produto insert(Produto produto){
+    public boolean insert(Produto produto){
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(produto);
-        session.getTransaction().commit();
-        session.close();
-        return produto;
+        try{
+            session.getTransaction().commit();
+        }catch(Exception ex){
+            return false;
+        }finally{
+            session.close();
+        }
+        return true;
     }
     
     public boolean delete(Produto produto) {

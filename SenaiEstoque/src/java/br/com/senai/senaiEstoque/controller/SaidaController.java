@@ -16,27 +16,27 @@ public class SaidaController {
     
     private final SaidaDao saidaDao = new SaidaDao();
 
-    public String insert(Saida saida) {
-        if (saidaDao.insert(saida)!= null) {
-            return "Salvo com sucesso";
+    public boolean insert(Saida saida) {
+        if (saidaDao.insert(saida) == true) {
+            return true;
         } else {
-            return "Não foi possível cadastrar nova saída";
+            return false;
         }
     }
 
-    public String delete(Saida saida) {
+    public boolean delete(Saida saida) {
         if (saidaDao.delete(saida) == true) {
-            return "Removido com sucesso";
+            return true;
         } else {
-            return "Não foi possível remover saída";
+            return false;
         }
     }
 
-    public String update(Saida saida){
+    public boolean update(Saida saida){
         if (saidaDao.update(saida) == true) {
-            return "Atualizado com sucesso";
+            return true;
         } else {
-            return "Não foi possível atualizar saída";
+            return false;
         }
     }
 

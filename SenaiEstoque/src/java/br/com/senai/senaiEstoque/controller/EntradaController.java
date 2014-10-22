@@ -17,27 +17,27 @@ public class EntradaController {
         
     private final EntradaDao entradaDao = new EntradaDao();
 
-    public String insert(Entrada entrada) {
-        if (entradaDao.insert(entrada) != null) {
-            return "Salvo com sucesso";
+    public boolean insert(Entrada entrada) {
+        if (entradaDao.insert(entrada) == true) {
+            return true;
         } else {
-            return "Não foi possível cadastrar nova entrada";
+            return false;
         }
     }
 
-    public String delete(Entrada entrada) {
+    public boolean delete(Entrada entrada) {
         if (entradaDao.delete(entrada) == true) {
-            return "Removido com sucesso";
+            return true;
         } else {
-            return "Não foi possível remover entrada";
+            return false;
         }
     }
 
-    public String update(Entrada entrada) {
+    public boolean update(Entrada entrada) {
         if (entradaDao.update(entrada) == true) {
-            return "Atualizado com sucesso";
+            return true;
         } else {
-            return "Não foi possível atualizar entrada";
+            return false;
         }
     }
 

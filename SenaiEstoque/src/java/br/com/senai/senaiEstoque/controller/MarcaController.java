@@ -17,27 +17,27 @@ public class MarcaController {
     
     private final MarcaDao marcaDao = new MarcaDao();
 
-    public String insert(Marca marca) {
-        if (marcaDao.insert(marca) != null) {
-            return "Salvo com sucesso";
+    public boolean insert(Marca marca) {
+        if (marcaDao.insert(marca) == true) {
+            return true;
         } else {
-            return "Não foi possível cadastrar nova marca";
+            return false;
         }
     }
 
-    public String delete(Marca marca) {
+    public boolean delete(Marca marca) {
         if (marcaDao.delete(marca)== true) {
-            return "Removido com sucesso";
+            return true;
         } else {
-            return "Não foi possível remover marca";
+            return false;
         }
     }
 
-    public String update(Marca marca) {
+    public boolean update(Marca marca) {
         if (marcaDao.update(marca) == true) {
-            return "Atualizado com sucesso";
+            return true;
         } else {
-            return "Não foi possível atualizar marca";
+            return false;
         }
     }
 
