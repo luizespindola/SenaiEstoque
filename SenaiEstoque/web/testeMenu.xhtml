@@ -5,17 +5,11 @@
                 xmlns:h="http://java.sun.com/jsf/html"  
                 xmlns:p="http://primefaces.org/ui"  
                 xmlns:f="http://java.sun.com/jsf/core">  
-
+  
     <ui:define name="Conteudo">  
-        <h:form>
-            <h:message for="erro"/>
-            <h:panelGrid columns="2">
-                <h:outputLabel value="Cor" for="nome" />
-                <h:inputText id="nome" value="#{corController.cor.nome}" required="true" requiredMessage="Preencha o campo cor" />
-                <h:message for="nome"/>
-                <h:commandButton value="Salvar" action="#{corController.insert}"/>
-            </h:panelGrid>
-        </h:form>
-    </ui:define>  
 
+        
+        formulário
+    </ui:define>  
+  
 </ui:composition>  
