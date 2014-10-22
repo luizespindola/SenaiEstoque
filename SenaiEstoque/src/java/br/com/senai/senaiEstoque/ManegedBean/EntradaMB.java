@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 /**
@@ -18,15 +19,16 @@ import javax.faces.context.FacesContext;
  * @author luiz_espindola
  */
 @ManagedBean(name = "entradaMB")
+@SessionScoped
 public class EntradaMB implements Serializable {
 
     private Entrada entrada = new Entrada();
 
-    public Entrada getCor() {
+    public Entrada getEntrada() {
         return entrada;
     }
 
-    public void setCaracterisitca(Entrada entrada) {
+    public void setEntrada(Entrada entrada) {
         this.entrada = entrada;
     }
 
@@ -34,11 +36,10 @@ public class EntradaMB implements Serializable {
         EntradaController entradaController = new EntradaController();
         if (entradaController.insert(entrada) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
-            return "listEntrada.xhtml";
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
-            return "listEntrada.xhtml";
         }
+        return "listEntrada.xhtml";
     }
 
     public String novo() {
@@ -50,16 +51,14 @@ public class EntradaMB implements Serializable {
         return "editEntrada.xhtml";
     }
 
-    public String excluir() {
+    public String delete() {
         EntradaController entradaController = new EntradaController();
         if (entradaController.delete(entrada) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
-            return "listEntrada.xhtml";
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
-            return "listEntrada.xhtml";
         }
-
+        return "listEntrada.xhtml";
     }
 
     public List<Entrada> getAll() {

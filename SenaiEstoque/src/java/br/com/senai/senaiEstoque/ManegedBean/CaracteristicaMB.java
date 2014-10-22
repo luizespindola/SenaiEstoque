@@ -36,11 +36,10 @@ public class CaracteristicaMB implements Serializable {
         CaracteristicaController caracteristicaController = new CaracteristicaController();
         if (caracteristicaController.insert(caracteristica) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadatrado com sucesso"));
-            return "listCaracteristica.xhtml";
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
-            return "listCaracteristica.xhtml";
         }
+        return "listCaracteristica.xhtml";
     }
 
     public String novo() {
@@ -56,11 +55,10 @@ public class CaracteristicaMB implements Serializable {
         CaracteristicaController caracteristicaController = new CaracteristicaController();
         if (caracteristicaController.delete(caracteristica) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
-            return "listCaracteristica.xhtml";
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
-            return "listCaracteristica.xhtml";
         }
+        return "listCaracteristica.xhtml";
     }
 
     public List<Caracteristica> getAll() {
@@ -68,7 +66,7 @@ public class CaracteristicaMB implements Serializable {
         return caracteristicaController.getAll();
     }
 
-    public String listCor() {
+    public String listCaracterisica() {
         return "listCaracteristica.xhtml";
     }
 

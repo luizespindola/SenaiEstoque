@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package br.com.senai.senaiEstoque.ManegedBean;
 
-import br.com.senai.senaiEstoque.controller.CorController;
-import br.com.senai.senaiEstoque.entity.Cor;
+import br.com.senai.senaiEstoque.controller.FornecedorController;
+import br.com.senai.senaiEstoque.entity.Fornecedor;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
@@ -18,56 +19,56 @@ import javax.faces.context.FacesContext;
  *
  * @author luiz_espindola
  */
-@ManagedBean(name = "corMB")
+@ManagedBean(name = "fornecedorMB")
 @SessionScoped
-public class CorMB implements Serializable {
+public class FornecedorMB implements Serializable{
+    
+    private Fornecedor fornecedor = new Fornecedor();
 
-    private Cor cor = new Cor();
-
-    public Cor getCor() {
-        return cor;
+    public Fornecedor getFornecedor() {
+        return fornecedor;
     }
 
-    public void setCor(Cor cor) {
-        this.cor = cor;
+    public void setFornecedor(Fornecedor fornecedor) {
+        this.fornecedor = fornecedor;
     }
 
     public String insert() {
-        CorController corController = new CorController();
-        if (corController.insert(cor) == true) {
+        FornecedorController fornecedorController = new FornecedorController();
+        if (fornecedorController.insert(fornecedor)== true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
         }
-        return "listCor.xhtml";
+        return "listFornecedor.xhtml";
     }
 
     public String novo() {
-        cor = new Cor();
-        return "editCor.xhtml";
+        fornecedor = new Fornecedor();
+        return "editFornecedor.xhtml";
     }
 
     public String editar() {
-        return "editCor.xhtml";
+        return "editFornecedor.xhtml";
     }
 
     public String delete() {
-        CorController corController = new CorController();
-        if (corController.delete(cor) == true) {
+        FornecedorController fornecedorController = new FornecedorController();
+        if (fornecedorController.delete(fornecedor)== true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
         }
-        return "listCor.xhtml";
+        return "listFornecedor.xhtml";
     }
 
-    public List<Cor> getAll() {
-        CorController corController = new CorController();
-        return corController.getAll();
+    public List<Fornecedor> getAll() {
+        FornecedorController fornecedorController = new FornecedorController();
+        return fornecedorController.getAll();
     }
 
-    public String listCor() {
-        return "listCor.xhtml";
+    public String listFornecedor() {
+        return "listFornecedor.xhtml";
     }
-
+    
 }

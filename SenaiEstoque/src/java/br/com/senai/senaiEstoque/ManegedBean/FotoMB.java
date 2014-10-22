@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package br.com.senai.senaiEstoque.ManegedBean;
 
-import br.com.senai.senaiEstoque.controller.CorController;
-import br.com.senai.senaiEstoque.entity.Cor;
+import br.com.senai.senaiEstoque.controller.FotoController;
+import br.com.senai.senaiEstoque.entity.Foto;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
@@ -18,56 +19,56 @@ import javax.faces.context.FacesContext;
  *
  * @author luiz_espindola
  */
-@ManagedBean(name = "corMB")
+@ManagedBean(name = "fotoMB")
 @SessionScoped
-public class CorMB implements Serializable {
-
-    private Cor cor = new Cor();
-
-    public Cor getCor() {
-        return cor;
+public class FotoMB implements Serializable{
+    
+    private Foto foto=new Foto();
+    
+    public Foto getFoto() {
+        return foto;
     }
 
-    public void setCor(Cor cor) {
-        this.cor = cor;
+    public void setFoto(Foto foto) {
+        this.foto = foto;
     }
 
     public String insert() {
-        CorController corController = new CorController();
-        if (corController.insert(cor) == true) {
+        FotoController fotoController=new FotoController();
+        if (fotoController.insert(foto)== true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
         }
-        return "listCor.xhtml";
+        return "listFoto.xhtml";
     }
 
     public String novo() {
-        cor = new Cor();
-        return "editCor.xhtml";
+        foto = new Foto();
+        return "editFoto.xhtml";
     }
 
     public String editar() {
-        return "editCor.xhtml";
+        return "editFoto.xhtml";
     }
 
     public String delete() {
-        CorController corController = new CorController();
-        if (corController.delete(cor) == true) {
+        FotoController fotoController = new FotoController();
+        if (fotoController.delete(foto)== true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
         }
-        return "listCor.xhtml";
+        return "listFoto.xhtml";
     }
 
-    public List<Cor> getAll() {
-        CorController corController = new CorController();
-        return corController.getAll();
+    public List<Foto> getAll() {
+        FotoController fotoController = new FotoController();
+        return fotoController.getAll();
     }
 
-    public String listCor() {
-        return "listCor.xhtml";
+    public String listFornecedor() {
+        return "listFoto.xhtml";
     }
-
+    
 }
