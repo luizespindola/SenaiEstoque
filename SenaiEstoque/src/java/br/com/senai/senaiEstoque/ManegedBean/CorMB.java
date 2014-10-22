@@ -36,10 +36,11 @@ public class CorMB implements Serializable {
         CorController corController = new CorController();
         if (corController.insert(cor) ==true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
-            return "listCor.xhtml";
+            return "editCor.xhtml";
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
             return "listCor.xhtml";
+            
         }
     }
 
