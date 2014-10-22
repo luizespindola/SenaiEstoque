@@ -8,13 +8,11 @@ package br.com.senai.senaiEstoque.controller;
 import br.com.senai.senaiEstoque.dao.CaracteristicaDao;
 import br.com.senai.senaiEstoque.entity.Caracteristica;
 import java.util.List;
-import javax.faces.bean.ManagedBean;
 
 /**
  *
  * @author User
  */
-@ManagedBean
 public class CaracteristicaController {
 
     private final CaracteristicaDao caracteristicaDao = new CaracteristicaDao();

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package br.com.senai.senaiEstoque.hibernate;
+package br.com.senai.senaiEstoque.dao;
 
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.SessionFactory;

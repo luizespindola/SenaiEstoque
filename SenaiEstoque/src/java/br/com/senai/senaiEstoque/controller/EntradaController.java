@@ -8,13 +8,11 @@ package br.com.senai.senaiEstoque.controller;
 import br.com.senai.senaiEstoque.dao.EntradaDao;
 import br.com.senai.senaiEstoque.entity.Entrada;
 import java.util.List;
-import javax.faces.bean.ManagedBean;
 
 /**
  *
  * @author User
  */
-@ManagedBean
 public class EntradaController {
         
     private final EntradaDao entradaDao = new EntradaDao();

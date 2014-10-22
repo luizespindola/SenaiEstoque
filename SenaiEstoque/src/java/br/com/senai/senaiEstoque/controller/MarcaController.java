@@ -8,13 +8,11 @@ package br.com.senai.senaiEstoque.controller;
 import br.com.senai.senaiEstoque.dao.MarcaDao;
 import br.com.senai.senaiEstoque.entity.Marca;
 import java.util.List;
-import javax.faces.bean.ManagedBean;
 
 /**
  *
  * @author User
  */
-@ManagedBean
 public class MarcaController {
     
     private final MarcaDao marcaDao = new MarcaDao();

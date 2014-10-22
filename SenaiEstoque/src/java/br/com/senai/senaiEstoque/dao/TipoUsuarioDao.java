@@ -7,7 +7,6 @@
 package br.com.senai.senaiEstoque.dao;
 
 import br.com.senai.senaiEstoque.entity.TipoUsuario;
-import br.com.senai.senaiEstoque.hibernate.HibernateUtil;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;

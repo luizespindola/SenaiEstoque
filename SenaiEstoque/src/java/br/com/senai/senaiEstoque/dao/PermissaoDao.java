@@ -7,7 +7,6 @@
 package br.com.senai.senaiEstoque.dao;
 
 import br.com.senai.senaiEstoque.entity.Permissao;
-import br.com.senai.senaiEstoque.hibernate.HibernateUtil;
 import com.mchange.v2.c3p0.C3P0Registry;
 import java.util.List;
 import org.hibernate.Query;

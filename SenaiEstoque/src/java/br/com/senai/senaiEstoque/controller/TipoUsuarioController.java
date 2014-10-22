@@ -8,13 +8,10 @@ package br.com.senai.senaiEstoque.controller;
 import br.com.senai.senaiEstoque.dao.TipoUsuarioDao;
 import br.com.senai.senaiEstoque.entity.TipoUsuario;
 import java.util.List;
-import javax.faces.bean.ManagedBean;
-
 /**
  *
  * @author User
  */
-@ManagedBean
 public class TipoUsuarioController {
     
     private final TipoUsuarioDao tipoUsuarioDao = new TipoUsuarioDao();

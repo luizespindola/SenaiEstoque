@@ -8,13 +8,11 @@ package br.com.senai.senaiEstoque.controller;
 import br.com.senai.senaiEstoque.dao.FornecedorDao;
 import br.com.senai.senaiEstoque.entity.Fornecedor;
 import java.util.List;
-import javax.faces.bean.ManagedBean;
 
 /**
  *
  * @author User
  */
-@ManagedBean
 public class FornecedorController {
     
     private final FornecedorDao fornecedorDao = new FornecedorDao();
