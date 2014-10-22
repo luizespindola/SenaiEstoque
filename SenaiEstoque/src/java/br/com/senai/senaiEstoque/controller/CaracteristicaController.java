@@ -17,27 +17,27 @@ public class CaracteristicaController {
 
     private final CaracteristicaDao caracteristicaDao = new CaracteristicaDao();
 
-    public String insert(Caracteristica caracteristica) {
-        if (caracteristicaDao.insert(caracteristica) != false) {
-            return "Salvo com sucesso";
+    public boolean insert(Caracteristica caracteristica) {
+        if (caracteristicaDao.insert(caracteristica) == true ) {
+            return true;
         } else {
-            return "Não foi possível cadastrar nova característica";
+            return false;
         }
     }
 
-    public String delete(Caracteristica caracteristica) {
+    public boolean delete(Caracteristica caracteristica) {
         if (caracteristicaDao.delete(caracteristica) == true) {
-            return "Removido com sucesso";
+            return true;
         } else {
-            return "Não foi possível remover característica";
+            return false;
         }
     }
 
-    public String update(Caracteristica caracteristica) {
+    public boolean update(Caracteristica caracteristica) {
         if (caracteristicaDao.update(caracteristica) == true) {
-            return "Atualizado com sucesso";
+            return true;
         } else {
-            return "Não foi possível atualizar característica";
+            return false;
         }
     }
 

@@ -17,27 +17,27 @@ public class PermissaoController {
     
     private final PermissaoDao permissaoDao=new PermissaoDao();
 
-    public String insert(Permissao permissao) {
-        if (permissaoDao.insert(permissao) != null) {
-            return "Salvo com sucesso";
+    public boolean insert(Permissao permissao) {
+        if (permissaoDao.insert(permissao) == true) {
+            return true;
         } else {
-            return "Não foi possível cadastrar nova permissao";
+            return false;
         }
     }
 
-    public String delete(Permissao permissao) {
+    public boolean delete(Permissao permissao) {
         if (permissaoDao.delete(permissao)== true) {
-            return "Removido com sucesso";
+            return true;
         } else {
-            return "Não foi possível remover permissao";
+            return false;
         }
     }
 
-    public String update(Permissao permissao) {
+    public boolean update(Permissao permissao) {
         if (permissaoDao.update(permissao) == true) {
-            return "Atualizado com sucesso";
+            return true;
         } else {
-            return "Não foi possível atualizar permissao";
+            return false;
         }
     }
 

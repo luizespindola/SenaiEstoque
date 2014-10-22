@@ -21,8 +21,13 @@ public class CorDao {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(cor);
-        session.getTransaction().commit();
-        session.close();
+        try{
+            session.getTransaction().commit();
+        }catch(Exception ex){
+            return false;
+        }finally{
+            session.close();
+        }
         return true;
     }
     

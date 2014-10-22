@@ -17,27 +17,27 @@ public class ProdutoController {
     
     private final ProdutoDao produtoDao = new ProdutoDao();
 
-    public String insert(Produto produto) {
-        if (produtoDao.insert(produto)!= null) {
-            return "Salvo com sucesso";
+    public boolean insert(Produto produto) {
+        if (produtoDao.insert(produto) == true) {
+            return true;
         } else {
-            return "Não foi possível cadastrar novo produto";
+            return false;
         }
     }
 
-    public String delete(Produto produto) {
+    public boolean delete(Produto produto) {
         if (produtoDao.delete(produto) == true) {
-            return "Removido com sucesso";
+            return true;
         } else {
-            return "Não foi possível remover produto";
+            return false;
         }
     }
 
-    public String update(Produto produto){
+    public boolean update(Produto produto){
         if (produtoDao.update(produto) == true) {
-            return "Atualizado com sucesso";
+            return true;
         } else {
-            return "Não foi possível atualizar produto";
+            return false;
         }
     }
 

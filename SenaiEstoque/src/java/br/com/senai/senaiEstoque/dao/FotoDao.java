@@ -3,31 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.senai.senaiEstoque.dao;
 
 import br.com.senai.senaiEstoque.entity.Foto;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 /**
  *
  * @author luiz_espindola
  */
 public class FotoDao {
-    
-      public Foto insert(Foto foto){
+
+    public boolean insert(Foto foto) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(foto);
-        session.getTransaction().commit();
-        session.close();
-        return foto;
+        try {
+            session.getTransaction().commit();
+        } catch (Exception ex) {
+            return false;
+        } finally {
+            session.close();
+        }
+        return true;
     }
-    
+
     public boolean delete(Foto foto) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
@@ -36,7 +38,7 @@ public class FotoDao {
         session.close();
         return true;
     }
-    
+
     public boolean update(Foto foto) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
@@ -56,11 +58,10 @@ public class FotoDao {
         return foto;
     }
 
-
     public List<Foto> getAll() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT f FROM Foto f");
         return query.list();
     }
-    
+
 }

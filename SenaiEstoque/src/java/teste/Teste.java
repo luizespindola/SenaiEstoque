@@ -16,7 +16,6 @@ import br.com.senai.senaiEstoque.dao.PermissaoDao;
 import br.com.senai.senaiEstoque.dao.ProdutoDao;
 import br.com.senai.senaiEstoque.dao.SaidaDao;
 import br.com.senai.senaiEstoque.dao.TipoUsuarioDao;
-import br.com.senai.senaiEstoque.dao.UsuarioDao;
 import br.com.senai.senaiEstoque.dao.ValorCaracteristicaDao;
 import br.com.senai.senaiEstoque.entity.Caracteristica;
 import br.com.senai.senaiEstoque.entity.Cor;
@@ -30,13 +29,9 @@ import br.com.senai.senaiEstoque.entity.Saida;
 import br.com.senai.senaiEstoque.entity.TipoUsuario;
 import br.com.senai.senaiEstoque.entity.Usuario;
 import br.com.senai.senaiEstoque.entity.ValorCaracteristica;
-import br.com.senai.senaiEstoque.dao.HibernateUtil;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 /**
  *

@@ -17,27 +17,27 @@ public class FotoController {
     
     private final FotoDao fotoDao = new FotoDao();
 
-    public String insert(Foto foto) {
-        if (fotoDao.insert(foto) != null) {
-            return "Salvo com sucesso";
+    public boolean insert(Foto foto) {
+        if (fotoDao.insert(foto) == true) {
+            return true;
         } else {
-            return "Não foi possível cadastrar nova foto";
+            return false;
         }
     }
 
-    public String delete(Foto foto) {
+    public boolean delete(Foto foto) {
         if (fotoDao.delete(foto) == true) {
-            return "Removido com sucesso";
+            return true;
         } else {
-            return "Não foi possível remover foto";
+            return false;
         }
     }
 
-    public String update(Foto foto) {
+    public boolean update(Foto foto) {
         if (fotoDao.update(foto) == true) {
-            return "Atualizado com sucesso";
+            return true;
         } else {
-            return "Não foi possível atualizar foto";
+            return false;
         }
     }
 

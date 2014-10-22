@@ -3,36 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.senai.senaiEstoque.dao;
 
 import br.com.senai.senaiEstoque.entity.Caracteristica;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 /**
  *
  * @author luiz_espindola
  */
 public class CaracteristicaDao {
-    
-     public boolean insert(Caracteristica caracteristica){
+
+    public boolean insert(Caracteristica caracteristica) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(caracteristica);
-        try{
+        try {
             session.getTransaction().commit();
-        }catch(Exception ex){
+        } catch (Exception ex) {
             return false;
-        }finally{
+        } finally {
             session.close();
         }
         return true;
     }
-    
+
     public boolean delete(Caracteristica caracteristica) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
@@ -41,7 +38,7 @@ public class CaracteristicaDao {
         session.close();
         return true;
     }
-    
+
     public boolean update(Caracteristica caracteristica) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
@@ -61,12 +58,10 @@ public class CaracteristicaDao {
         return caracteristica;
     }
 
-
     public List<Caracteristica> getAll() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT c FROM Caracteristica c");
         return query.list();
     }
-    
-    
+
 }

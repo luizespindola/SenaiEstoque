@@ -17,13 +17,18 @@ import org.hibernate.Session;
  */
 public class FornecedorDao {
     
-       public Fornecedor insert(Fornecedor fornecedor){
+       public boolean insert(Fornecedor fornecedor){
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(fornecedor);
-        session.getTransaction().commit();
-        session.close();
-        return fornecedor;
+        try{
+            session.getTransaction().commit();
+        }catch(Exception ex){
+            return false;
+        }finally{
+            session.close();
+        }
+        return true;
     }
     
     public boolean delete(Fornecedor fornecedor) {
