@@ -7,30 +7,40 @@
                 xmlns:f="http://java.sun.com/jsf/core">  
 
     <ui:define name="Conteudo">  
-
-         <p:dataTable value="#{corMB.cor}"                            
+<h:form>      
+         <p:dataTable value="#{corMB.all}"                         
                              var="umaCor">
                     <p:column headerText="Cor" width="30">
                         <h:outputText value="#{umaCor.nome}" />                             
                     </p:column>
                   
-                    
+                 
                     <p:column headerText="Ações">
                         <h:commandButton action="#{corMB.editar}" value="Editar">
                             <f:setPropertyActionListener target="#{corMB.cor}" 
                                                          value="#{umaCor}" />                        
                         </h:commandButton>
-                        <h:commandButton action="#{corMB.excluir}" value="Excluir">
+                        <h:commandButton action="#{corMB.delete}" value="Excluir">
                             <f:setPropertyActionListener target="#{corMB.cor}" 
                                                          value="#{umaCor}" />                        
                         </h:commandButton>
-                         <h:commandButton action="#{corMB.listarEntradas}" value="Entrada">
+                         <h:commandButton action="#{corMB.listCor}" value="Entrada">
                             <f:setPropertyActionListener target="#{corMB.cor}" 
                                                          value="#{umaCor}" />                        
                         </h:commandButton>
                            
                     </p:column>                    
                 </p:dataTable>
+        
+        <h:commandButton action="#{corMB.novo}" value="Nova Cor!"/>
+
+                
+                    <p:outputPanel style="text-align:center;" layout="block">  
+                        #{minhaCor.nome}                         
+                    </p:outputPanel>  
+              
+
+            </h:form>
     </ui:define> 
 
 </ui:composition>  

@@ -28,20 +28,18 @@ public class CorMB implements Serializable {
         return cor;
     }
 
-    public void setCaracterisitca(Cor cor) {
+    public void setCor(Cor cor) {
         this.cor = cor;
     }
 
     public String insert() {
         CorController corController = new CorController();
-        if (corController.insert(cor) ==true) {
+        if (corController.insert(cor) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
-            return "editCor.xhtml";
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
-            return "listCor.xhtml";
-            
         }
+        return "listCor.xhtml";
     }
 
     public String novo() {
@@ -55,7 +53,7 @@ public class CorMB implements Serializable {
 
     public String delete() {
         CorController corController = new CorController();
-       if (corController.delete(cor) == true) {
+        if (corController.delete(cor) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
             return "listCor.xhtml";
         } else {
