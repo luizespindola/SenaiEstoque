@@ -17,19 +17,19 @@ public class CorController {
 
     private final CorDao corDao = new CorDao();
 
-    public String insert(Cor cor) {
+    public boolean insert(Cor cor) {
         if (corDao.insert(cor) == true) {
-            return "Cadastrado com sucesso";
+            return true;
         } else {
-            return "Não foi possível cadastrar";
+            return false;
         }
     }
 
-    public String delete(Cor cor) {
+    public boolean delete(Cor cor) {
         if (corDao.delete(cor) == true) {
-            return "Removido com sucesso";
+            return true;
         } else {
-            return "Não foi possível remover cor";
+            return false;
         }
     }
 

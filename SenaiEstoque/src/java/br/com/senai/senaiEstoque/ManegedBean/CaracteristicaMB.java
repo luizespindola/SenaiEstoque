@@ -30,7 +30,7 @@ public class CaracteristicaMB implements Serializable {
         this.caracteristica=caracteristica;
     }
 
-    public String salvar() {
+    public String insert() {
         CaracteristicaController caracteristicaController = new CaracteristicaController();
         caracteristicaController.insert(caracteristica);
         return "listCaracteristica.xhtml";
@@ -45,7 +45,7 @@ public class CaracteristicaMB implements Serializable {
         return "editCaracteristica.xhtml";
     }
 
-    public String excluir() {
+    public String delete() {
         CaracteristicaController caracteristicaController=new CaracteristicaController();
         caracteristicaController.delete(caracteristica);
         return "listCaracteristica.xhtml";

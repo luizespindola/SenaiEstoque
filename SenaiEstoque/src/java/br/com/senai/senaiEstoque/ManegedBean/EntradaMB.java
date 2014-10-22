@@ -28,7 +28,7 @@ public class EntradaMB implements Serializable{
         this.entrada=entrada;
     }
 
-    public String salvar() {
+    public String insert() {
         EntradaController entradaController = new EntradaController();
         entradaController.insert(entrada);
         return "listEntrada.xhtml";
@@ -42,7 +42,7 @@ public class EntradaMB implements Serializable{
 //    public String editar() {
 //        return "editCor.xhtml";
 //    }
-//
+
 //    public String excluir() {
 //        CorController corController=new CorController();
 //        corController.delete(cor);
