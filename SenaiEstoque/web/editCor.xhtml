@@ -7,15 +7,15 @@
                 xmlns:f="http://java.sun.com/jsf/core">  
 
     <ui:define name="Conteudo">  
-        <h:form>
-            <h:message for="erro"/>
+        <h:messages id="msg"/>
+        <h:form id="formCor">
             <h:panelGrid columns="2">
                 <h:outputLabel value="Cor" for="nome" />
-                <h:inputText id="nome" value="#{corController.cor.nome}" required="true" requiredMessage="Preencha o campo cor" />
-                <h:message for="nome"/>
-                <h:commandButton value="Salvar" action="#{corController.insert}"/>
+                <h:inputText id="nome" value="#{corMB.cor.nome}" required="true" requiredMessage="Preencha o campo cor" />
+                <h:commandButton value="Salvar" action="#{corMB.insert}"/>
             </h:panelGrid>
         </h:form>
-    </ui:define>  
+
+    </ui:define> 
 
 </ui:composition>  
