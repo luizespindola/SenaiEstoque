@@ -35,7 +35,7 @@ public class CaracteristicaMB implements Serializable {
     public String insert() {
         CaracteristicaController caracteristicaController = new CaracteristicaController();
         if (caracteristicaController.insert(caracteristica) == true) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadatrado com sucesso"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
         }
