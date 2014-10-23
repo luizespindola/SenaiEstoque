@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.senai.senaiEstoque.ManegedBean;
 
 import br.com.senai.senaiEstoque.controller.SaidaController;
@@ -22,8 +21,8 @@ import org.dom4j.io.SAXWriter;
  */
 @ManagedBean(name = "saidaMB")
 @SessionScoped
-public class SaidaMB implements Serializable{
-    
+public class SaidaMB implements Serializable {
+
     private Saida saida = new Saida();
 
     public Saida getSaida() {
@@ -36,7 +35,7 @@ public class SaidaMB implements Serializable{
 
     public String insert() {
         SaidaController saidaController = new SaidaController();
-        if (saidaController.insert(saida)== true) {
+        if (saidaController.insert(saida) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
@@ -55,7 +54,7 @@ public class SaidaMB implements Serializable{
 
     public String delete() {
         SaidaController saidaController = new SaidaController();
-        if (saidaController.delete(saida)== true) {
+        if (saidaController.delete(saida) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
@@ -71,5 +70,5 @@ public class SaidaMB implements Serializable{
     public String listSaida() {
         return "listSaida.xhtml";
     }
-    
+
 }

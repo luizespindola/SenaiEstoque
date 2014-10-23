@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.senai.senaiEstoque.ManegedBean;
 
 import br.com.senai.senaiEstoque.controller.TipoUsuarioController;
@@ -21,9 +20,9 @@ import javax.faces.context.FacesContext;
  */
 @ManagedBean(name = "tipoUsuarioMB")
 @SessionScoped
-public class TipoUsuarioMB implements Serializable{
-    
-   private TipoUsuario tipoUsuario= new TipoUsuario();
+public class TipoUsuarioMB implements Serializable {
+
+    private TipoUsuario tipoUsuario = new TipoUsuario();
 
     public TipoUsuario getTipoUsuario() {
         return tipoUsuario;
@@ -35,7 +34,7 @@ public class TipoUsuarioMB implements Serializable{
 
     public String insert() {
         TipoUsuarioController tipoUsuarioController = new TipoUsuarioController();
-        if (tipoUsuarioController.insert(tipoUsuario)== true) {
+        if (tipoUsuarioController.insert(tipoUsuario) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
@@ -54,7 +53,7 @@ public class TipoUsuarioMB implements Serializable{
 
     public String delete() {
         TipoUsuarioController tipoUsuarioController = new TipoUsuarioController();
-        if (tipoUsuarioController.delete(tipoUsuario)== true) {
+        if (tipoUsuarioController.delete(tipoUsuario) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
@@ -70,6 +69,5 @@ public class TipoUsuarioMB implements Serializable{
     public String listTipoUsuario() {
         return "listTipoUsuario.xhtml";
     }
-    
-    
+
 }

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.senai.senaiEstoque.ManegedBean;
 
 import br.com.senai.senaiEstoque.controller.UsuarioController;
@@ -21,9 +20,9 @@ import javax.faces.context.FacesContext;
  */
 @ManagedBean(name = "usuarioMB")
 @SessionScoped
-public class UsuarioMB implements Serializable{
-    
-    private Usuario usuario= new Usuario();
+public class UsuarioMB implements Serializable {
+
+    private Usuario usuario = new Usuario();
 
     public Usuario getUsuario() {
         return usuario;
@@ -35,7 +34,7 @@ public class UsuarioMB implements Serializable{
 
     public String insert() {
         UsuarioController usuarioController = new UsuarioController();
-        if (usuarioController.insert(usuario)== true) {
+        if (usuarioController.insert(usuario) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
@@ -54,7 +53,7 @@ public class UsuarioMB implements Serializable{
 
     public String delete() {
         UsuarioController usuarioController = new UsuarioController();
-        if (usuarioController.delete(usuario)== true) {
+        if (usuarioController.delete(usuario) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
@@ -70,5 +69,5 @@ public class UsuarioMB implements Serializable{
     public String listUsuario() {
         return "listUsuario.xhtml";
     }
-    
+
 }

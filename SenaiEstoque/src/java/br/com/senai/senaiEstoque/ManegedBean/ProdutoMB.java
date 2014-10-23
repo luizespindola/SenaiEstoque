@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.senai.senaiEstoque.ManegedBean;
 
 import br.com.senai.senaiEstoque.controller.ProdutoController;
@@ -21,8 +20,8 @@ import javax.faces.context.FacesContext;
  */
 @ManagedBean(name = "produtoMB")
 @SessionScoped
-public class ProdutoMB implements Serializable{
-    
+public class ProdutoMB implements Serializable {
+
     private Produto produto = new Produto();
 
     public Produto getProduto() {
@@ -35,7 +34,7 @@ public class ProdutoMB implements Serializable{
 
     public String insert() {
         ProdutoController produtoController = new ProdutoController();
-        if (produtoController.insert(produto)== true) {
+        if (produtoController.insert(produto) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
@@ -54,7 +53,7 @@ public class ProdutoMB implements Serializable{
 
     public String delete() {
         ProdutoController produtoController = new ProdutoController();
-        if (produtoController.delete(produto)== true) {
+        if (produtoController.delete(produto) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
@@ -70,5 +69,5 @@ public class ProdutoMB implements Serializable{
     public String listProduto() {
         return "listProduto.xhtml";
     }
-    
+
 }

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.senai.senaiEstoque.ManegedBean;
 
 import br.com.senai.senaiEstoque.controller.ValorCaracteristicaController;
@@ -22,9 +21,9 @@ import javax.validation.Valid;
  */
 @ManagedBean(name = "valorCaracteristicaMB")
 @SessionScoped
-public class ValorCaracteristicaMB implements Serializable{
-    
-    private ValorCaracteristica valorCaracteristica= new ValorCaracteristica();
+public class ValorCaracteristicaMB implements Serializable {
+
+    private ValorCaracteristica valorCaracteristica = new ValorCaracteristica();
 
     public ValorCaracteristica getValorCaracteristica() {
         return valorCaracteristica;
@@ -36,7 +35,7 @@ public class ValorCaracteristicaMB implements Serializable{
 
     public String insert() {
         ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
-        if (valorCaracteristicaController.insert(valorCaracteristica)== true) {
+        if (valorCaracteristicaController.insert(valorCaracteristica) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
@@ -55,7 +54,7 @@ public class ValorCaracteristicaMB implements Serializable{
 
     public String delete() {
         ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
-        if (valorCaracteristicaController.delete(valorCaracteristica)== true) {
+        if (valorCaracteristicaController.delete(valorCaracteristica) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
@@ -71,5 +70,5 @@ public class ValorCaracteristicaMB implements Serializable{
     public String listValorCaracteristica() {
         return "listValorCaracteristica.xhtml";
     }
-    
+
 }

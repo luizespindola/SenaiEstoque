@@ -44,12 +44,12 @@ public class Teste {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
-          CorDao dao=new CorDao();
-          List<Cor> lista=new ArrayList<Cor>();
-          lista=dao.getAll();
-          System.out.println(lista);
-          
+
+        CorDao dao = new CorDao();
+        List<Cor> lista = new ArrayList<Cor>();
+        lista = dao.getAll();
+        System.out.println(lista);
+
         Permissao permissao = new Permissao();
         permissao.setEditar(true);
         permissao.setEditarPermissao(true);
@@ -68,10 +68,10 @@ public class Teste {
         usuario.setLogin("luiz");
         usuario.setSenha("luiz");
         usuario.setTipoUsuario(tipoUsuario);
-        UsuarioController controller=new UsuarioController();
+        UsuarioController controller = new UsuarioController();
         controller.insert(usuario);
-        
-        System.out.println(controller.getAll());     
+
+        System.out.println(controller.getAll());
 
         ValorCaracteristica valorCaracteristica = new ValorCaracteristica();
         valorCaracteristica.setValorCaracteristica("wsws");
@@ -123,18 +123,18 @@ public class Teste {
         entrada.setQuantidade(100);
         entrada.setData(new Date());
         entrada.getListaProduto().add(produto);
-        EntradaDao entradaDao=new EntradaDao();
+        EntradaDao entradaDao = new EntradaDao();
         entradaDao.insert(entrada);
-        
+
         produto.getListaEntradas().add(entrada);
         produto.getListaCaracteristicas().add(caracteristica);
         produtoDao.insert(produto);
-        
-        Saida saida=new Saida();
+
+        Saida saida = new Saida();
         saida.setData(new Date());
         saida.setQuantidade(100);
         saida.getListaProduto().add(produto);
-        SaidaDao saidaDao=new SaidaDao();
+        SaidaDao saidaDao = new SaidaDao();
         saidaDao.insert(saida);
     }
 

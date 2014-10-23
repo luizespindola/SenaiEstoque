@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.senai.senaiEstoque.ManegedBean;
 
 import br.com.senai.senaiEstoque.controller.FornecedorController;
@@ -21,8 +20,8 @@ import javax.faces.context.FacesContext;
  */
 @ManagedBean(name = "fornecedorMB")
 @SessionScoped
-public class FornecedorMB implements Serializable{
-    
+public class FornecedorMB implements Serializable {
+
     private Fornecedor fornecedor = new Fornecedor();
 
     public Fornecedor getFornecedor() {
@@ -35,7 +34,7 @@ public class FornecedorMB implements Serializable{
 
     public String insert() {
         FornecedorController fornecedorController = new FornecedorController();
-        if (fornecedorController.insert(fornecedor)== true) {
+        if (fornecedorController.insert(fornecedor) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
@@ -54,7 +53,7 @@ public class FornecedorMB implements Serializable{
 
     public String delete() {
         FornecedorController fornecedorController = new FornecedorController();
-        if (fornecedorController.delete(fornecedor)== true) {
+        if (fornecedorController.delete(fornecedor) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
@@ -70,5 +69,5 @@ public class FornecedorMB implements Serializable{
     public String listFornecedor() {
         return "listFornecedor.xhtml";
     }
-    
+
 }

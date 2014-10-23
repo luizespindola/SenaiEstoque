@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.senai.senaiEstoque.ManegedBean;
 
 import br.com.senai.senaiEstoque.controller.MarcaController;
@@ -21,7 +20,7 @@ import javax.faces.context.FacesContext;
  */
 @ManagedBean(name = "marcaMB")
 @SessionScoped
-public class MarcaMB implements Serializable{
+public class MarcaMB implements Serializable {
 
     private Marca marca = new Marca();
 
@@ -72,4 +71,3 @@ public class MarcaMB implements Serializable{
     }
 
 }
-    
