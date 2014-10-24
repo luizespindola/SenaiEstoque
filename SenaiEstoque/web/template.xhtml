@@ -53,8 +53,8 @@
                     padding-left: 0px;
                     padding-right: 20px;
                 }
-                
-                
+
+
 
             </style>
             <div id="wrap">
@@ -80,7 +80,7 @@
                                                 <li><a href="listFornecedor.xhtml">Lista de fornecedores</a></li>
                                                 <li class="divider"></li>
                                                 <li><a href="editProduto.xhtml">Cadastrar produtos</a></li>
-                                                  <li><a href="editCor.xhtml">Cadastrar cor</a></li>
+                                                <li><a href="editCor.xhtml">Cadastrar cor</a></li>
                                                 <li><a href="editFornecedor.xhtml">Cadastrar fornecedor</a></li>
                                             </ul>
                                         </li>
@@ -99,14 +99,18 @@
                     </div><!-- fim menu -->
                 </div><!-- /linhaDoMenu -->
 
-                <div class="row-fluid span3 offset2">
-                    <ui:insert name="Conteudo"> Aqui vai o conteudo </ui:insert>
+                <div class="row-fluid">
+                    <div class="row-fluid span2"></div>
+                    <div class="row-fluid span8">
+                        <ui:insert name="Conteudo"> Aqui vai o conteudo </ui:insert>
+                    </div>
+                    <div class="row-fluid span2" ></div>
                 </div>  
                 <div id="push"></div>
             </div>
             <!-- rodapé -->
             <div class="row-fluid" id="footer">
-                    <div class=" modal-footer">Trabalho TCC - Curso: Técnico informática - turma 2013</div>
+                <div class=" modal-footer">Trabalho TCC - Curso: Técnico informática - turma 2013</div>
             </div><!-- /rodapé -->
         </h:body>  
     </html>  
