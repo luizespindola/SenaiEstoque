@@ -1,0 +1,24 @@
+.tituloCategoria{
+    margin-bottom: 20px;
+}
+.navbar{
+    border-bottom:  3px solid #ff0000;
+    border-color: #003E71;
+    border-radius: 0px 0px 15px 15px;
+}
+
+.busca{
+    border:#ccc 1px solid; 
+    border-radius: 5px ;
+    padding:5px;
+    min-width: 220px;
+    margin-bottom:10px;
+}
+
+.btnNovo{
+    margin-bottom: 5px;
+}
+
+
+
+
