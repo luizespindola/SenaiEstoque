@@ -19,8 +19,8 @@
             <h:panelGrid columns="2">
                 <h:outputLabel value="Cor" for="nome" />
                 <h:inputText id="nome" value="#{corMB.cor.nome}" required="true" requiredMessage="Preencha o campo cor" />
-                <a class="btn btn-primary" href="javascript:history.go(-1)">Voltar</a>
                 <h:commandButton class="btn btn-success" value="Salvar" action="#{corMB.insert}"/>
+                <a class="btn btn-primary" href="javascript:history.go(-1)">Voltar</a>             
             </h:panelGrid>
         </h:form>
     </ui:define> 

@@ -69,7 +69,7 @@ public class Teste {
         usuario.setSenha("luiz");
         usuario.setTipoUsuario(tipoUsuario);
         UsuarioController controller = new UsuarioController();
-        controller.insert(usuario);
+        //controller.insert(usuario);
 
         System.out.println(controller.getAll());
 

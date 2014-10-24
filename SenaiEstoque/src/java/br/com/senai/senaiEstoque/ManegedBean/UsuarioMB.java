@@ -6,6 +6,7 @@
 package br.com.senai.senaiEstoque.ManegedBean;
 
 import br.com.senai.senaiEstoque.controller.UsuarioController;
+import br.com.senai.senaiEstoque.entity.LoginHolder;
 import br.com.senai.senaiEstoque.entity.Usuario;
 import java.io.Serializable;
 import java.util.List;
@@ -23,18 +24,20 @@ import javax.faces.context.FacesContext;
 public class UsuarioMB implements Serializable {
 
     private Usuario usuario = new Usuario();
+    private LoginHolder loginHolder = new LoginHolder();
 
-    public Usuario getUsuario() {
-        return usuario;
+    public LoginHolder getLoginHolder() {
+        return loginHolder;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setLoginHolder(LoginHolder loginHolder) {
+        this.loginHolder = loginHolder;
     }
 
     public String insert() {
         UsuarioController usuarioController = new UsuarioController();
-        if (usuarioController.insert(usuario) == true) {
+        
+        if (usuarioController.cadastrar(loginHolder) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
