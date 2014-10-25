@@ -32,14 +32,6 @@ public class SaidaController {
         }
     }
 
-    public boolean update(Saida saida){
-        if (saidaDao.update(saida) == true) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public Saida getById(int id) {
         return saidaDao.getById(id);
     }

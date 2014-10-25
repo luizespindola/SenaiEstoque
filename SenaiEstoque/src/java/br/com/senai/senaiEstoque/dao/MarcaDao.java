@@ -39,15 +39,6 @@ public class MarcaDao {
         session.close();
         return true;
     }
-    
-    public boolean update(Marca marca) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.getTransaction().begin();
-        session.update(marca);
-        session.getTransaction().commit();
-        session.close();
-        return true;
-    }
 
     public Marca getById(Integer id) {
         Marca marca = null;

@@ -39,15 +39,6 @@ public class CorDao {
         session.close();
         return true;
     }
-    
-    public boolean update(Cor cor) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.getTransaction().begin();
-        session.update(cor);
-        session.getTransaction().commit();
-        session.close();
-        return true;
-    }
 
     public Cor getById(Integer id) {
         Cor cor = null;

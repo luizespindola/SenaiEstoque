@@ -39,15 +39,6 @@ public class FornecedorDao {
         session.close();
         return true;
     }
-    
-    public boolean update(Fornecedor fornecedor) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.getTransaction().begin();
-        session.update(fornecedor);
-        session.getTransaction().commit();
-        session.close();
-        return true;
-    }
 
     public Fornecedor getById(Integer id) {
         Fornecedor fornecedor = null;

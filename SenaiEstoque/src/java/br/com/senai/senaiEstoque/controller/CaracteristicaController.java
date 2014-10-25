@@ -33,14 +33,6 @@ public class CaracteristicaController {
         }
     }
 
-    public boolean update(Caracteristica caracteristica) {
-        if (caracteristicaDao.update(caracteristica) == true) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public Caracteristica getById(int id) {
         return caracteristicaDao.getById(id);
     }

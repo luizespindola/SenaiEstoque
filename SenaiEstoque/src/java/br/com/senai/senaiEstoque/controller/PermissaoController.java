@@ -33,14 +33,6 @@ public class PermissaoController {
         }
     }
 
-    public boolean update(Permissao permissao) {
-        if (permissaoDao.update(permissao) == true) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public Permissao getById(int id) {
         return permissaoDao.getById(id);
     }

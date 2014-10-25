@@ -39,15 +39,6 @@ public class TipoUsuarioDao {
         return true;
     }
 
-    public boolean update(TipoUsuario tipoUsuario) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.getTransaction().begin();
-        session.update(tipoUsuario);
-        session.getTransaction().commit();
-        session.close();
-        return true;
-    }
-
     public TipoUsuario getById(Integer id) {
         TipoUsuario tipoUsuario = null;
         Session session = HibernateUtil.getSessionFactory().openSession();

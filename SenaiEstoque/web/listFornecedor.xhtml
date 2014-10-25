@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"  
+                template="./template.xhtml"  
+                xmlns:h="http://java.sun.com/jsf/html"  
+                xmlns:p="http://primefaces.org/ui"  
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml"
+                >  
+
+    <ui:define name="Conteudo">  
+
+        <div class="row-fluid span8">
+            <h:form>  
+                <div class="row-fluid tituloCategoria">
+                    <h1>Fornecedores</h1>
+                </div>
+                <h:commandButton action="#{fornecedorMB.novo}" value="Cadastrar novo fornecedor" class="btn btn-success btnNovo pull-right"/>
+                <p:dataTable value="#{fornecedorMB.all}" var="umFornecedor">
+                    <p:column headerText="Fornecedor" width="30">
+                        <h:outputText value="#{umFornecedor.nome}" />                             
+                    </p:column>    
+                    <p:column headerText="E-mail" width="30">
+                        <h:outputText value="#{umFornecedor.email}" />                             
+                    </p:column> 
+                    <p:column headerText="Site" width="30">
+                        <h:outputText value="#{umFornecedor.site}" />                             
+                    </p:column> 
+                    <p:column headerText="Observação" width="30">
+                        <h:outputText value="#{umFornecedor.observacao}" />                             
+                    </p:column> 
+
+                    <p:column headerText="Ações" style="width: 80px">
+                        <h:commandButton action="#{fornecedorMB.editar}" value="Editar" image="assets/imagem/icon/editar-b.png"  class="btn btn-success" style="margin-right: 5px">
+                            <f:setPropertyActionListener target="#{fornecedorMB.fornecedor}" value="#{umFornecedor}" />                        
+                        </h:commandButton>
+                        <h:commandButton action="#{fornecedorMB.delete}" value="Excluir" image="assets/imagem/icon/excluir-b.png" class="btn btn-danger">
+                            <f:setPropertyActionListener target="#{fornecedorMB.fornecedor}" value="#{umFornecedor}" />                        
+                        </h:commandButton>
+
+                    </p:column>                    
+                </p:dataTable>
+            </h:form>
+        </div>
+        <div class="row-fluid span4"></div>
+    </ui:define> 
+
+</ui:composition>  

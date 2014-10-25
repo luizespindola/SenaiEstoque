@@ -39,15 +39,6 @@ public class FotoDao {
         return true;
     }
 
-    public boolean update(Foto foto) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.getTransaction().begin();
-        session.update(foto);
-        session.getTransaction().commit();
-        session.close();
-        return true;
-    }
-
     public Foto getById(Integer id) {
         Foto foto = null;
         Session session = HibernateUtil.getSessionFactory().openSession();

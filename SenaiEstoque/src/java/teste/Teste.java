@@ -51,9 +51,9 @@ public class Teste {
         System.out.println(lista);
 
         Permissao permissao = new Permissao();
-        permissao.setEditar(true);
-        permissao.setEditarPermissao(true);
-        permissao.setVisualizar(true);
+        permissao.setEditar("Sim");
+        permissao.setEditarPermissao("Sim");
+        permissao.setVisualizar("Sim");
         PermissaoDao permissaoDao = new PermissaoDao();
         permissaoDao.insert(permissao);
 

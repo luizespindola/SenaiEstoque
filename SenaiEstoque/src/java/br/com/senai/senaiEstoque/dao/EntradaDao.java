@@ -39,15 +39,6 @@ public class EntradaDao {
         return true;
     }
 
-    public boolean update(Entrada entrada) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.getTransaction().begin();
-        session.update(entrada);
-        session.getTransaction().commit();
-        session.close();
-        return true;
-    }
-
     public Entrada getById(Integer id) {
         Entrada entrada = null;
         Session session = HibernateUtil.getSessionFactory().openSession();

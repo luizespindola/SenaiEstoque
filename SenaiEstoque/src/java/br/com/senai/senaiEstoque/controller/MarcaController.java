@@ -33,14 +33,6 @@ public class MarcaController {
         }
     }
 
-    public boolean update(Marca marca) {
-        if (marcaDao.update(marca) == true) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public Marca getById(int id) {
         return marcaDao.getById(id);
     }

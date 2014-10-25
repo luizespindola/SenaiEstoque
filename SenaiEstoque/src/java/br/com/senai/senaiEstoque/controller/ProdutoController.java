@@ -33,14 +33,6 @@ public class ProdutoController {
         }
     }
 
-    public boolean update(Produto produto){
-        if (produtoDao.update(produto) == true) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public Produto getById(int id) {
         return produtoDao.getById(id);
     }

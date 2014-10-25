@@ -38,16 +38,7 @@ public class SaidaDao {
         session.close();
         return true;
     }
-
-    public boolean update(Saida saida) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.getTransaction().begin();
-        session.update(saida);
-        session.getTransaction().commit();
-        session.close();
-        return true;
-    }
-
+    
     public Saida getById(Integer id) {
         Saida saida = null;
         Session session = HibernateUtil.getSessionFactory().openSession();

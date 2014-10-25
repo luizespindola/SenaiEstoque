@@ -39,15 +39,6 @@ public class CaracteristicaDao {
         return true;
     }
 
-    public boolean update(Caracteristica caracteristica) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.getTransaction().begin();
-        session.update(caracteristica);
-        session.getTransaction().commit();
-        session.close();
-        return true;
-    }
-
     public Caracteristica getById(Integer id) {
         Caracteristica caracteristica = null;
         Session session = HibernateUtil.getSessionFactory().openSession();

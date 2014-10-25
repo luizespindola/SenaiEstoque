@@ -33,14 +33,6 @@ public class FotoController {
         }
     }
 
-    public boolean update(Foto foto) {
-        if (fotoDao.update(foto) == true) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public Foto getById(int id) {
         return fotoDao.getById(id);
     }

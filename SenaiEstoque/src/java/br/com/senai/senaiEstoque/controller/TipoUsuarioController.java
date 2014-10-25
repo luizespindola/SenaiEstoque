@@ -33,14 +33,6 @@ public class TipoUsuarioController {
         }
     }
 
-    public boolean update(TipoUsuario tipoUsuario) {
-        if (tipoUsuarioDao.update(tipoUsuario) == true) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public TipoUsuario getById(int id) {
         return tipoUsuarioDao.getById(id);
     }

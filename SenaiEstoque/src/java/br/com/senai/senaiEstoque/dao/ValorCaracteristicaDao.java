@@ -39,15 +39,6 @@ public class ValorCaracteristicaDao {
         return true;
     }
 
-    public boolean update(ValorCaracteristica valorCaracteristica) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.getTransaction().begin();
-        session.update(valorCaracteristica);
-        session.getTransaction().commit();
-        session.close();
-        return true;
-    }
-
     public ValorCaracteristica getById(Integer id) {
         ValorCaracteristica valorCaracteristica = null;
         Session session = HibernateUtil.getSessionFactory().openSession();

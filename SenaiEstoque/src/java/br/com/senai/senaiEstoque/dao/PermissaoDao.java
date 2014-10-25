@@ -39,15 +39,6 @@ public class PermissaoDao {
         return true;
     }
 
-    public boolean update(Permissao permissao) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.getTransaction().begin();
-        session.update(permissao);
-        session.getTransaction().commit();
-        session.close();
-        return true;
-    }
-
     public Permissao getById(Integer id) {
         Permissao permissao = null;
         Session session = HibernateUtil.getSessionFactory().openSession();

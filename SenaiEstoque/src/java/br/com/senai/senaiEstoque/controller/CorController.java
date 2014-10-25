@@ -33,14 +33,6 @@ public class CorController {
         }
     }
 
-    public boolean update(Cor cor) {
-        if (corDao.update(cor) == true) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public Cor getById(int id) {
         return corDao.getById(id);
     }

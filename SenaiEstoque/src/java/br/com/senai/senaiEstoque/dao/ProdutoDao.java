@@ -39,15 +39,6 @@ public class ProdutoDao {
         session.close();
         return  true;
     }
-    
-    public boolean update(Produto produto) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.getTransaction().begin();
-        session.update(produto);
-        session.getTransaction().commit();
-        session.close();
-        return true;
-    }
 
     public Produto getById(Integer id) {
         Produto produto = null;

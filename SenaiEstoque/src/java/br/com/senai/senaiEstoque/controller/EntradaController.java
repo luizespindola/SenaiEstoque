@@ -33,14 +33,6 @@ public class EntradaController {
         }
     }
 
-    public boolean update(Entrada entrada) {
-        if (entradaDao.update(entrada) == true) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public Entrada getById(int id) {
         return entradaDao.getById(id);
     }

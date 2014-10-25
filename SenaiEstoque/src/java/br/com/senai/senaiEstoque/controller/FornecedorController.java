@@ -33,14 +33,6 @@ public class FornecedorController {
         }
     }
 
-    public boolean update(Fornecedor fornecedor) {
-        if (fornecedorDao.update(fornecedor) == true) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public Fornecedor getById(int id) {
         return fornecedorDao.getById(id);
     }

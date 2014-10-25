@@ -20,9 +20,9 @@ public class Permissao implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private Boolean visualizar;
-    private Boolean editar;
-    private Boolean editarPermissao;
+    private String visualizar;
+    private String editar;
+    private String editarPermissao;
 
     public Integer getId() {
         return id;
@@ -32,29 +32,31 @@ public class Permissao implements Serializable{
         this.id = id;
     }
 
-    public Boolean getVisualizar() {
+    public String getVisualizar() {
         return visualizar;
     }
 
-    public void setVisualizar(Boolean visualizar) {
+    public void setVisualizar(String visualizar) {
         this.visualizar = visualizar;
     }
 
-    public Boolean getEditar() {
+    public String getEditar() {
         return editar;
     }
 
-    public void setEditar(Boolean editar) {
+    public void setEditar(String editar) {
         this.editar = editar;
     }
 
-    public Boolean getEditarPermissao() {
+    public String getEditarPermissao() {
         return editarPermissao;
     }
 
-    public void setEditarPermissao(Boolean editarPermissao) {
+    public void setEditarPermissao(String editarPermissao) {
         this.editarPermissao = editarPermissao;
     }
+
+    
     
     
     
