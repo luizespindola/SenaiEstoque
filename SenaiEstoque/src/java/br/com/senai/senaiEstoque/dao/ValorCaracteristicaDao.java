@@ -51,7 +51,7 @@ public class ValorCaracteristicaDao {
 
     public List<ValorCaracteristica> getAll() {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Query query = session.createQuery("SELECT v FROM ValorCaracteristica V");
+        Query query = session.createQuery("SELECT v FROM ValorCaracteristica v");
         return query.list();
     }
 
