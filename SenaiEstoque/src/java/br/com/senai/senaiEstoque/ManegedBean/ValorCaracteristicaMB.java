@@ -39,7 +39,7 @@ public class ValorCaracteristicaMB implements Serializable {
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
         }
-        return "listValorCaracteristica.xhtml";
+        return "listCaracteristica.xhtml";
     }
 
     public String novo() {

@@ -16,17 +16,19 @@
             <p:messages id="mensagem"  autoUpdate="true" closable="true" /> 
         </div>
         <h:form id="formPermissao">
-            <h:panelGrid columns="2">
-                <p:outputLabel value="Permissões" for="permissao"/>
-                <p:selectManyCheckbox id="permissao" value="#{permissaoMB.permissao}">
-                    <f:selectItem itemValue="Visualizar" itemLabel="#{permissaoMB.permissao.visualizar}"/>
-                    <f:selectItem itemValue="Editar" itemLabel="#{permissaoMB.permissao.editar}"/>
-                    <f:selectItem itemValue="Editar permissão" itemLabel="#{permissaoMB.permissao.editarPermissao}"/>
-                </p:selectManyCheckbox>
-                
-                <h:commandButton class="btn btn-success" value="Salvar" action="#{permissaoMB.insert}"/>
-                <a class="btn btn-primary" href="javascript:history.go(-1)">Voltar</a>             
+            <h:panelGrid columns="1" title="Permissões">
+                <p:selectOneRadio id="permissaoV" value="#{permissaoMB.permissao.visualizar}">
+                    <f:selectItem itemValue="Visualizar" itemLabel="Visualizar"/>
+                </p:selectOneRadio>
+                <p:selectOneRadio id="permissaoE" value="#{permissaoMB.permissao.editar}">         
+                    <f:selectItem itemValue="Editar" itemLabel="Editar"/>
+                </p:selectOneRadio>
+                <p:selectOneRadio id="permissaoEP" value="#{permissaoMB.permissao.editarPermissao}">         
+                    <f:selectItem itemValue="Editar Permissão" itemLabel="Editar permissão"/>
+                </p:selectOneRadio>            
             </h:panelGrid>
+            <h:commandButton class="btn btn-success" value="Salvar" action="#{permissaoMB.insert}"/>
+            <a class="btn btn-primary" href="javascript:history.go(-1)">Voltar</a> 
         </h:form>
     </ui:define> 
 </ui:composition>  
