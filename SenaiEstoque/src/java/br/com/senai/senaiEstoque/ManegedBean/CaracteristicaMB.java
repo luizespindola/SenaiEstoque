@@ -25,8 +25,8 @@ import javax.faces.context.FacesContext;
 public class CaracteristicaMB implements Serializable {
 
     private Caracteristica caracteristica = new Caracteristica();
-    private ValorCaracteristica valorCaracteristica=new ValorCaracteristica();
-    
+    private ValorCaracteristica valorCaracteristica = new ValorCaracteristica();
+
     public Caracteristica getCaracteristica() {
         return caracteristica;
     }
@@ -42,11 +42,11 @@ public class CaracteristicaMB implements Serializable {
     public void setValorCaracteristica(ValorCaracteristica valorCaracteristica) {
         this.valorCaracteristica = valorCaracteristica;
     }
-    
+
     public String insert() {
-        ValorCaracteristicaController valorCaracteristicaController=new ValorCaracteristicaController();
-        ValorCaracteristica valorCaracteristica=valorCaracteristicaController.getById(valorCaracteristicaController.getAll().size());
-        caracteristica.setValorCaracteristica(valorCaracteristica);
+//        ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
+//        ValorCaracteristica valorCaracteristica = valorCaracteristicaController.getById(valorCaracteristicaController.getAll().size());
+//        caracteristica.setValorCaracteristica(valorCaracteristica);
         CaracteristicaController caracteristicaController = new CaracteristicaController();
         if (caracteristicaController.insert(caracteristica) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
@@ -66,7 +66,7 @@ public class CaracteristicaMB implements Serializable {
     }
 
     public String delete() {
-        ValorCaracteristicaController valorCaracteristicaController=new ValorCaracteristicaController();
+        ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
         valorCaracteristicaController.delete(valorCaracteristica);
         CaracteristicaController caracteristicaController = new CaracteristicaController();
         if (caracteristicaController.delete(caracteristica) == true) {

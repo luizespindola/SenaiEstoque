@@ -6,10 +6,12 @@
 package br.com.senai.senaiEstoque.entity;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -21,6 +23,8 @@ public class ValorCaracteristica implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String valorCaracteristica;
+    @ManyToOne (cascade = CascadeType.ALL)
+    private Caracteristica caracteristica;
 
     public Integer getId() {
         return id;
@@ -37,7 +41,13 @@ public class ValorCaracteristica implements Serializable{
     public void setValorCaracteristica(String valorCaracteristica) {
         this.valorCaracteristica = valorCaracteristica;
     }
-    
-    
-    
+
+    public Caracteristica getCaracteristica() {
+        return caracteristica;
+    }
+
+    public void setCaracteristica(Caracteristica caracteristica) {
+        this.caracteristica = caracteristica;
+    }
+            
 }
