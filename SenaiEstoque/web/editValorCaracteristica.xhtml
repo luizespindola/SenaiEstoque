@@ -20,7 +20,6 @@
                 <h:outputText value="#{caracteristicaMB.caracteristica.nome}"/>
                 <h:outputLabel value="Valor Caracteristica" for="valor" />
                 <h:inputText id="valor" value="#{valorCaracteristicaMB.valorCaracteristica.valorCaracteristica}" required="true" requiredMessage="Preencha o campo valor caracteristica" />
-                <h:inputHidden value="#{valorCaracteristicaMB.valorCaracteristica.caracteristica}"/>
                 <h:commandButton class="btn btn-success" value="Salvar" action="#{valorCaracteristicaMB.insert}"/>
                 <a class="btn btn-primary" href="javascript:history.go(-1)">Voltar</a>
             </h:panelGrid>

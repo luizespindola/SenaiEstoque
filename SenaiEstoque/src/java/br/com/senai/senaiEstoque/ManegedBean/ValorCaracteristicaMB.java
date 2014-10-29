@@ -5,7 +5,9 @@
  */
 package br.com.senai.senaiEstoque.ManegedBean;
 
+import br.com.senai.senaiEstoque.controller.CaracteristicaController;
 import br.com.senai.senaiEstoque.controller.ValorCaracteristicaController;
+import br.com.senai.senaiEstoque.entity.Caracteristica;
 import br.com.senai.senaiEstoque.entity.ValorCaracteristica;
 import java.io.Serializable;
 import java.util.List;
@@ -23,6 +25,15 @@ import javax.faces.context.FacesContext;
 public class ValorCaracteristicaMB implements Serializable {
 
     private ValorCaracteristica valorCaracteristica = new ValorCaracteristica();
+    private Caracteristica caracteristica = new Caracteristica();
+
+    public Caracteristica getCaracteristica() {
+        return caracteristica;
+    }
+
+    public void setCaracteristica(Caracteristica caracteristica) {
+        this.caracteristica = caracteristica;
+    }
 
     public ValorCaracteristica getValorCaracteristica() {
         return valorCaracteristica;
@@ -33,12 +44,22 @@ public class ValorCaracteristicaMB implements Serializable {
     }
 
     public String insert() {
+
         ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
+        CaracteristicaController caracteristicaControler = new CaracteristicaController();
+
         if (valorCaracteristicaController.insert(valorCaracteristica) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
         } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar o valor da categoria"));
         }
+
+        if (caracteristicaControler.insert(caracteristica) == true) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar o valor da caracteristica na categoria"));
+        }
+
         return "listCaracteristica.xhtml";
     }
 
