@@ -21,14 +21,14 @@ import javax.persistence.OneToOne;
  * @author User
  */
 @Entity
-public class Caracteristica implements Serializable{
+public class Caracteristica implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String nome;
-    private ValorCaracteristica valorCaracteristica;
     @ManyToMany
-    private List<Produto> listaProduto=new ArrayList<Produto>();
+    private List<Produto> listaProduto = new ArrayList<Produto>();
 
     public Integer getId() {
         return id;
@@ -46,13 +46,7 @@ public class Caracteristica implements Serializable{
         this.nome = nome;
     }
 
-    public ValorCaracteristica getValorCaracteristica() {
-        return valorCaracteristica;
-    }
 
-    public void setValorCaracteristica(ValorCaracteristica valorCaracteristica) {
-        this.valorCaracteristica = valorCaracteristica;
-    }
 
     public List<Produto> getListaProduto() {
         return listaProduto;
@@ -61,6 +55,5 @@ public class Caracteristica implements Serializable{
     public void setListaProduto(List<Produto> listaProduto) {
         this.listaProduto = listaProduto;
     }
-    
-    
+
 }

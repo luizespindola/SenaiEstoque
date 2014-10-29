@@ -11,10 +11,12 @@ import br.com.senai.senaiEstoque.entity.Caracteristica;
 import br.com.senai.senaiEstoque.entity.ValorCaracteristica;
 import java.io.Serializable;
 import java.util.List;
+import javax.el.ELContext;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.mail.Session;
 
 /**
  *
@@ -48,16 +50,12 @@ public class ValorCaracteristicaMB implements Serializable {
         ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
         CaracteristicaController caracteristicaControler = new CaracteristicaController();
 
+        valorCaracteristica.setCaracteristica(caracteristica);
+
         if (valorCaracteristicaController.insert(valorCaracteristica) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar o valor da categoria"));
-        }
-
-        if (caracteristicaControler.insert(caracteristica) == true) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
-        } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar o valor da caracteristica na categoria"));
         }
 
         return "listCaracteristica.xhtml";
