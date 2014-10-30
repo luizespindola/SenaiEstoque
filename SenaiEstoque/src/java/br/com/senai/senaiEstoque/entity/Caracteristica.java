@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
@@ -27,6 +28,9 @@ public class Caracteristica implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String nome;
+    @OneToMany(mappedBy = "caracteristica")
+    private List<ValorCaracteristica> listaValorCaracteristica = new ArrayList<ValorCaracteristica>();
+
     @ManyToMany
     private List<Produto> listaProduto = new ArrayList<Produto>();
 
@@ -45,8 +49,6 @@ public class Caracteristica implements Serializable {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-
 
     public List<Produto> getListaProduto() {
         return listaProduto;

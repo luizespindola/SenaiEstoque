@@ -12,6 +12,7 @@ import br.com.senai.senaiEstoque.entity.ValorCaracteristica;
 import java.io.Serializable;
 import java.util.List;
 import javax.el.ELContext;
+import javax.el.ExpressionFactory;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -27,15 +28,6 @@ import javax.mail.Session;
 public class ValorCaracteristicaMB implements Serializable {
 
     private ValorCaracteristica valorCaracteristica = new ValorCaracteristica();
-    private Caracteristica caracteristica = new Caracteristica();
-
-    public Caracteristica getCaracteristica() {
-        return caracteristica;
-    }
-
-    public void setCaracteristica(Caracteristica caracteristica) {
-        this.caracteristica = caracteristica;
-    }
 
     public ValorCaracteristica getValorCaracteristica() {
         return valorCaracteristica;
@@ -50,7 +42,12 @@ public class ValorCaracteristicaMB implements Serializable {
         ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
         CaracteristicaController caracteristicaControler = new CaracteristicaController();
 
-        valorCaracteristica.setCaracteristica(caracteristica);
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        ELContext elContext = facesContext.getELContext();
+        ExpressionFactory factory = facesContext.getApplication().getExpressionFactory();
+        CaracteristicaMB caracteristicaMB = (CaracteristicaMB) factory.createValueExpression(elContext, "#{caracteristicaMB}", Object.class).getValue(elContext);
+
+        valorCaracteristica.setCaracteristica(caracteristicaMB.getCaracteristica());
 
         if (valorCaracteristicaController.insert(valorCaracteristica) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
