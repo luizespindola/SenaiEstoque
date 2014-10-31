@@ -54,8 +54,9 @@ public class ValorCaracteristicaMB implements Serializable {
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar o valor da categoria"));
         }
+        valorCaracteristica = new ValorCaracteristica();
 
-        return "listCaracteristica.xhtml";
+        return "editValorCaracteristica.xhtml";
     }
 
     public String novo() {
@@ -64,6 +65,23 @@ public class ValorCaracteristicaMB implements Serializable {
     }
 
     public String editar() {
+        ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
+        CaracteristicaController caracteristicaControler = new CaracteristicaController();
+
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        ELContext elContext = facesContext.getELContext();
+        ExpressionFactory factory = facesContext.getApplication().getExpressionFactory();
+        CaracteristicaMB caracteristicaMB = (CaracteristicaMB) factory.createValueExpression(elContext, "#{caracteristicaMB}", Object.class).getValue(elContext);
+
+        valorCaracteristica.setCaracteristica(caracteristicaMB.getCaracteristica());
+
+        if (valorCaracteristicaController.insert(valorCaracteristica) == true) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Editado com sucesso"));
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível editar o valor da categoria"));
+        }
+        valorCaracteristica = new ValorCaracteristica();
+
         return "editValorCaracteristica.xhtml";
     }
 
@@ -84,6 +102,11 @@ public class ValorCaracteristicaMB implements Serializable {
 
     public String listValorCaracteristica() {
         return "listValorCaracteristica.xhtml";
+    }
+
+    public List<ValorCaracteristica> getAllByIdCaracteristica(Integer id) {
+        ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
+        return valorCaracteristicaController.getAllByIdCaracteristica(id);
     }
 
 }

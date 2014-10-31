@@ -15,14 +15,33 @@
         <div id="mensagemDeErro">
             <p:messages id="mensagem"  autoUpdate="true" closable="true" /> 
         </div>
+        <div><h4>Cadastro de valores para:<h:outputText value="#{caracteristicaMB.caracteristica.nome}"/></h4></div>
         <h:form id="formValorCaracteristica">
             <h:panelGrid columns="2">
-                <h:outputText value="#{caracteristicaMB.caracteristica.nome}"/>
                 <h:outputLabel value="Valor Caracteristica" for="valor" />
-                <h:inputText id="valor" value="#{valorCaracteristicaMB.valorCaracteristica.valorCaracteristica}" required="true" requiredMessage="Preencha o campo valor caracteristica" />
+                <h:inputText id="valor" value="#{valorCaracteristicaMB.valorCaracteristica.nome}" required="true" requiredMessage="Preencha o campo valor caracteristica" />
                 <h:commandButton class="btn btn-success" value="Salvar" action="#{valorCaracteristicaMB.insert}"/>
                 <a class="btn btn-primary" href="javascript:history.go(-1)">Voltar</a>
             </h:panelGrid>
+
+            <p:dataTable value="#{valorCaracteristicaMB.getAllByIdCaracteristica(caracteristicaMB.caracteristica.id)}" var="umValorCaracteristica">
+                <p:column headerText="Características de #{caracteristicaMB.caracteristica.nome}" width="30">
+                    <p:inplace id="ajax" editor="true">
+                        <p:inputText value="#{umValorCaracteristica.nome}" required="true" label="ValorCaracteristica.nome" />
+                    </p:inplace>
+                </p:column>  
+                <p:column headerText="Ações" style="width: 80px">
+                    <h:commandButton action="#{ValorCaracteristicaMB.editar}" value="Editar" image="assets/imagem/icon/editar-b.png"  class="btn btn-success" style="margin-right: 5px">
+                        <f:setPropertyActionListener target="#{ValorCaracteristicaMB.valorCaracteristica}" value="#{umValorCaracteristica}" />                        
+                    </h:commandButton>
+                    <h:commandButton action="#{caracteristicaMB.delete}" value="Excluir" image="assets/imagem/icon/excluir-b.png" class="btn btn-danger">
+                        <f:setPropertyActionListener target="#{ValorCaracteristicaMB.valorCaracteristica}" value="#{umValorCaracteristica}" />                        
+                    </h:commandButton>
+                </p:column>                    
+            </p:dataTable>
         </h:form>
+
+
+        <div id="DivbotaoFinalizar"><a href="/listCaracteristica.xhtml" class="btn btn-success">Finalizar</a></div>
     </ui:define> 
 </ui:composition> 

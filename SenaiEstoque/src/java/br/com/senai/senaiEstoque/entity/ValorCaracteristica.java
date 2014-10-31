@@ -18,12 +18,13 @@ import javax.persistence.ManyToOne;
  * @author User
  */
 @Entity
-public class ValorCaracteristica implements Serializable{
+public class ValorCaracteristica implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String valorCaracteristica;
-    @ManyToOne (cascade = CascadeType.ALL)
+    private String nome;
+    @ManyToOne(cascade = CascadeType.ALL)
     private Caracteristica caracteristica;
 
     public Integer getId() {
@@ -34,12 +35,12 @@ public class ValorCaracteristica implements Serializable{
         this.id = id;
     }
 
-    public String getValorCaracteristica() {
-        return valorCaracteristica;
+    public String getNome() {
+        return nome;
     }
 
-    public void setValorCaracteristica(String valorCaracteristica) {
-        this.valorCaracteristica = valorCaracteristica;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public Caracteristica getCaracteristica() {
@@ -49,5 +50,5 @@ public class ValorCaracteristica implements Serializable{
     public void setCaracteristica(Caracteristica caracteristica) {
         this.caracteristica = caracteristica;
     }
-            
+
 }
