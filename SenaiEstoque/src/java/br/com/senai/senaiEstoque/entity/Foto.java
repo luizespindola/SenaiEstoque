@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -21,6 +22,8 @@ public class Foto implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String endereco;
+    @OneToOne
+    private Produto produto;
 
     public Integer getId() {
         return id;
@@ -38,5 +41,12 @@ public class Foto implements Serializable{
         this.endereco = endereco;
     }
 
-    
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
 }

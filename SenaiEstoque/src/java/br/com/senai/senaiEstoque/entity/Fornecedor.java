@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -24,6 +25,8 @@ public class Fornecedor implements Serializable{
     private String email;
     private String site;
     private String observacao;
+    @OneToOne
+    private Produto produto;
 
     public Integer getId() {
         return id;
@@ -63,6 +66,14 @@ public class Fornecedor implements Serializable{
 
     public void setObservacao(String observacao) {
         this.observacao = observacao;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
     
 }

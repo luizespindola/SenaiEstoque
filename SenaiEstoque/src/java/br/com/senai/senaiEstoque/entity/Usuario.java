@@ -6,6 +6,7 @@
 package br.com.senai.senaiEstoque.entity;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,7 +25,7 @@ public class Usuario implements Serializable{
     private String nome;
     private String login;
     private String senha;
-    @OneToOne
+    @OneToOne(mappedBy = "usuario",cascade = {CascadeType.ALL})
     private TipoUsuario tipoUsuario;
 
     public Integer getId() {

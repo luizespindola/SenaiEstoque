@@ -16,9 +16,9 @@
                     <h1>Valor de Características</h1>
                 </div>
                 <h:commandButton action="#{valorCaracteristicaMB.novo}" value="Cadastrar novo Valor de característica" class="btn btn-success btnNovo pull-right"/>
-                <p:dataTable value="#{valorCaracteristicaMB.all}" var="umValor">
+                <p:dataTable value="#{valorCaracteristicaMB.getAllByIdCaracteristica(caracteristicaMB.caracteristica.id)}" var="umValor">
                     <p:column headerText="Valor Característica" width="30">
-                        <h:outputText value="#{umValor.valorCaracteristica}" />                             
+                        <h:outputText value="#{umValor.nome}" />                             
                     </p:column>    
 
                     <p:column headerText="Ações" style="width: 80px">

@@ -27,7 +27,7 @@
             <p:dataTable value="#{valorCaracteristicaMB.getAllByIdCaracteristica(caracteristicaMB.caracteristica.id)}" var="umValorCaracteristica">
                 <p:column headerText="Características de #{caracteristicaMB.caracteristica.nome}" width="30">
                     <p:inplace id="ajax" editor="true">
-                        <p:inputText value="#{umValorCaracteristica.nome}" required="true" label="ValorCaracteristica.nome" />
+                        <p:inputText value="#{umValorCaracteristica.nome}" required="true" label="ValorCaracteristica.nome"/>
                     </p:inplace>
                 </p:column>  
                 <p:column headerText="Ações" style="width: 80px">
@@ -42,6 +42,6 @@
         </h:form>
 
 
-        <div id="DivbotaoFinalizar"><a href="/listCaracteristica.xhtml" class="btn btn-success">Finalizar</a></div>
+        <div id="DivbotaoFinalizar"><a href="#{caracteristicaMB.listCaracterisica()}" class="btn btn-success">Finalizar</a></div>
     </ui:define> 
 </ui:composition> 

@@ -6,6 +6,7 @@
 package br.com.senai.senaiEstoque.entity;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,9 +23,11 @@ public class TipoUsuario implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String nome;
-    @OneToOne
+    @OneToOne(mappedBy = "tipoUsuario",cascade = {CascadeType.ALL})
     private Permissao permissao;
-
+    @OneToOne
+    private Usuario usuario;
+    
     public Integer getId() {
         return id;
     }
@@ -48,7 +51,13 @@ public class TipoUsuario implements Serializable{
     public void setPermissao(Permissao permissao) {
         this.permissao = permissao;
     }
-    
-    
-    
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+       
 }

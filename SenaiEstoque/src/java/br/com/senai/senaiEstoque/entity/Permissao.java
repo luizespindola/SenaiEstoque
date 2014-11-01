@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -23,6 +24,8 @@ public class Permissao implements Serializable{
     private String visualizar;
     private String editar;
     private String editarPermissao;
+    @OneToOne
+    private TipoUsuario tipoUsuario;
 
     public Integer getId() {
         return id;
@@ -56,8 +59,12 @@ public class Permissao implements Serializable{
         this.editarPermissao = editarPermissao;
     }
 
-    
-    
-    
+    public TipoUsuario getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipoUsuario(TipoUsuario tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
+    }    
     
 }

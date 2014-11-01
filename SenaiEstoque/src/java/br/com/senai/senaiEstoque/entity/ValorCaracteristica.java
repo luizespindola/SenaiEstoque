@@ -12,7 +12,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-
 /**
  *
  * @author User
@@ -24,7 +23,7 @@ public class ValorCaracteristica implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String nome;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Caracteristica caracteristica;
 
     public Integer getId() {

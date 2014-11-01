@@ -45,98 +45,95 @@ public class Teste {
     public static void main(String[] args) {
         // TODO code application logic here
 
-//        CorDao dao = new CorDao();
-//        List<Cor> lista = new ArrayList<Cor>();
-//        lista = dao.getAll();
-//        System.out.println(lista);
-//
-//        Permissao permissao = new Permissao();
-//        permissao.setEditar("Sim");
-//        permissao.setEditarPermissao("Sim");
-//        permissao.setVisualizar("Sim");
-//        PermissaoDao permissaoDao = new PermissaoDao();
-//        permissaoDao.insert(permissao);
-//
-//        TipoUsuario tipoUsuario = new TipoUsuario();
-//        tipoUsuario.setNome("fODAO");
-//        tipoUsuario.setPermissao(permissao);
-//        TipoUsuarioDao tipoUsuarioDao = new TipoUsuarioDao();
-//        tipoUsuarioDao.insert(tipoUsuario);
-//
-//        Usuario usuario = new Usuario();
-//        usuario.setNome("maria");
-//        usuario.setLogin("luiz");
-//        usuario.setSenha("luiz");
-//        usuario.setTipoUsuario(tipoUsuario);
-//        UsuarioController controller = new UsuarioController();
-//        //controller.insert(usuario);
-//
-//        System.out.println(controller.getAll());
-//
-//        ValorCaracteristica valorCaracteristica = new ValorCaracteristica();
-//        valorCaracteristica.setValorCaracteristica("wsws");
-          ValorCaracteristicaDao valorcaracteristicaDao = new ValorCaracteristicaDao();
-//        valorcaracteristicaDao.insert(valorCaracteristica);
+       
+
+        Permissao permissao = new Permissao();
+        permissao.setEditar("Sim");
+        permissao.setEditarPermissao("Sim");
+        permissao.setVisualizar("Sim");
+        PermissaoDao permissaoDao = new PermissaoDao();
+        permissaoDao.insert(permissao);
+
+        TipoUsuario tipoUsuario = new TipoUsuario();
+        tipoUsuario.setNome("fODAO");
+        tipoUsuario.setPermissao(permissao);
+        TipoUsuarioDao tipoUsuarioDao = new TipoUsuarioDao();
+        tipoUsuarioDao.insert(tipoUsuario);
+
+        Usuario usuario = new Usuario();
+        usuario.setNome("maria");
+        usuario.setLogin("luiz");
+        usuario.setSenha("luiz");
+        usuario.setTipoUsuario(tipoUsuario);
+        UsuarioController controller = new UsuarioController();
+        //controller.insert(usuario);
+
+        System.out.println(controller.getAll());
+
+        ValorCaracteristica valorCaracteristica = new ValorCaracteristica();
+        valorCaracteristica.setNome("wsws");
+        ValorCaracteristicaDao valorcaracteristicaDao = new ValorCaracteristicaDao();
+        valorcaracteristicaDao.insert(valorCaracteristica);
           System.out.println(valorcaracteristicaDao.getAll().size());
-//
-//        Caracteristica caracteristica = new Caracteristica();
-//        caracteristica.setNome("ddwdw");
-//        caracteristica.setValorCaracteristica(valorCaracteristica);
-//        CaracteristicaDao caracteristicaDao = new CaracteristicaDao();
-//        caracteristicaDao.insert(caracteristica);
-//
-//        Foto foto = new Foto();
-//        foto.setEndereco("dadasa");
-//        FotoDao fotoDao = new FotoDao();
-//        fotoDao.insert(foto);
-//
-//        Cor cor = new Cor();
-//        cor.setNome("Preto");
-//        CorDao corDao = new CorDao();
-//        corDao.insert(cor);
-//
-//        Fornecedor fornecedor = new Fornecedor();
-//        fornecedor.setNome("daas");
-//        fornecedor.setEmail("dsa");
-//        fornecedor.setSite("www");
-//        fornecedor.setObservacao("dasqa");
-//        FornecedorDao fornecedorDao = new FornecedorDao();
-//        fornecedorDao.insert(fornecedor);
-//
-//        Marca marca = new Marca();
-//        marca.setNome("daq");
-//        MarcaDao marcaDao = new MarcaDao();
-//        marcaDao.insert(marca);
-//
-//        Produto produto = new Produto();
-//        produto.setCodigo(12345);
-//        produto.setNome("ventilador");
-//        produto.setPrecoCusto(1.1);
-//        produto.setQuantidade(1000);
-//        produto.setFoto(foto);
-//        produto.setFornecedor(fornecedor);
-//        produto.setCor(cor);
-//        produto.setMarca(marca);
-//        ProdutoDao produtoDao = new ProdutoDao();
-//        produtoDao.insert(produto);
-//
-//        Entrada entrada = new Entrada();
-//        entrada.setQuantidade(100);
-//        entrada.setData(new Date());
-//        entrada.getListaProduto().add(produto);
-//        EntradaDao entradaDao = new EntradaDao();
-//        entradaDao.insert(entrada);
-//
-//        produto.getListaEntradas().add(entrada);
-//        produto.getListaCaracteristicas().add(caracteristica);
-//        produtoDao.insert(produto);
-//
-//        Saida saida = new Saida();
-//        saida.setData(new Date());
-//        saida.setQuantidade(100);
-//        saida.getListaProduto().add(produto);
-//        SaidaDao saidaDao = new SaidaDao();
-//        saidaDao.insert(saida);
+
+        Caracteristica caracteristica = new Caracteristica();
+        caracteristica.setNome("ddwdw");
+        caracteristica.getListaValorCaracteristica().add(valorCaracteristica);
+        CaracteristicaDao caracteristicaDao = new CaracteristicaDao();
+        caracteristicaDao.insert(caracteristica);
+
+        Foto foto = new Foto();
+        foto.setEndereco("dadasa");
+        FotoDao fotoDao = new FotoDao();
+        fotoDao.insert(foto);
+
+        Cor cor = new Cor();
+        cor.setNome("Preto");
+        CorDao corDao = new CorDao();
+        corDao.insert(cor);
+
+        Fornecedor fornecedor = new Fornecedor();
+        fornecedor.setNome("daas");
+        fornecedor.setEmail("dsa");
+        fornecedor.setSite("www");
+        fornecedor.setObservacao("dasqa");
+        FornecedorDao fornecedorDao = new FornecedorDao();
+        fornecedorDao.insert(fornecedor);
+
+        Marca marca = new Marca();
+        marca.setNome("daq");
+        MarcaDao marcaDao = new MarcaDao();
+        marcaDao.insert(marca);
+
+        Produto produto = new Produto();
+        produto.setCodigo(12345);
+        produto.setNome("ventilador");
+        produto.setPrecoCusto(1.1);
+        produto.setQuantidade(1000);
+        produto.setFoto(foto);
+        produto.setFornecedor(fornecedor);
+        produto.setCor(cor);
+        produto.setMarca(marca);
+        ProdutoDao produtoDao = new ProdutoDao();
+        produtoDao.insert(produto);
+
+        Entrada entrada = new Entrada();
+        entrada.setQuantidade(100);
+        entrada.setData(new Date());
+        entrada.getListaProduto().add(produto);
+        EntradaDao entradaDao = new EntradaDao();
+        entradaDao.insert(entrada);
+
+        produto.getListaEntradas().add(entrada);
+        produto.getListaCaracteristicas().add(caracteristica);
+        produtoDao.insert(produto);
+
+        Saida saida = new Saida();
+        saida.setData(new Date());
+        saida.setQuantidade(100);
+        saida.getListaProduto().add(produto);
+        SaidaDao saidaDao = new SaidaDao();
+        saidaDao.insert(saida);
     }
 
 }

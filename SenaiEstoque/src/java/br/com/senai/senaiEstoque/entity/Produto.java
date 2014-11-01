@@ -9,6 +9,7 @@ package br.com.senai.senaiEstoque.entity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,19 +33,19 @@ public class Produto implements Serializable{
     private Integer codigo;
     private Double precoCusto;
     private Integer quantidade;
-    @OneToOne
+    @OneToOne(mappedBy = "produto" ,cascade = {CascadeType.ALL})
     private Foto foto;
-    @OneToOne
+    @OneToOne(mappedBy = "produto",cascade = {CascadeType.ALL})
     private Cor cor;
-    @OneToOne
+    @OneToOne(mappedBy = "produto",cascade = {CascadeType.ALL})
     private Fornecedor fornecedor;
-    @OneToOne
+    @OneToOne(mappedBy = "produto",cascade = {CascadeType.ALL})
     private Marca marca;
-    @ManyToMany (mappedBy = "listaProduto")
+    @ManyToMany (mappedBy = "listaProduto",cascade = {CascadeType.ALL})
     private List<Saida> listaSaida=new ArrayList<Saida>();
-    @ManyToMany (mappedBy = "listaProduto")
+    @ManyToMany (mappedBy = "listaProduto",cascade = {CascadeType.ALL})
     private List<Entrada> listaEntradas=new ArrayList<Entrada>();
-    @ManyToMany (mappedBy = "listaProduto")
+    @ManyToMany (mappedBy = "listaProduto",cascade = {CascadeType.ALL})
     private List<Caracteristica> listaCaracteristicas=new ArrayList<Caracteristica>();
 
     public Integer getId() {

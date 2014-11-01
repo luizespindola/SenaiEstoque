@@ -28,7 +28,7 @@ public class Entrada implements Serializable{
     private Integer id;
     private Integer quantidade;
     @Temporal(TemporalType.DATE)
-    private Date data;
+    private Date dataEntrada;
     @ManyToMany
     private List<Produto> listaProduto=new ArrayList<Produto>();
 
@@ -49,11 +49,11 @@ public class Entrada implements Serializable{
     }
 
     public Date getData() {
-        return data;
+        return dataEntrada;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void setData(Date dataEntrada) {
+        this.dataEntrada = dataEntrada;
     }
 
     public List<Produto> getListaProduto() {
