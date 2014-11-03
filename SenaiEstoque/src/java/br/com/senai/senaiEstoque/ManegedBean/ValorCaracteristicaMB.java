@@ -17,7 +17,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.mail.Session;
 
 /**
  *
@@ -28,6 +27,8 @@ import javax.mail.Session;
 public class ValorCaracteristicaMB implements Serializable {
 
     private ValorCaracteristica valorCaracteristica = new ValorCaracteristica();
+    
+    
 
     public ValorCaracteristica getValorCaracteristica() {
         return valorCaracteristica;
@@ -59,7 +60,9 @@ public class ValorCaracteristicaMB implements Serializable {
         return "editValorCaracteristica.xhtml";
     }
 
-    public String novo() {
+    public String novo(CaracteristicaMB caracteristicaMB) {
+        
+        
         valorCaracteristica = new ValorCaracteristica();
         return "editValorCaracteristica.xhtml";
     }
@@ -91,5 +94,5 @@ public class ValorCaracteristicaMB implements Serializable {
         ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
         return valorCaracteristicaController.getAllByIdCaracteristica(id);
     }
-
+    
 }

@@ -13,10 +13,10 @@
         <div class="row-fluid span8">
             <h:form>  
                 <div class="row-fluid tituloCategoria">
-                    <h1>Valor de Características</h1>
+                    <h1>Valor de Características:<h:outputText value="#{caracteristicaMB.caracteristica.nome}"/></h1>
                 </div>
-                <h:commandButton action="#{valorCaracteristicaMB.novo}" value="Cadastrar novo Valor de característica" class="btn btn-success btnNovo pull-right"/>
-                <p:dataTable value="#{valorCaracteristicaMB.getAllByIdCaracteristica(caracteristicaMB.caracteristica.id)}" var="umValor">
+                <h:commandButton action="#{valorCaracteristicaMB.novo(caracteristicaMB)}" value="Cadastrar novo Valor de característica" class="btn btn-success btnNovo pull-right"/>
+                <p:dataTable value="#{caracteristicaMB.caracteristica.listaValorCaracteristica}" var="umValor">
                     <p:column headerText="Valor Característica" width="30">
                         <h:outputText value="#{umValor.nome}" />                             
                     </p:column>    

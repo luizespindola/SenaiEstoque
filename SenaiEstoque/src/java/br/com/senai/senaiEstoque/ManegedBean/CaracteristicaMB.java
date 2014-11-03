@@ -6,6 +6,7 @@
 package br.com.senai.senaiEstoque.ManegedBean;
 
 import br.com.senai.senaiEstoque.controller.CaracteristicaController;
+import br.com.senai.senaiEstoque.controller.ValorCaracteristicaController;
 import br.com.senai.senaiEstoque.entity.Caracteristica;
 import java.io.Serializable;
 import java.util.List;
@@ -23,6 +24,7 @@ import javax.faces.context.FacesContext;
 public class CaracteristicaMB implements Serializable {
 
     private Caracteristica caracteristica = new Caracteristica();
+    
 
     public Caracteristica getCaracteristica() {
         return caracteristica;
@@ -73,8 +75,12 @@ public class CaracteristicaMB implements Serializable {
         return "listCaracteristica.xhtml";
     }
     
-    public String listValorCaracterisica(int id) {
+    public String listValorCaracterisica(Caracteristica caracteristica,Integer id) {
+        ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
+        this.caracteristica=caracteristica;
+        caracteristica.setListaValorCaracteristica(valorCaracteristicaController.getAllByIdCaracteristica(id));
         return "listValorCaracteristica.xhtml";
     }
+    
 
 }
