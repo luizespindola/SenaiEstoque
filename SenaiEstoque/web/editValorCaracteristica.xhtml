@@ -15,14 +15,15 @@
         <div id="mensagemDeErro">
             <p:messages id="mensagem"  autoUpdate="true" closable="true" /> 
         </div>
-        <div><h4>Cadastro de valores para:<h:outputText value="#{caracteristicaMB.caracteristica.nome}"/></h4></div>
         <h:form id="formValorCaracteristica">
-            <h:panelGrid columns="2">
-                <h:outputLabel value="Valor Caracteristica" for="valor" />
-                <h:inputText id="valor" value="#{valorCaracteristicaMB.valorCaracteristica.nome}" required="true" requiredMessage="Preencha o campo valor caracteristica" />
-                <h:commandButton class="btn btn-success" value="Salvar" action="#{valorCaracteristicaMB.insert}"/>
-                <a class="btn btn-primary" href="javascript:history.go(-1)">Voltar</a>
-            </h:panelGrid>
+            <div class="divTituloPanel"><h:outputText value="Cadastro de valores para a característica: #{caracteristicaMB.caracteristica.nome}"/></div>
+            <div class="divPanel">
+                <h:panelGrid columns="2" cellpadding="5">
+                    <h:outputLabel  value="Valor Caracteristica:" for="valor" />
+                    <h:inputText id="valor" value="#{valorCaracteristicaMB.valorCaracteristica.nome}" required="true" requiredMessage="Preencha o campo valor caracteristica" class="input-medium"/>
+                    <h:commandButton  class="btn btn-success" value="Salvar" action="#{valorCaracteristicaMB.insert}" style="margin-top: -10px"/>
+                </h:panelGrid>
+            </div>
 
             <p:dataTable value="#{valorCaracteristicaMB.getAllByIdCaracteristica(caracteristicaMB.caracteristica.id)}" var="umValorCaracteristica">
                 <p:column headerText="Características de #{caracteristicaMB.caracteristica.nome}" width="30">
@@ -38,7 +39,7 @@
                         <f:setPropertyActionListener target="#{ValorCaracteristicaMB.valorCaracteristica}" value="#{umValorCaracteristica}" />                        
                     </h:commandButton>
                 </p:column>                    
-            </p:dataTable>
+            </p:dataTable>         
         </h:form>
 
 

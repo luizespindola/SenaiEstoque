@@ -19,6 +19,25 @@
     margin-bottom: 5px;
 }
 
+.divPanel {
+    border: 1px #a8a8a8 solid;
+    margin-bottom: 15px;
+}
+.divTituloPanel{
+    border:1px #a8a8a8 solid;
+    border-bottom: 0px;
+    background: #c4c4c4 url("/SenaiEstoque/javax.faces.resource/images/ui-bg_highlight-hard_80_c4c4c4_1x100.png.xhtml?ln=primefaces-aristo") 50% 50% repeat-x;
+    padding: 4px;
+
+    font-weight: bold;
+    color: #4f4f4f;
+    text-shadow: 0px 1px 0px rgba(255,255,255,0.7);
+    font-size: medium;
+    font-variant: normal;
+    font-style: normal;
+    font-family: Arial,sans-serif;
+}
+
 
 
 
