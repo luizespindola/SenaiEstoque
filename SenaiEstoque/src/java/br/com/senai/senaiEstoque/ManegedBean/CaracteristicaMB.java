@@ -24,7 +24,6 @@ import javax.faces.context.FacesContext;
 public class CaracteristicaMB implements Serializable {
 
     private Caracteristica caracteristica = new Caracteristica();
-    
 
     public Caracteristica getCaracteristica() {
         return caracteristica;
@@ -55,6 +54,7 @@ public class CaracteristicaMB implements Serializable {
     }
 
     public String delete() {
+        
         CaracteristicaController caracteristicaController = new CaracteristicaController();
 
         if (caracteristicaController.delete(caracteristica) == true) {
@@ -74,13 +74,17 @@ public class CaracteristicaMB implements Serializable {
     public String listCaracterisica() {
         return "listCaracteristica.xhtml";
     }
-    
-    public String listValorCaracterisica(Caracteristica caracteristica,Integer id) {
+
+    public String listValorCaracterisica(Caracteristica caracteristica, Integer id) {
         ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
-        this.caracteristica=caracteristica;
+        this.caracteristica = caracteristica;
         caracteristica.setListaValorCaracteristica(valorCaracteristicaController.getAllByIdCaracteristica(id));
         return "listValorCaracteristica.xhtml";
     }
-    
+
+    public void listValorCaracterisica() {
+        ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
+        caracteristica.setListaValorCaracteristica(valorCaracteristicaController.getAllByIdCaracteristica(this.caracteristica.getId()));
+    }
 
 }

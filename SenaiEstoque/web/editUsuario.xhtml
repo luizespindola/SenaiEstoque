@@ -9,25 +9,43 @@
                 >  
 
     <ui:define name="Conteudo"> 
+
+        <!-- Titulo -->
         <div class="row-fluid tituloCategoria">
             <h1>Cadastro de Usuário</h1>
-        </div>
+        </div><!-- /Titulo -->
+
+        <!-- Mensagens -->
         <div id="mensagemDeErro">
             <p:messages id="mensagem"  autoUpdate="true" closable="true" /> 
-        </div>
-        <h:form id="formCor">
-            <h:panelGrid columns="2">
-                <h:outputLabel value="Nome" for="nome" />
-                <h:inputText id="nome" value="#{usuarioMB.loginHolder.nome}" required="true" requiredMessage="Preencha o campo nome" />
-                <h:outputLabel value="Login" for="login" />
-                <h:inputText id="login" value="#{usuarioMB.loginHolder.login}" required="true" requiredMessage="Preencha o campo login" />
-                <h:outputLabel value="Senha" for="senha" />
-                <h:inputSecret id="senha" value="#{usuarioMB.loginHolder.senha}" required="true" requiredMessage="Preencha o campo senha" />
-                <h:outputLabel value="Re-senha" for="resenha" />
-                <h:inputSecret id="resenha" value="#{usuarioMB.loginHolder.resenha}" required="true" requiredMessage="Preencha o campo re-senha" />
-                <h:commandButton class="btn btn-success" value="Salvar" action="#{usuarioMB.insert}"/>
-                <a class="btn btn-primary" href="javascript:history.go(-1)">Voltar</a>
-            </h:panelGrid>
-        </h:form>
+        </div><!-- /Mensagens -->
+
+        <!-- Formulário -->
+        <div class="row-fluid">
+            <h:form id="formCor">
+                <div class="divTituloPanel">
+                    <h:outputText value="Novo Usuário"/>
+                </div>                
+                <div class="divPanel">
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputLabel value="Nome" for="nome" />
+                        <h:inputText id="nome" value="#{usuarioMB.loginHolder.nome}" required="true" requiredMessage="Preencha o campo nome" class="input-medium" />
+                        <h:outputLabel value="Login" for="login" />
+                        <h:inputText id="login" value="#{usuarioMB.loginHolder.login}" required="true" requiredMessage="Preencha o campo login" class="input-medium" />
+                        <h:outputLabel value="Senha" for="senha" />
+                        <h:inputSecret id="senha" value="#{usuarioMB.loginHolder.senha}" required="true" requiredMessage="Preencha o campo senha" class="input-medium" />
+                        <h:outputLabel value="Re-senha" for="resenha" />
+                        <h:inputSecret id="resenha" value="#{usuarioMB.loginHolder.resenha}" required="true" requiredMessage="Preencha o campo re-senha" class="input-medium" />
+                        <h:commandButton class="btn btn-success btnSalvar" value="Salvar" action="#{usuarioMB.insert}"/>
+                    </h:panelGrid>
+                </div>
+            </h:form>
+        </div> <!-- Formulário -->
+
+        <!-- Botão voltar -->
+        <div class="row-fluid" id="divBtnVoltar">
+            <a href="listUsuario.xhtml" class="btn"><img src="assets/imagem/icon/voltar.png"/> Voltar para a lista de usuários</a>
+        </div> <!-- /Botão voltar -->
+
     </ui:define> 
 </ui:composition>  

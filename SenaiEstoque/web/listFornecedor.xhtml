@@ -10,12 +10,20 @@
 
     <ui:define name="Conteudo">  
 
-        <div class="row-fluid span8">
+        <!-- Titulo -->
+        <div class="row-fluid tituloCategoria">
+            <h1>Fornecedores</h1>
+        </div><!-- /Titulo -->
+
+        <!-- Formulário/Lista -->
+        <div class="row-fluid">
             <h:form>  
-                <div class="row-fluid tituloCategoria">
-                    <h1>Fornecedores</h1>
-                </div>
-                <h:commandButton action="#{fornecedorMB.novo}" value="Cadastrar novo fornecedor" class="btn btn-success btnNovo pull-right"/>
+                <!-- Botão adicionar novo -->
+                <div class="row-fluid">
+                    <h:commandButton action="#{fornecedorMB.novo}" value="Cadastrar novo fornecedor" class="btn btn-success btnNovo pull-right"/>
+                </div><!-- /Botão adicionar novo -->
+
+                <!-- Lista -->
                 <p:dataTable value="#{fornecedorMB.all}" var="umFornecedor">
                     <p:column headerText="Fornecedor" width="30">
                         <h:outputText value="#{umFornecedor.nome}" />                             
@@ -30,7 +38,7 @@
                         <h:outputText value="#{umFornecedor.observacao}" />                             
                     </p:column> 
 
-                    <p:column headerText="Ações" style="width: 80px">
+                    <p:column headerText="Ações" style="width: 10%">
                         <h:commandButton action="#{fornecedorMB.editar}" value="Editar" image="assets/imagem/icon/editar-b.png"  class="btn btn-success" style="margin-right: 5px">
                             <f:setPropertyActionListener target="#{fornecedorMB.fornecedor}" value="#{umFornecedor}" />                        
                         </h:commandButton>
@@ -39,10 +47,14 @@
                         </h:commandButton>
 
                     </p:column>                    
-                </p:dataTable>
+                </p:dataTable>  <!-- Lista -->
             </h:form>
-        </div>
-        <div class="row-fluid span4"></div>
+        </div> <!-- /Formulário/Lista -->
+        
+        <!-- Botão voltar -->
+        <div class="row-fluid" id="divBtnVoltar">
+            <a href="javascript:window.history.go(-1)" class="btn"><img src="assets/imagem/icon/voltar.png"/> Voltar</a>
+        </div> <!-- /Botão voltar -->
     </ui:define> 
 
 </ui:composition>  

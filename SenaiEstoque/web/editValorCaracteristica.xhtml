@@ -7,42 +7,38 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns="http://www.w3.org/1999/xhtml"
                 >  
-
+    <!-- Conteudo -->
     <ui:define name="Conteudo"> 
+        <!-- Titulo -->
         <div class="row-fluid tituloCategoria">
             <h1>Cadastro de Valores de Característica</h1>
-        </div>
+        </div><!-- /Titulo -->
+
+        <!-- Mensagen -->
         <div id="mensagemDeErro">
             <p:messages id="mensagem"  autoUpdate="true" closable="true" /> 
-        </div>
-        <h:form id="formValorCaracteristica">
-            <div class="divTituloPanel"><h:outputText value="Cadastro de valores para a característica: #{caracteristicaMB.caracteristica.nome}"/></div>
-            <div class="divPanel">
-                <h:panelGrid columns="2" cellpadding="5">
-                    <h:outputLabel  value="Valor Caracteristica:" for="valor" />
-                    <h:inputText id="valor" value="#{valorCaracteristicaMB.valorCaracteristica.nome}" required="true" requiredMessage="Preencha o campo valor caracteristica" class="input-medium"/>
-                    <h:commandButton  class="btn btn-success" value="Salvar" action="#{valorCaracteristicaMB.insert}" style="margin-top: -10px"/>
-                </h:panelGrid>
-            </div>
+        </div><!-- /Mensagen -->
 
-            <p:dataTable value="#{valorCaracteristicaMB.getAllByIdCaracteristica(caracteristicaMB.caracteristica.id)}" var="umValorCaracteristica">
-                <p:column headerText="Características de #{caracteristicaMB.caracteristica.nome}" width="30">
-                    <p:inplace id="ajax" editor="true">
-                        <p:inputText value="#{umValorCaracteristica.nome}" required="true" label="ValorCaracteristica.nome"/>
-                    </p:inplace>
-                </p:column>  
-                <p:column headerText="Ações" style="width: 80px">
-                    <h:commandButton action="#{ValorCaracteristicaMB.editar}" value="Editar" image="assets/imagem/icon/editar-b.png"  class="btn btn-success" style="margin-right: 5px">
-                        <f:setPropertyActionListener target="#{ValorCaracteristicaMB.valorCaracteristica}" value="#{umValorCaracteristica}" />                        
-                    </h:commandButton>
-                    <h:commandButton action="#{caracteristicaMB.delete}" value="Excluir" image="assets/imagem/icon/excluir-b.png" class="btn btn-danger">
-                        <f:setPropertyActionListener target="#{ValorCaracteristicaMB.valorCaracteristica}" value="#{umValorCaracteristica}" />                        
-                    </h:commandButton>
-                </p:column>                    
-            </p:dataTable>         
-        </h:form>
+        <!-- Formulário -->
+        <div class="row-fluid">
+            <h:form id="formValorCaracteristica">
+                <div class="divTituloPanel">
+                    <h:outputText value="Cadastro de valores para a característica: #{caracteristicaMB.caracteristica.nome}"/>
+                </div>                
+                <div class="divPanel">
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputLabel  value="Valor Caracteristica:" for="valor" />
+                        <h:inputText id="valor" value="#{valorCaracteristicaMB.valorCaracteristica.nome}" required="true" requiredMessage="Preencha o campo valor caracteristica" class="input-medium"/>
+                        <h:commandButton  class="btn btn-success btnSalvar" value="Salvar" action="#{valorCaracteristicaMB.insert}" />
+                    </h:panelGrid>
+                </div>
+            </h:form>
+        </div><!-- /Formulário -->
 
+        <!-- Botão voltar -->
+        <div class="row-fluid" id="divBtnVoltar">
+            <a href="listValorCaracteristica.xhtml" class="btn"><img src="assets/imagem/icon/voltar.png"/> Voltar</a>
+        </div> <!-- /Botão voltar -->
 
-        <div id="DivbotaoFinalizar"><a href="#{caracteristicaMB.listCaracterisica()}" class="btn btn-success">Finalizar</a></div>
-    </ui:define> 
+    </ui:define> <!-- /Conteudo -->
 </ui:composition> 

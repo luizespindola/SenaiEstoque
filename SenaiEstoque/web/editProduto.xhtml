@@ -9,9 +9,10 @@
                 >  
 
     <ui:define name="Conteudo"> 
+
         <!-- Titulo -->
         <div class="row-fluid tituloCategoria">
-            <h1>Cadastro de Fornecedor</h1>
+            <h1>Cadastro de Produto</h1>
         </div><!-- /Titulo -->
 
         <!-- Mensagens -->
@@ -23,19 +24,22 @@
         <div class="row-fluid">
             <h:form id="formFornecedor">
                 <div class="divTituloPanel">
-                    <h:outputText value="Novo Fornecedor"/>
+                    <h:outputText value="Novo Produto"/>
                 </div>                
                 <div class="divPanel">
                     <h:panelGrid columns="2">
-                        <h:outputLabel value="Fornecedor" for="nome" />
-                        <h:inputText id="nome" value="#{fornecedorMB.fornecedor.nome}" required="true" requiredMessage="Preencha o campo fornecedor" class="input-medium" />
-                        <h:outputLabel value="E-mail" for="email" />
-                        <h:inputText id="email" value="#{fornecedorMB.fornecedor.email}" required="true" requiredMessage="Preencha o campo e-mail" class="input-medium" />
+                        <h:outputLabel value="Nome" for="nome" />
+                        <h:inputText id="nome" value="#{produtoMB.produto.nome}" required="true" requiredMessage="Preencha o campo Nome do produto" class="input-medium" />
+                        <h:outputLabel value="Código" for="codigo" />
+                        <h:inputText id="codigo" value="#{produtoMB.produto.codigo}" required="true" requiredMessage="Preencha o campo código" class="input-medium" />
                         <h:outputLabel value="Site" for="site" />
-                        <h:inputText id="site" value="#{fornecedorMB.fornecedor.site}" required="true" requiredMessage="Preencha o campo site" class="input-medium" />
-                        <h:outputLabel value="Observação" for="observacao" />
-                        <h:inputTextarea id="observacao" value="#{fornecedorMB.fornecedor.observacao}" required="true" requiredMessage="Preencha o campo observação" class="input-medium" />
-                        <h:commandButton class="btn btn-success" value="Salvar" action="#{fornecedorMB.insert}"/>
+
+                        <p:selectOneMenu effect="fade" value="Fornecedor">
+                            <f:selectItem itemLabel="Fornecedores..." itemValue="" />
+                            <f:selectItems value="#{fornecedorMB.all}" var="fornecedor" itemLabel="#{fornecedor.nome}" itemValue="#{fornecedor.id}"  />
+                        </p:selectOneMenu>
+
+                        <h:commandButton class="btn btn-success" value="Salvar" action="#{produtoMB.insert}"/>
                     </h:panelGrid>
                 </div>
             </h:form>

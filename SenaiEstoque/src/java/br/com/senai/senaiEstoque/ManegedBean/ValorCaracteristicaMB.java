@@ -27,8 +27,6 @@ import javax.faces.context.FacesContext;
 public class ValorCaracteristicaMB implements Serializable {
 
     private ValorCaracteristica valorCaracteristica = new ValorCaracteristica();
-    
-    
 
     public ValorCaracteristica getValorCaracteristica() {
         return valorCaracteristica;
@@ -57,12 +55,10 @@ public class ValorCaracteristicaMB implements Serializable {
         }
         valorCaracteristica = new ValorCaracteristica();
 
-        return "editValorCaracteristica.xhtml";
+        return "listValorCaracteristica.xhtml";
     }
 
     public String novo(CaracteristicaMB caracteristicaMB) {
-        
-        
         valorCaracteristica = new ValorCaracteristica();
         return "editValorCaracteristica.xhtml";
     }
@@ -94,5 +90,5 @@ public class ValorCaracteristicaMB implements Serializable {
         ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
         return valorCaracteristicaController.getAllByIdCaracteristica(id);
     }
-    
+
 }
