@@ -34,12 +34,17 @@
                         <h:inputText id="codigo" value="#{produtoMB.produto.codigo}" required="true" requiredMessage="Preencha o campo código" class="input-medium" />
                         <h:outputLabel value="Site" for="site" />
 
-                        <p:selectOneMenu effect="fade" value="Fornecedor">
-                            <f:selectItem itemLabel="Fornecedores..." itemValue="" />
-                            <f:selectItems value="#{fornecedorMB.all}" var="fornecedor" itemLabel="#{fornecedor.nome}" itemValue="#{fornecedor.id}"  />
+                        Fornecedor 
+                        <p:selectOneMenu value="#{produtoMB.produto.fornecedor}">                   
+
+                            <f:converter converterId="fornecedorConverter" />
+                            <f:selectItems value="#{fornecedorMB.all}"
+                                           var="umFornecedor"
+                                           itemLabel="#{umFornecedor.nome}"
+                                           itemValue="#{umFornecedor}"/>
                         </p:selectOneMenu>
 
-                        <h:commandButton class="btn btn-success" value="Salvar" action="#{produtoMB.insert}"/>
+                        <h:commandButton class="" value="Salvar" action="#{produtoMB.insert}"/>
                     </h:panelGrid>
                 </div>
             </h:form>

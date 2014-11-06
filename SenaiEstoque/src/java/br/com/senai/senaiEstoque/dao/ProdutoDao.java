@@ -26,7 +26,7 @@ public class ProdutoDao {
         }catch(Exception ex){
             return false;
         }finally{
-            session.close();
+         //   session.close();
         }
         return true;
     }
@@ -36,7 +36,7 @@ public class ProdutoDao {
         session.getTransaction().begin();
         session.delete(produto);
         session.getTransaction().commit();
-        session.close();
+     //   session.close();
         return  true;
     }
 
@@ -46,7 +46,7 @@ public class ProdutoDao {
         session.getTransaction().begin();
         produto = (Produto) session.get(Produto.class, id);
         session.getTransaction().commit();
-        session.close();
+      //  session.close();
         return produto;
     }
 
