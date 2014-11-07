@@ -111,23 +111,23 @@ public class Teste {
         ProdutoDao produtoDao = new ProdutoDao();
         produtoDao.insert(produto);
 
-        Entrada entrada = new Entrada();
-        entrada.setQuantidade(100);
-        entrada.setData(new Date());
-        entrada.getListaProduto().add(produto);
-        EntradaDao entradaDao = new EntradaDao();
-        entradaDao.insert(entrada);
-
-        produto.getListaEntradas().add(entrada);
-        produto.getListaCaracteristicas().add(caracteristica);
-        produtoDao.insert(produto);
-
-        Saida saida = new Saida();
-        saida.setData(new Date());
-        saida.setQuantidade(100);
-        saida.getListaProduto().add(produto);
-        SaidaDao saidaDao = new SaidaDao();
-        saidaDao.insert(saida);
+//        Entrada entrada = new Entrada();
+//        entrada.setQuantidade(100);
+//        entrada.setData(new Date());
+//        entrada.getListaProduto().add(produto);
+//        EntradaDao entradaDao = new EntradaDao();
+//        entradaDao.insert(entrada);
+//
+//        produto.getListaEntradas().add(entrada);
+//        produto.getListaCaracteristicas().add(caracteristica);
+//        produtoDao.insert(produto);
+//
+//        Saida saida = new Saida();
+//        saida.setData(new Date());
+//        saida.setQuantidade(100);
+//        saida.getListaProduto().add(produto);
+//        SaidaDao saidaDao = new SaidaDao();
+//        saidaDao.insert(saida);
     }
 
 }
