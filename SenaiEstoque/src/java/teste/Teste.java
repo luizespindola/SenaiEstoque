@@ -7,7 +7,6 @@ package teste;
 
 import br.com.senai.senaiEstoque.controller.UsuarioController;
 import br.com.senai.senaiEstoque.dao.CaracteristicaDao;
-import br.com.senai.senaiEstoque.dao.CorDao;
 import br.com.senai.senaiEstoque.dao.EntradaDao;
 import br.com.senai.senaiEstoque.dao.FornecedorDao;
 import br.com.senai.senaiEstoque.dao.FotoDao;
@@ -18,7 +17,6 @@ import br.com.senai.senaiEstoque.dao.SaidaDao;
 import br.com.senai.senaiEstoque.dao.TipoUsuarioDao;
 import br.com.senai.senaiEstoque.dao.ValorCaracteristicaDao;
 import br.com.senai.senaiEstoque.entity.Caracteristica;
-import br.com.senai.senaiEstoque.entity.Cor;
 import br.com.senai.senaiEstoque.entity.Entrada;
 import br.com.senai.senaiEstoque.entity.Fornecedor;
 import br.com.senai.senaiEstoque.entity.Foto;
@@ -87,10 +85,7 @@ public class Teste {
         FotoDao fotoDao = new FotoDao();
         fotoDao.insert(foto);
 
-        Cor cor = new Cor();
-        cor.setNome("Preto");
-        CorDao corDao = new CorDao();
-        corDao.insert(cor);
+
 
         Fornecedor fornecedor = new Fornecedor();
         fornecedor.setNome("daas");
@@ -112,7 +107,6 @@ public class Teste {
         produto.setQuantidade(1000);
         produto.setFoto(foto);
         produto.setFornecedor(fornecedor);
-        produto.setCor(cor);
         produto.setMarca(marca);
         ProdutoDao produtoDao = new ProdutoDao();
         produtoDao.insert(produto);

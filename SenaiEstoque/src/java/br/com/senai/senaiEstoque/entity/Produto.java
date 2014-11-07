@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.senai.senaiEstoque.entity;
 
 import java.io.Serializable;
@@ -24,8 +23,8 @@ import javax.persistence.OneToOne;
  * @author luiz_espindola
  */
 @Entity
-public class Produto implements Serializable{
-    
+public class Produto implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -33,20 +32,18 @@ public class Produto implements Serializable{
     private Integer codigo;
     private Double precoCusto;
     private Integer quantidade;
-    @OneToOne(mappedBy = "produto" ,cascade = {CascadeType.ALL})
+    @OneToOne(mappedBy = "produto", cascade = {CascadeType.ALL})
     private Foto foto;
-    @OneToOne(mappedBy = "produto",cascade = {CascadeType.ALL})
-    private Cor cor;
-    @OneToOne(mappedBy = "produto",cascade = {CascadeType.ALL})
+    @OneToOne(mappedBy = "produto", cascade = {CascadeType.ALL})
     private Fornecedor fornecedor;
-    @OneToOne(mappedBy = "produto",cascade = {CascadeType.ALL})
+    @OneToOne(mappedBy = "produto", cascade = {CascadeType.ALL})
     private Marca marca;
-    @ManyToMany (mappedBy = "listaProduto",cascade = {CascadeType.ALL})
-    private List<Saida> listaSaida=new ArrayList<Saida>();
-    @ManyToMany (mappedBy = "listaProduto",cascade = {CascadeType.ALL})
-    private List<Entrada> listaEntradas=new ArrayList<Entrada>();
-    @ManyToMany (mappedBy = "listaProduto",cascade = {CascadeType.ALL})
-    private List<Caracteristica> listaCaracteristicas=new ArrayList<Caracteristica>();
+    @ManyToMany(mappedBy = "listaProduto", cascade = {CascadeType.ALL})
+    private List<Saida> listaSaida = new ArrayList<Saida>();
+    @ManyToMany(mappedBy = "listaProduto", cascade = {CascadeType.ALL})
+    private List<Entrada> listaEntradas = new ArrayList<Entrada>();
+    @ManyToMany(mappedBy = "listaProduto", cascade = {CascadeType.ALL})
+    private List<Caracteristica> listaCaracteristicas = new ArrayList<Caracteristica>();
 
     public Integer getId() {
         return id;
@@ -96,14 +93,6 @@ public class Produto implements Serializable{
         this.foto = foto;
     }
 
-    public Cor getCor() {
-        return cor;
-    }
-
-    public void setCor(Cor cor) {
-        this.cor = cor;
-    }
-
     public Fornecedor getFornecedor() {
         return fornecedor;
     }
@@ -119,7 +108,7 @@ public class Produto implements Serializable{
     public void setMarca(Marca marca) {
         this.marca = marca;
     }
-    
+
     public List<Saida> getListaSaida() {
         return listaSaida;
     }
@@ -143,7 +132,5 @@ public class Produto implements Serializable{
     public void setListaCaracteristicas(List<Caracteristica> listaCaracteristicas) {
         this.listaCaracteristicas = listaCaracteristicas;
     }
-    
-    
-    
+
 }

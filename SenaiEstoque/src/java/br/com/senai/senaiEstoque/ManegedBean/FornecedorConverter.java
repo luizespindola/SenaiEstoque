@@ -1,3 +1,5 @@
+package br.com.senai.senaiEstoque.ManegedBean;
+
 
 import br.com.senai.senaiEstoque.controller.FornecedorController;
 import br.com.senai.senaiEstoque.entity.Fornecedor;

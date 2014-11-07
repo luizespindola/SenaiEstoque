@@ -32,18 +32,25 @@
                         <h:inputText id="nome" value="#{produtoMB.produto.nome}" required="true" requiredMessage="Preencha o campo Nome do produto" class="input-medium" />
                         <h:outputLabel value="Código" for="codigo" />
                         <h:inputText id="codigo" value="#{produtoMB.produto.codigo}" required="true" requiredMessage="Preencha o campo código" class="input-medium" />
-                        <h:outputLabel value="Site" for="site" />
-
-                        Fornecedor 
-                        <p:selectOneMenu value="#{produtoMB.produto.fornecedor}">                   
-
+                        <h:outputLabel value="Quantidade" for="quantidade" />
+                        <h:inputText id="quantidade" value="#{produtoMB.produto.quantidade}" required="true" requiredMessage="Preencha o campo quantidade" class="input-medium" />
+                        <h:outputLabel value="Fornecedor" for="fornecedor" />
+                        <p:selectOneMenu id="fornecedor" value="#{produtoMB.produto.fornecedor}">                   
                             <f:converter converterId="fornecedorConverter" />
                             <f:selectItems value="#{fornecedorMB.all}"
                                            var="umFornecedor"
                                            itemLabel="#{umFornecedor.nome}"
-                                           itemValue="#{umFornecedor}"/>
+                                           itemValue="#{umFornecedor}"
+                                           />
                         </p:selectOneMenu>
-
+                        <h:outputLabel value="Marca" for="marca" />
+                        <p:selectOneMenu id="marca" value="#{produtoMB.produto.marca}">                   
+                            <f:selectItems value="#{marcaMB.all}"
+                                           var="umaMarca"
+                                           itemLabel="#{umaMarca.nome}"
+                                           itemValue="#{umaMarca}"
+                                           />
+                        </p:selectOneMenu>
                         <h:commandButton class="" value="Salvar" action="#{produtoMB.insert}"/>
                     </h:panelGrid>
                 </div>
