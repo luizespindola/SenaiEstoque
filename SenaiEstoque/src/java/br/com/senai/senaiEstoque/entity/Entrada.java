@@ -6,14 +6,12 @@
 package br.com.senai.senaiEstoque.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -29,8 +27,8 @@ public class Entrada implements Serializable{
     private Integer quantidade;
     @Temporal(TemporalType.DATE)
     private Date dataEntrada;
-    @ManyToMany
-    private List<Produto> listaProduto=new ArrayList<Produto>();
+    @ManyToOne
+    private Produto produto=new Produto();
 
     public Integer getId() {
         return id;
@@ -48,22 +46,20 @@ public class Entrada implements Serializable{
         this.quantidade = quantidade;
     }
 
-    public Date getData() {
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }    
+
+    public Date getDataEntrada() {
         return dataEntrada;
     }
 
-    public void setData(Date dataEntrada) {
+    public void setDataEntrada(Date dataEntrada) {
         this.dataEntrada = dataEntrada;
     }
-
-    public List<Produto> getListaProduto() {
-        return listaProduto;
-    }
-
-    public void setListaProduto(List<Produto> listaProduto) {
-        this.listaProduto = listaProduto;
-    }
-    
-    
     
 }
