@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -36,12 +37,12 @@ public class Produto implements Serializable {
     private Fornecedor fornecedor;
     @OneToOne(mappedBy = "produto", cascade = {CascadeType.ALL})
     private Marca marca;
-    @OneToMany (mappedBy = "produto",cascade = {CascadeType.ALL})
-    private List<Saida> listaSaida=new ArrayList<Saida>();
-    @OneToMany (mappedBy = "produto",cascade = {CascadeType.ALL})
-    private List<Entrada> listaEntradas=new ArrayList<Entrada>();
-    @OneToMany (mappedBy = "listaProduto",cascade = {CascadeType.ALL})
-    private List<Caracteristica> listaCaracteristicas=new ArrayList<Caracteristica>();
+    @OneToMany(mappedBy = "produto", cascade = {CascadeType.ALL})
+    private List<Saida> listaSaida = new ArrayList<Saida>();
+    @OneToMany(mappedBy = "produto", cascade = {CascadeType.ALL})
+    private List<Entrada> listaEntradas = new ArrayList<Entrada>();
+    @ManyToMany(mappedBy = "listaProduto", cascade = {CascadeType.ALL})
+    private List<Caracteristica> listaCaracteristicas = new ArrayList<Caracteristica>();
 
     public Integer getId() {
         return id;
