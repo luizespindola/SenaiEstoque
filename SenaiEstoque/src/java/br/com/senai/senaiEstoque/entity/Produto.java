@@ -40,7 +40,7 @@ public class Produto implements Serializable {
     @OneToMany(mappedBy = "produto", cascade = {CascadeType.ALL})
     private List<Saida> listaSaida = new ArrayList<Saida>();
     @OneToMany(mappedBy = "produto", cascade = {CascadeType.ALL})
-    private List<Entrada> listaEntradas = new ArrayList<Entrada>();
+    private List<Entrada> listaEntrada = new ArrayList<Entrada>();
     @ManyToMany(mappedBy = "listaProduto", cascade = {CascadeType.ALL})
     private List<Caracteristica> listaCaracteristicas = new ArrayList<Caracteristica>();
 
@@ -116,12 +116,12 @@ public class Produto implements Serializable {
         this.listaSaida = listaSaida;
     }
 
-    public List<Entrada> getListaEntradas() {
-        return listaEntradas;
+    public List<Entrada> getListaEntrada() {
+        return listaEntrada;
     }
 
-    public void setListaEntradas(List<Entrada> listaEntradas) {
-        this.listaEntradas = listaEntradas;
+    public void setListaEntrada(List<Entrada> listaEntrada) {
+        this.listaEntrada = listaEntrada;
     }
 
     public List<Caracteristica> getListaCaracteristicas() {

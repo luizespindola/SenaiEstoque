@@ -29,14 +29,16 @@
                     <h:panelGrid columns="2" cellpadding="5">
                         <h:outputLabel value="Quantidade" for="quantidade" />
                         <h:inputText id="quantidade" value="#{entradaMB.entrada.quantidade}" required="true" requiredMessage="Preencha o campo quantidade" class="input-medium" />
-                        Produto 
-                        <p:selectOneMenu value="#{entradaMB.entrada.produto}">                   
-                            <f:converter converterId="fornecedorConverter" />
-                            <f:selectItems value="#{fornecedorMB.all}"
-                                           var="umFornecedor"
-                                           itemLabel="#{umFornecedor.nome}"
-                                           itemValue="#{umFornecedor}"/>
+                        <h:outputLabel value="Produto" for="produto" />
+                        <p:selectOneMenu id="produto" value="#{entradaMB.entrada.produto}">                   
+                            <f:converter converterId="produtoConverter" />
+                            <f:selectItems value="#{produtoMB.all}"
+                                           var="umProduto"
+                                           itemLabel="#{umProduto.nome}"
+                                           itemValue="#{umProduto}"/>
                         </p:selectOneMenu>
+                        <h:outputLabel value="Data da entrada" for="dataEntrada" />
+                        <p:calendar id="dataEntrada" value="#{entradaMB.entrada.dataEntrada}" showOn="button" />
                         <h:commandButton class="btn btn-success btnSalvar" value="Salvar" action="#{entradaMB.insert}"/>
                     </h:panelGrid>
                 </div>

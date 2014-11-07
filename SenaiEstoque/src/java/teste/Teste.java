@@ -99,7 +99,7 @@ public class Teste {
         marca.setNome("daq");
         MarcaDao marcaDao = new MarcaDao();
         marcaDao.insert(marca);
-
+        
         Produto produto = new Produto();
         produto.setCodigo(12345);
         produto.setNome("ventilador");
@@ -108,26 +108,24 @@ public class Teste {
         produto.setFoto(foto);
         produto.setFornecedor(fornecedor);
         produto.setMarca(marca);
+        produto.getListaCaracteristicas().add(caracteristica);
         ProdutoDao produtoDao = new ProdutoDao();
         produtoDao.insert(produto);
-
-//        Entrada entrada = new Entrada();
-//        entrada.setQuantidade(100);
-//        entrada.setData(new Date());
-//        entrada.getListaProduto().add(produto);
-//        EntradaDao entradaDao = new EntradaDao();
-//        entradaDao.insert(entrada);
-//
-//        produto.getListaEntradas().add(entrada);
-//        produto.getListaCaracteristicas().add(caracteristica);
-//        produtoDao.insert(produto);
-//
-//        Saida saida = new Saida();
-//        saida.setData(new Date());
-//        saida.setQuantidade(100);
-//        saida.getListaProduto().add(produto);
-//        SaidaDao saidaDao = new SaidaDao();
-//        saidaDao.insert(saida);
+               
+        Entrada entrada = new Entrada();
+        entrada.setQuantidade(100);
+        entrada.setDataEntrada(new Date());
+        entrada.setProduto(produto);
+        EntradaDao entradaDao = new EntradaDao();
+        entradaDao.insert(entrada);
+        
+        
+        Saida saida = new Saida();
+        saida.setDataSaida(new Date());
+        saida.setQuantidade(100);
+        saida.setProduto(produto);
+        SaidaDao saidaDao = new SaidaDao();
+        saidaDao.insert(saida);
     }
 
 }

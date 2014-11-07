@@ -7,6 +7,7 @@ package br.com.senai.senaiEstoque.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,7 +29,7 @@ public class Entrada implements Serializable{
     @Temporal(TemporalType.DATE)
     private Date dataEntrada;
     @ManyToOne
-    private Produto produto=new Produto();
+    private Produto produto;
 
     public Integer getId() {
         return id;

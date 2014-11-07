@@ -41,6 +41,9 @@ public class EntradaController {
         return entradaDao.getAll();
     }
     
+    public List<Entrada> getAllByIdCaracteristica(Integer id) {
+        return entradaDao.getAllByIdCaracteristica(id);
+    }
 }
 
     

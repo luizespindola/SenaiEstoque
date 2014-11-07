@@ -28,7 +28,7 @@ public class Saida implements Serializable{
     @Temporal(TemporalType.DATE)
     private Date dataSaida;
     @ManyToOne
-    private Produto produto=new Produto();
+    private Produto produto;
 
     public Integer getId() {
         return id;
