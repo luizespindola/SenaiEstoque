@@ -22,7 +22,7 @@
 
         <!-- Formulário -->
         <div class="row-fluid">
-            <h:form id="formFornecedor">
+            <h:form id="formFornecedor" enctype="multipart/form-data">
                 <div class="divTituloPanel">
                     <h:outputText value="Novo Produto"/>
                 </div>                
@@ -51,6 +51,8 @@
                                            itemValue="#{umaMarca}"
                                            />
                         </p:selectOneMenu>
+
+                       
                         <h:commandButton class="btn btn-success" value="Salvar" action="#{produtoMB.insert}"/>
                     </h:panelGrid>
                 </div>
