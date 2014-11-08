@@ -22,7 +22,7 @@
 
         <!-- Formulário -->
         <div class="row-fluid">
-            <h:form id="formFornecedor">
+            <h:form id="formProduto">
                 <div class="divTituloPanel">
                     <h:outputText value="Novo Produto"/>
                 </div>                
@@ -44,7 +44,8 @@
                                            />
                         </p:selectOneMenu>
                         <h:outputLabel value="Marca" for="marca" />
-                        <p:selectOneMenu id="marca" value="#{produtoMB.produto.marca}">                   
+                        <p:selectOneMenu id="marca" value="#{produtoMB.produto.marca}">   
+                            <f:converter converterId="marcaConverter" />
                             <f:selectItems value="#{marcaMB.all}"
                                            var="umaMarca"
                                            itemLabel="#{umaMarca.nome}"

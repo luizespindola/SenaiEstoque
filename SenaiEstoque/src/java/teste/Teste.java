@@ -53,13 +53,13 @@ public class Teste {
         permissaoDao.insert(permissao);
 
         TipoUsuario tipoUsuario = new TipoUsuario();
-        tipoUsuario.setNome("fODAO");
+        tipoUsuario.setNome("FODAO");
         tipoUsuario.setPermissao(permissao);
         TipoUsuarioDao tipoUsuarioDao = new TipoUsuarioDao();
         tipoUsuarioDao.insert(tipoUsuario);
 
         Usuario usuario = new Usuario();
-        usuario.setNome("maria");
+        usuario.setNome("Luiz");
         usuario.setLogin("luiz");
         usuario.setSenha("luiz");
         usuario.setTipoUsuario(tipoUsuario);
@@ -69,34 +69,31 @@ public class Teste {
         System.out.println(controller.getAll());
 
         ValorCaracteristica valorCaracteristica = new ValorCaracteristica();
-        valorCaracteristica.setNome("wsws");
-        ValorCaracteristicaDao valorcaracteristicaDao = new ValorCaracteristicaDao();
-        valorcaracteristicaDao.insert(valorCaracteristica);
-        System.out.println(valorcaracteristicaDao.getAll().size());
+        valorCaracteristica.setNome("Preto");
         List<ValorCaracteristica> lista=new ArrayList<ValorCaracteristica>();
         lista.add(valorCaracteristica);
 
         Caracteristica caracteristica = new Caracteristica();
-        caracteristica.setNome("ddwdw");
+        caracteristica.setNome("Cor");
         caracteristica.setListaValorCaracteristica(lista);
         CaracteristicaDao caracteristicaDao = new CaracteristicaDao();
         caracteristicaDao.insert(caracteristica);
 
         Foto foto = new Foto();
-        foto.setEndereco("dadasa");
+        foto.setEndereco("foto1");
         FotoDao fotoDao = new FotoDao();
         fotoDao.insert(foto);
 
         Fornecedor fornecedor = new Fornecedor();
-        fornecedor.setNome("daas");
-        fornecedor.setEmail("dsa");
-        fornecedor.setSite("www");
-        fornecedor.setObservacao("dasqa");
+        fornecedor.setNome("fornecedor1");
+        fornecedor.setEmail("fornecedor1");
+        fornecedor.setSite("fornecedor1");
+        fornecedor.setObservacao("fornecedor1");
         FornecedorDao fornecedorDao = new FornecedorDao();
         fornecedorDao.insert(fornecedor);
 
         Marca marca = new Marca();
-        marca.setNome("daq");
+        marca.setNome("Marca1");
         MarcaDao marcaDao = new MarcaDao();
         marcaDao.insert(marca);
         

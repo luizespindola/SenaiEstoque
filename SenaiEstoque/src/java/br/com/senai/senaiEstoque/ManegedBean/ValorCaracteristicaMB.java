@@ -38,7 +38,6 @@ public class ValorCaracteristicaMB implements Serializable {
     public String insert() {
 
         ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
-        CaracteristicaController caracteristicaControler = new CaracteristicaController();
 
         FacesContext facesContext = FacesContext.getCurrentInstance();
         ELContext elContext = facesContext.getELContext();

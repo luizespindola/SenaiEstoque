@@ -7,6 +7,7 @@ package br.com.senai.senaiEstoque.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -61,5 +62,5 @@ public class Entrada implements Serializable{
     public void setDataEntrada(Date dataEntrada) {
         this.dataEntrada = dataEntrada;
     }
-    
+  
 }
