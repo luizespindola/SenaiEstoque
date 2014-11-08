@@ -29,7 +29,7 @@ public class Caracteristica implements Serializable {
     private String nome;
     @OneToMany(mappedBy = "caracteristica" ,cascade = {CascadeType.ALL})
     private List<ValorCaracteristica> listaValorCaracteristica = new ArrayList<ValorCaracteristica>();
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Produto> listaProduto = new ArrayList<Produto>();
 
     public Integer getId() {

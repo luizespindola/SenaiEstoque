@@ -6,6 +6,7 @@
 package br.com.senai.senaiEstoque.dao;
 
 import br.com.senai.senaiEstoque.entity.TipoUsuario;
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -50,9 +51,12 @@ public class TipoUsuarioDao {
     }
 
     public List<TipoUsuario> getAll() {
+        List<TipoUsuario> listaTipoUsuarios=new ArrayList<TipoUsuario>();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT t FROM TipoUsuario t");
-        return query.list();
+        listaTipoUsuarios=query.list();
+        session.close();
+        return listaTipoUsuarios;
     }
 
 }

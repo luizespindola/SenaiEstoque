@@ -6,6 +6,7 @@
 package br.com.senai.senaiEstoque.dao;
 
 import br.com.senai.senaiEstoque.entity.Foto;
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -50,9 +51,12 @@ public class FotoDao {
     }
 
     public List<Foto> getAll() {
+        List<Foto> listaFotos=new ArrayList<Foto>();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT f FROM Foto f");
-        return query.list();
+        listaFotos=query.list();
+        session.close();
+        return listaFotos;
     }
 
 }

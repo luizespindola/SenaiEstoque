@@ -64,7 +64,7 @@ public class Teste {
         usuario.setSenha("luiz");
         usuario.setTipoUsuario(tipoUsuario);
         UsuarioController controller = new UsuarioController();
-        //controller.insert(usuario);
+//        controller.insert(usuario);
 
         System.out.println(controller.getAll());
 
@@ -72,11 +72,13 @@ public class Teste {
         valorCaracteristica.setNome("wsws");
         ValorCaracteristicaDao valorcaracteristicaDao = new ValorCaracteristicaDao();
         valorcaracteristicaDao.insert(valorCaracteristica);
-          System.out.println(valorcaracteristicaDao.getAll().size());
+        System.out.println(valorcaracteristicaDao.getAll().size());
+        List<ValorCaracteristica> lista=new ArrayList<ValorCaracteristica>();
+        lista.add(valorCaracteristica);
 
         Caracteristica caracteristica = new Caracteristica();
         caracteristica.setNome("ddwdw");
-        caracteristica.getListaValorCaracteristica().add(valorCaracteristica);
+        caracteristica.setListaValorCaracteristica(lista);
         CaracteristicaDao caracteristicaDao = new CaracteristicaDao();
         caracteristicaDao.insert(caracteristica);
 
@@ -84,8 +86,6 @@ public class Teste {
         foto.setEndereco("dadasa");
         FotoDao fotoDao = new FotoDao();
         fotoDao.insert(foto);
-
-
 
         Fornecedor fornecedor = new Fornecedor();
         fornecedor.setNome("daas");
@@ -108,7 +108,8 @@ public class Teste {
         produto.setFoto(foto);
         produto.setFornecedor(fornecedor);
         produto.setMarca(marca);
-        produto.getListaCaracteristicas().add(caracteristica);
+        List<Caracteristica> listaCaracteristicas=new ArrayList<Caracteristica>();
+        produto.setListaCaracteristicas(listaCaracteristicas);
         ProdutoDao produtoDao = new ProdutoDao();
         produtoDao.insert(produto);
                

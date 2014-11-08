@@ -26,7 +26,7 @@ public class FornecedorDao {
         } catch (Exception ex) {
             return false;
         } finally {
-         //   session.close();
+           session.close();
         }
         return true;
     }
@@ -36,7 +36,7 @@ public class FornecedorDao {
         session.getTransaction().begin();
         session.delete(fornecedor);
         session.getTransaction().commit();
-     //   session.close();
+        session.close();
         return true;
     }
 
@@ -46,7 +46,7 @@ public class FornecedorDao {
         session.getTransaction().begin();
         fornecedor = (Fornecedor) session.get(Fornecedor.class, id);
         session.getTransaction().commit();
-     //   session.close();
+        session.close();
         return fornecedor;
     }
 
@@ -55,7 +55,7 @@ public class FornecedorDao {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT f FROM Fornecedor f");
         listaFornecedor = query.list();
-      //  session.close();
+        session.close();
         return listaFornecedor;
     }
 

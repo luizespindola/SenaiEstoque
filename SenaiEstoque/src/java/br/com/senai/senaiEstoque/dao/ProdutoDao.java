@@ -7,6 +7,7 @@
 package br.com.senai.senaiEstoque.dao;
 
 import br.com.senai.senaiEstoque.entity.Produto;
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -26,7 +27,7 @@ public class ProdutoDao {
         }catch(Exception ex){
             return false;
         }finally{
-         //   session.close();
+           session.close();
         }
         return true;
     }
@@ -36,7 +37,7 @@ public class ProdutoDao {
         session.getTransaction().begin();
         session.delete(produto);
         session.getTransaction().commit();
-     //   session.close();
+        session.close();
         return  true;
     }
 
@@ -46,15 +47,18 @@ public class ProdutoDao {
         session.getTransaction().begin();
         produto = (Produto) session.get(Produto.class, id);
         session.getTransaction().commit();
-      //  session.close();
+        session.close();
         return produto;
     }
 
 
     public List<Produto> getAll() {
+        List<Produto> listaProdutos=new ArrayList<Produto>();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT p FROM Produto p");
-        return query.list();
+        listaProdutos=query.list();
+        session.close();
+        return listaProdutos;
     }
     
 }

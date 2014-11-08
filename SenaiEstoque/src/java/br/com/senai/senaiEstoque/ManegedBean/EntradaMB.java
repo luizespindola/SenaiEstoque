@@ -70,9 +70,9 @@ public class EntradaMB implements Serializable {
         return "listEntrada.xhtml";
     }
     
-    public List<Entrada> getAllByIdCaracteristica(Integer id) {
+    public List<Entrada> getAllByIdProduto(Integer id) {
         EntradaController valorCaracteristicaController = new EntradaController();
-        return valorCaracteristicaController.getAllByIdCaracteristica(id);
+        return valorCaracteristicaController.getAllByIdProduto(id);
     }
 
 }

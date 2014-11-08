@@ -6,6 +6,7 @@
 package br.com.senai.senaiEstoque.dao;
 
 import br.com.senai.senaiEstoque.entity.Caracteristica;
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -50,9 +51,12 @@ public class CaracteristicaDao {
     }
 
     public List<Caracteristica> getAll() {
+        List<Caracteristica> listaCaracteristicas=new ArrayList<Caracteristica>();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT c FROM Caracteristica c");
-        return query.list();
+        listaCaracteristicas=query.list();
+        session.close();
+        return listaCaracteristicas;
     }
 
 }

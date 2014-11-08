@@ -7,6 +7,7 @@
 package br.com.senai.senaiEstoque.dao;
 
 import br.com.senai.senaiEstoque.entity.Marca;
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -52,9 +53,12 @@ public class MarcaDao {
 
 
     public List<Marca> getAll() {
+        List<Marca> listaMarcas=new ArrayList<Marca>();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT m FROM Marca m");
-        return query.list();
+        listaMarcas=query.list();
+        session.close();
+        return listaMarcas;
     }
     
 }

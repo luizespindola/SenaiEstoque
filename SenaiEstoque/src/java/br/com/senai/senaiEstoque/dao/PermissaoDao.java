@@ -6,6 +6,7 @@
 package br.com.senai.senaiEstoque.dao;
 
 import br.com.senai.senaiEstoque.entity.Permissao;
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -50,9 +51,12 @@ public class PermissaoDao {
     }
 
     public List<Permissao> getAll() {
+        List<Permissao> listaPermissaos=new ArrayList<Permissao>();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT p FROM Permissao p");
-        return query.list();
+        listaPermissaos=query.list();
+        session.close();
+        return listaPermissaos;
     }
 
 }

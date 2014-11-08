@@ -6,6 +6,7 @@
 package br.com.senai.senaiEstoque.dao;
 
 import br.com.senai.senaiEstoque.entity.Saida;
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -50,9 +51,12 @@ public class SaidaDao {
     }
 
     public List<Saida> getAll() {
+        List<Saida> listaSaidas=new ArrayList<Saida>();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT s FROM Saida s");
-        return query.list();
+        listaSaidas=query.list();
+        session.close();
+        return listaSaidas;
     }
 
 }

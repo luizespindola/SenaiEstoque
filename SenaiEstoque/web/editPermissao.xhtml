@@ -18,13 +18,13 @@
         <h:form id="formPermissao">
             <h:panelGrid columns="1" title="Permissões">
                 <p:selectOneRadio id="permissaoV" value="#{permissaoMB.permissao.visualizar}">
-                    <f:selectItem itemValue="Visualizar" itemLabel="Visualizar"/>
+                    <f:selectItem itemValue="Visualizar" itemLabel="Visualizar" />
                 </p:selectOneRadio>
                 <p:selectOneRadio id="permissaoE" value="#{permissaoMB.permissao.editar}">         
                     <f:selectItem itemValue="Editar" itemLabel="Editar"/>
                 </p:selectOneRadio>
                 <p:selectOneRadio id="permissaoEP" value="#{permissaoMB.permissao.editarPermissao}">         
-                    <f:selectItem itemValue="Editar Permissão" itemLabel="Editar permissão"/>
+                    <f:selectItem itemValue="Editar Permissão" itemLabel="Editar permissão" />
                 </p:selectOneRadio>            
             </h:panelGrid>
             <h:commandButton class="btn btn-success" value="Salvar" action="#{permissaoMB.insert}"/>
