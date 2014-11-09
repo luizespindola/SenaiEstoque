@@ -7,6 +7,7 @@ package br.com.senai.senaiEstoque.controller;
 
 import br.com.senai.senaiEstoque.dao.EntradaDao;
 import br.com.senai.senaiEstoque.entity.Entrada;
+import br.com.senai.senaiEstoque.entity.Produto;
 import java.util.List;
 
 /**
@@ -19,10 +20,15 @@ public class EntradaController {
 
     public boolean insert(Entrada entrada) {
         if (entradaDao.insert(entrada) == true) {
+            Produto produto=entrada.getProduto();
+            produto.setQuantidade(produto.getQuantidade()+entrada.getQuantidade());
+            ProdutoController produtoController=new ProdutoController();
+            produtoController.insert(produto);
             return true;
         } else {
             return false;
         }
+        
     }
 
     public boolean delete(Entrada entrada) {

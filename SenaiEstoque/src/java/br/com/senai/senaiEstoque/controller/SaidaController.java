@@ -6,6 +6,7 @@
 package br.com.senai.senaiEstoque.controller;
 
 import br.com.senai.senaiEstoque.dao.SaidaDao;
+import br.com.senai.senaiEstoque.entity.Produto;
 import br.com.senai.senaiEstoque.entity.Saida;
 import java.util.List;
 /**
@@ -18,6 +19,10 @@ public class SaidaController {
 
     public boolean insert(Saida saida) {
         if (saidaDao.insert(saida) == true) {
+            Produto produto=saida.getProduto();
+            produto.setQuantidade(produto.getQuantidade()-saida.getQuantidade());
+            ProdutoController produtoController=new ProdutoController();
+            produtoController.insert(produto);
             return true;
         } else {
             return false;

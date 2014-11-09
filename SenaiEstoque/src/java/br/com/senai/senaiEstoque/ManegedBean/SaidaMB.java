@@ -58,7 +58,7 @@ public class SaidaMB implements Serializable {
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
         }
-        return "listProduto.xhtml";
+        return "listSaida.xhtml";
     }
 
     public List<Saida> getAll() {
