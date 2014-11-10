@@ -6,10 +6,13 @@
 package br.com.senai.senaiEstoque.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 /**
  *
@@ -24,6 +27,8 @@ public class ValorCaracteristica implements Serializable {
     private String nome;
     @ManyToOne
     private Caracteristica caracteristica;
+    @ManyToMany
+    private List<Produto> listaProduto=new ArrayList<Produto>();
 
     public Integer getId() {
         return id;

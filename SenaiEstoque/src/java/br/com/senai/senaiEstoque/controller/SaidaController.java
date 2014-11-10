@@ -18,8 +18,13 @@ public class SaidaController {
     private final SaidaDao saidaDao = new SaidaDao();
 
     public boolean insert(Saida saida) {
+        Integer valor=0;
+        if(saida.getId()!=null){
+            valor=saidaDao.getById(saida.getId()).getQuantidade();          
+        }
         if (saidaDao.insert(saida) == true) {
             Produto produto=saida.getProduto();
+            produto.setQuantidade(produto.getQuantidade()+valor);
             produto.setQuantidade(produto.getQuantidade()-saida.getQuantidade());
             ProdutoController produtoController=new ProdutoController();
             produtoController.insert(produto);
@@ -31,6 +36,10 @@ public class SaidaController {
 
     public boolean delete(Saida saida) {
         if (saidaDao.delete(saida) == true) {
+            Produto produto=saida.getProduto();
+            produto.setQuantidade(produto.getQuantidade()+saida.getQuantidade());
+            ProdutoController produtoController=new ProdutoController();
+            produtoController.insert(produto);
             return true;
         } else {
             return false;

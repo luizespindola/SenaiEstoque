@@ -27,7 +27,7 @@ public class Produto implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+     Integer id;
     private String nome;
     private Integer codigo;
     private Double precoCusto;
@@ -44,6 +44,8 @@ public class Produto implements Serializable {
     private List<Entrada> listaEntrada = new ArrayList<Entrada>();
     @ManyToMany(mappedBy = "listaProduto", cascade = {CascadeType.ALL})
     private List<Caracteristica> listaCaracteristicas = new ArrayList<Caracteristica>();
+    @ManyToMany(mappedBy = "listaProduto",cascade = {CascadeType.ALL})
+    private List<ValorCaracteristica> listaValorCaracteristicas=new ArrayList<ValorCaracteristica>();
 
     public Integer getId() {
         return id;
