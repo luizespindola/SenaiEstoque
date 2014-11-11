@@ -16,7 +16,7 @@ public class CaracteristicaConverter implements Converter {
     @Override
     public Object getAsObject(FacesContext fc, UIComponent uic, String string) {
         Integer id = Integer.parseInt(string);
-        CaracteristicaController caracteristicaController=new CaracteristicaController();
+        CaracteristicaController caracteristicaController = new CaracteristicaController();
         return caracteristicaController.getById(id);
     }
 

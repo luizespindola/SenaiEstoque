@@ -23,6 +23,11 @@ import javax.faces.context.FacesContext;
 public class MarcaMB implements Serializable {
 
     private Marca marca = new Marca();
+    private MarcaController marcaController;
+
+    public MarcaMB() {
+        marcaController = new MarcaController();
+    }
 
     public Marca getMarca() {
         return marca;
@@ -32,12 +37,12 @@ public class MarcaMB implements Serializable {
         this.marca = marca;
     }
 
-    public String insert() {
-        MarcaController marcaController = new MarcaController();
-        if (marcaController.insert(marca) == true) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
-        } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
+    public String salvar() {
+        try {
+            marcaController.salvar(marca);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Salvo com sucesso"));
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível salvar " + e.getMessage()));
         }
         return "listMarca.xhtml";
     }
@@ -52,17 +57,16 @@ public class MarcaMB implements Serializable {
     }
 
     public String delete() {
-        MarcaController marcaController = new MarcaController();
-        if (marcaController.delete(marca) == true) {
+        try {
+            marcaController.delete(marca);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
-        } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover " + e.getMessage()));
         }
         return "listMarca.xhtml";
     }
 
     public List<Marca> getAll() {
-        MarcaController marcaController = new MarcaController();
         return marcaController.getAll();
     }
 

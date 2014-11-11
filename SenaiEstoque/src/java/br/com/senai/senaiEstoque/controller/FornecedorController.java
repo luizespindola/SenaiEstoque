@@ -17,8 +17,8 @@ public class FornecedorController {
     
     private final FornecedorDao fornecedorDao = new FornecedorDao();
 
-    public boolean insert(Fornecedor fornecedor) {
-        if (fornecedorDao.insert(fornecedor) == true) {
+    public boolean salvar(Fornecedor fornecedor) {
+        if (fornecedorDao.salvar(fornecedor) == true) {
             return true;
         } else {
             return false;

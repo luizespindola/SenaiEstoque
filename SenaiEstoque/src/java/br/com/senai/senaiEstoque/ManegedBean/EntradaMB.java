@@ -23,6 +23,11 @@ import javax.faces.context.FacesContext;
 public class EntradaMB implements Serializable {
 
     private Entrada entrada = new Entrada();
+    EntradaController entradaController;
+
+    public EntradaMB() {
+        entradaController = new EntradaController();
+    }
 
     public Entrada getEntrada() {
         return entrada;
@@ -32,9 +37,8 @@ public class EntradaMB implements Serializable {
         this.entrada = entrada;
     }
 
-    public String insert() {
-        EntradaController entradaController = new EntradaController();
-        if (entradaController.insert(entrada) == true) {
+    public String salvar() {
+        if (entradaController.salvar(entrada) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
@@ -52,7 +56,6 @@ public class EntradaMB implements Serializable {
     }
 
     public String delete() {
-        EntradaController entradaController = new EntradaController();
         if (entradaController.delete(entrada) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
         } else {
@@ -62,17 +65,15 @@ public class EntradaMB implements Serializable {
     }
 
     public List<Entrada> getAll() {
-        EntradaController entradaController = new EntradaController();
         return entradaController.getAll();
     }
 
     public String listEntrada() {
         return "listEntrada.xhtml";
     }
-    
+
     public List<Entrada> getAllByIdProduto(Integer id) {
-        EntradaController valorCaracteristicaController = new EntradaController();
-        return valorCaracteristicaController.getAllByIdProduto(id);
+        return entradaController.getAllByIdProduto(id);
     }
 
 }

@@ -14,31 +14,54 @@ import java.util.List;
  * @author User
  */
 public class MarcaController {
-    
+
     private final MarcaDao marcaDao = new MarcaDao();
 
-    public boolean insert(Marca marca) {
-        if (marcaDao.insert(marca) == true) {
+    /**
+     * Insere e edita no banco de dados
+     *
+     * @param marca objeto Marca
+     * @return Boolean
+     */
+    public boolean salvar(Marca marca) {
+        if (marcaDao.salvar(marca) == true) {
             return true;
         } else {
             return false;
         }
     }
 
+    /**
+     * Deleta do banco de dados
+     *
+     * @param marca objeto Marca
+     * @return Boolean
+     */
     public boolean delete(Marca marca) {
-        if (marcaDao.delete(marca)== true) {
+        if (marcaDao.delete(marca) == true) {
             return true;
         } else {
             return false;
         }
     }
 
+    /**
+     * Pega por ID
+     *
+     * @param id Int
+     * @return Objeto Marca
+     */
     public Marca getById(int id) {
         return marcaDao.getById(id);
     }
 
+    /**
+     * Pega todas as marcas
+     *
+     * @return Lista de Narcas
+     */
     public List<Marca> getAll() {
         return marcaDao.getAll();
-    }   
-    
+    }
+
 }

@@ -18,17 +18,17 @@ public class EntradaController {
         
     private final EntradaDao entradaDao = new EntradaDao();
 
-    public boolean insert(Entrada entrada) {
+    public boolean salvar(Entrada entrada) {
         Integer valor=0;
         if(entrada.getId()!=null){
             valor=entradaDao.getById(entrada.getId()).getQuantidade();          
         }
-        if (entradaDao.insert(entrada) == true) {
+        if (entradaDao.salvar(entrada) == true) {
             Produto produto=entrada.getProduto();
             produto.setQuantidade(produto.getQuantidade()-valor);
             produto.setQuantidade(produto.getQuantidade()+entrada.getQuantidade());
             ProdutoController produtoController=new ProdutoController();
-            produtoController.insert(produto);
+            produtoController.salvar(produto);
             return true;
         } else {
             return false;
@@ -41,7 +41,7 @@ public class EntradaController {
             Produto produto=entrada.getProduto();
             produto.setQuantidade(produto.getQuantidade()-entrada.getQuantidade());
             ProdutoController produtoController=new ProdutoController();
-            produtoController.insert(produto);
+            produtoController.salvar(produto);
             return true;
         } else {
             return false;

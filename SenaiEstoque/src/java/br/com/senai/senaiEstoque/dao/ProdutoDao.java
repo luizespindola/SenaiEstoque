@@ -18,7 +18,7 @@ import org.hibernate.Session;
  */
 public class ProdutoDao {
     
-    public boolean insert(Produto produto){
+    public boolean salvar(Produto produto){
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(produto);

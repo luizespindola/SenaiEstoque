@@ -23,6 +23,11 @@ import javax.faces.context.FacesContext;
 public class FornecedorMB implements Serializable {
 
     private Fornecedor fornecedor = new Fornecedor();
+    private FornecedorController fornecedorController;
+
+    public FornecedorMB() {
+        fornecedorController = new FornecedorController();
+    }
 
     public Fornecedor getFornecedor() {
         return fornecedor;
@@ -32,12 +37,11 @@ public class FornecedorMB implements Serializable {
         this.fornecedor = fornecedor;
     }
 
-    public String insert() {
-        FornecedorController fornecedorController = new FornecedorController();
-        if (fornecedorController.insert(fornecedor) == true) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
+    public String salvar() {
+        if (fornecedorController.salvar(fornecedor) == true) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Salvo com sucesso"));
         } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível salvar"));
         }
         return "listFornecedor.xhtml";
     }
@@ -52,7 +56,6 @@ public class FornecedorMB implements Serializable {
     }
 
     public String delete() {
-        FornecedorController fornecedorController = new FornecedorController();
         if (fornecedorController.delete(fornecedor) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
         } else {
@@ -62,7 +65,6 @@ public class FornecedorMB implements Serializable {
     }
 
     public List<Fornecedor> getAll() {
-        FornecedorController fornecedorController = new FornecedorController();
         return fornecedorController.getAll();
     }
 

@@ -26,7 +26,7 @@
                     <h:outputText value="Novo Fornecedor"/>
                 </div>            
                 <div class="divPanel">
-                    <h:panelGrid columns="2">
+                    <h:panelGrid columns="2" cellpadding="5">
                         <h:outputLabel value="Fornecedor" for="nome" />
                         <h:inputText id="nome" value="#{fornecedorMB.fornecedor.nome}" required="true" requiredMessage="Preencha o campo fornecedor" class="input-medium" />
                         <h:outputLabel value="E-mail" for="email" />
@@ -35,7 +35,7 @@
                         <h:inputText id="site" value="#{fornecedorMB.fornecedor.site}" required="true" requiredMessage="Preencha o campo site" class="input-medium" />
                         <h:outputLabel value="Observação" for="observacao" />
                         <h:inputTextarea id="observacao" value="#{fornecedorMB.fornecedor.observacao}" required="true" requiredMessage="Preencha o campo observação" class="input-medium" />
-                        <h:commandButton class="btn btn-success" value="Salvar" action="#{fornecedorMB.insert}"/>
+                        <h:commandButton class="btn btn-success" value="Salvar" action="#{fornecedorMB.salvar()}"/>
                     </h:panelGrid>
                 </div>
             </h:form>

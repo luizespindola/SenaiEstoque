@@ -17,8 +17,8 @@ public class ProdutoController {
     
     private final ProdutoDao produtoDao = new ProdutoDao();
 
-    public boolean insert(Produto produto) {
-        if (produtoDao.insert(produto) == true) {
+    public boolean salvar(Produto produto) {
+        if (produtoDao.salvar(produto) == true) {
             return true;
         } else {
             return false;

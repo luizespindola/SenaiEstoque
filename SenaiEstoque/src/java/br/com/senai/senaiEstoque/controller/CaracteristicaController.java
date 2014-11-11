@@ -17,8 +17,8 @@ public class CaracteristicaController {
 
     private final CaracteristicaDao caracteristicaDao = new CaracteristicaDao();
 
-    public boolean insert(Caracteristica caracteristica) {
-        if (caracteristicaDao.insert(caracteristica) == true ) {
+    public boolean salvar(Caracteristica caracteristica) {
+        if (caracteristicaDao.salvar(caracteristica) == true ) {
             return true;
         } else {
             return false;

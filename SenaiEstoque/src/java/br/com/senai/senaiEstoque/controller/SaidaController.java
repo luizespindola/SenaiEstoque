@@ -27,7 +27,7 @@ public class SaidaController {
             produto.setQuantidade(produto.getQuantidade()+valor);
             produto.setQuantidade(produto.getQuantidade()-saida.getQuantidade());
             ProdutoController produtoController=new ProdutoController();
-            produtoController.insert(produto);
+            produtoController.salvar(produto);
             return true;
         } else {
             return false;
@@ -39,7 +39,7 @@ public class SaidaController {
             Produto produto=saida.getProduto();
             produto.setQuantidade(produto.getQuantidade()+saida.getQuantidade());
             ProdutoController produtoController=new ProdutoController();
-            produtoController.insert(produto);
+            produtoController.salvar(produto);
             return true;
         } else {
             return false;

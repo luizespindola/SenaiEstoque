@@ -24,6 +24,11 @@ import javax.faces.context.FacesContext;
 public class CaracteristicaMB implements Serializable {
 
     private Caracteristica caracteristica = new Caracteristica();
+    private CaracteristicaController caracteristicaController;
+
+    public CaracteristicaMB() {
+        caracteristicaController = new CaracteristicaController();
+    }
 
     public Caracteristica getCaracteristica() {
         return caracteristica;
@@ -33,13 +38,11 @@ public class CaracteristicaMB implements Serializable {
         this.caracteristica = caracteristica;
     }
 
-    public String insert() {
-        CaracteristicaController caracteristicaController = new CaracteristicaController();
-
-        if (caracteristicaController.insert(caracteristica) == true) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
+    public String salvar() {
+        if (caracteristicaController.salvar(caracteristica) == true) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Salvo com sucesso"));
         } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível salvar"));
         }
         return "editValorCaracteristica.xhtml";
     }
@@ -54,9 +57,6 @@ public class CaracteristicaMB implements Serializable {
     }
 
     public String delete() {
-        
-        CaracteristicaController caracteristicaController = new CaracteristicaController();
-
         if (caracteristicaController.delete(caracteristica) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
         } else {
@@ -67,7 +67,6 @@ public class CaracteristicaMB implements Serializable {
     }
 
     public List<Caracteristica> getAll() {
-        CaracteristicaController caracteristicaController = new CaracteristicaController();
         return caracteristicaController.getAll();
     }
 

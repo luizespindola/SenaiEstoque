@@ -77,7 +77,7 @@ public class Teste {
         caracteristica.setNome("Cor");
         caracteristica.setListaValorCaracteristica(lista);
         CaracteristicaDao caracteristicaDao = new CaracteristicaDao();
-        caracteristicaDao.insert(caracteristica);
+        caracteristicaDao.salvar(caracteristica);
 
         Foto foto = new Foto();
         foto.setEndereco("foto1");
@@ -90,12 +90,12 @@ public class Teste {
         fornecedor.setSite("fornecedor1");
         fornecedor.setObservacao("fornecedor1");
         FornecedorDao fornecedorDao = new FornecedorDao();
-        fornecedorDao.insert(fornecedor);
+        fornecedorDao.salvar(fornecedor);
 
         Marca marca = new Marca();
         marca.setNome("Marca1");
         MarcaDao marcaDao = new MarcaDao();
-        marcaDao.insert(marca);
+        marcaDao.salvar(marca);
         
         Produto produto = new Produto();
         produto.setCodigo(12345);
@@ -108,14 +108,14 @@ public class Teste {
         List<Caracteristica> listaCaracteristicas=new ArrayList<Caracteristica>();
         produto.setListaCaracteristicas(listaCaracteristicas);
         ProdutoDao produtoDao = new ProdutoDao();
-        produtoDao.insert(produto);
+        produtoDao.salvar(produto);
                
         Entrada entrada = new Entrada();
         entrada.setQuantidade(100);
         entrada.setDataEntrada(new Date());
         entrada.setProduto(produto);
         EntradaDao entradaDao = new EntradaDao();
-        entradaDao.insert(entrada);
+        entradaDao.salvar(entrada);
         
         
         Saida saida = new Saida();

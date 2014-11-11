@@ -17,7 +17,7 @@ import org.hibernate.Session;
  */
 public class FornecedorDao {
 
-    public boolean insert(Fornecedor fornecedor) {
+    public boolean salvar(Fornecedor fornecedor) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(fornecedor);

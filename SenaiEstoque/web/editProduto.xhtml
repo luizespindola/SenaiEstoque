@@ -27,7 +27,7 @@
                     <h:outputText value="Novo Produto"/>
                 </div>                
                 <div class="divPanel">
-                    <h:panelGrid columns="2">
+                    <h:panelGrid columns="2" cellpadding="5">
                         <h:outputLabel value="Nome" for="nome" />
                         <h:inputText id="nome" value="#{produtoMB.produto.nome}" required="true" requiredMessage="Preencha o campo Nome do produto" class="input-medium" />
                         <h:outputLabel value="Código" for="codigo" />
@@ -63,7 +63,7 @@
                                            itemValue="#{umaCaracteristica}"
                                            />
                         </p:selectOneMenu>
-                        <h:commandButton class="btn btn-success" value="Salvar" action="#{produtoMB.insert}"/>
+                        <h:commandButton class="btn btn-success" value="Salvar" action="#{produtoMB.salvar()}"/>
                     </h:panelGrid>
                 </div>
             </h:form>

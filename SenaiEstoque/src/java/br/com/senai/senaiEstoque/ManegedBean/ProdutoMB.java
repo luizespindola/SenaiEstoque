@@ -23,6 +23,11 @@ import javax.faces.context.FacesContext;
 public class ProdutoMB implements Serializable {
 
     private Produto produto = new Produto();
+    private ProdutoController produtoController;
+
+    public ProdutoMB() {
+        produtoController = new ProdutoController();
+    }
 
     public Produto getProduto() {
         return produto;
@@ -32,12 +37,11 @@ public class ProdutoMB implements Serializable {
         this.produto = produto;
     }
 
-    public String insert() {
-        ProdutoController produtoController = new ProdutoController();
-        if (produtoController.insert(produto) == true) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
+    public String salvar() {
+        if (produtoController.salvar(produto) == true) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Salvo com sucesso"));
         } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível salvar"));
         }
         return "listProduto.xhtml";
     }
@@ -52,7 +56,6 @@ public class ProdutoMB implements Serializable {
     }
 
     public String delete() {
-        ProdutoController produtoController = new ProdutoController();
         if (produtoController.delete(produto) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
         } else {
@@ -62,7 +65,6 @@ public class ProdutoMB implements Serializable {
     }
 
     public List<Produto> getAll() {
-        ProdutoController produtoController = new ProdutoController();
         return produtoController.getAll();
     }
 

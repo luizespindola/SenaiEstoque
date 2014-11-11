@@ -17,7 +17,7 @@ import org.hibernate.Session;
  */
 public class CaracteristicaDao {
 
-    public boolean insert(Caracteristica caracteristica) {
+    public boolean salvar(Caracteristica caracteristica) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(caracteristica);

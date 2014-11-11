@@ -18,7 +18,7 @@ import org.hibernate.Session;
  */
 public class MarcaDao {
     
-       public boolean insert(Marca marca){
+       public boolean salvar(Marca marca){
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(marca);

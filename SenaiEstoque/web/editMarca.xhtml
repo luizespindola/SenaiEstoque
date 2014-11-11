@@ -29,7 +29,7 @@
                     <h:panelGrid columns="2" cellpadding="5">
                         <h:outputLabel value="Marca" for="nome" />
                         <h:inputText id="nome" value="#{marcaMB.marca.nome}" required="true" requiredMessage="Preencha o campo marca" class="input-medium" />
-                        <h:commandButton class="btn btn-success btnSalvar" value="Salvar" action="#{marcaMB.insert}"/>
+                        <h:commandButton class="btn btn-success btnSalvar" value="Salvar" action="#{marcaMB.salvar()}"/>
                     </h:panelGrid>
                 </div>
             </h:form>
