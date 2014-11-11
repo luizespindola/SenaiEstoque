@@ -7,11 +7,12 @@ package br.com.senai.senaiEstoque.entity;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -23,7 +24,7 @@ public class Marca implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String nome;
-    @OneToOne
+    @OneToMany(mappedBy = "marca",cascade = CascadeType.ALL)
     private Produto produto;
 
     public Integer getId() {

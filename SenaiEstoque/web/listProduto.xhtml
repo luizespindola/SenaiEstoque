@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"  
+                template="./template.xhtml"  
+                xmlns:h="http://java.sun.com/jsf/html"  
+                xmlns:p="http://primefaces.org/ui"  
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml"
+                >  
+
+    <ui:define name="Conteudo">  
+
+        <!-- Titulo -->
+        <div class="row-fluid tituloCategoria">
+            <h1>Produtos</h1>
+        </div><!-- /Titulo -->
+
+        <!-- Formulário/Lista -->
+        <div class="row-fluid">
+            <h:form>  
+                <!-- Botão adicionar novo -->
+                <div class="row-fluid">
+                    <h:commandButton action="#{produtoMB.novo}" value="Cadastrar novo produto" class="btn btn-success btnNovo pull-right"/>
+                </div><!-- /Botão adicionar novo -->
+
+                <!-- Lista -->
+                <p:dataTable value="#{produtoMB.all}" var="umProduto">
+                    <p:column headerText="Produto" width="30">
+                        <h:outputText value="#{umProduto.nome}" />                             
+                    </p:column>    
+                    <p:column headerText="Codigo" width="30">
+                        <h:outputText value="#{umProduto.codigo}" />                             
+                    </p:column> 
+                    <p:column headerText="Preço de custo" width="30">
+                        <h:outputText value="#{umProduto.precoCusto}" />                             
+                    </p:column> 
+                    <p:column headerText="Quantidade" width="30">
+                        <h:outputText value="#{umProduto.quantidade}" />                             
+                    </p:column> 
+                    <p:column headerText="Fornecedor" width="30">
+                        <h:outputText value="#{umProduto.fornecedor.nome}" />                             
+                    </p:column> 
+                    <p:column headerText="Marca" width="30">
+                        <h:outputText value="#{umProduto.marca.nome}" />                             
+                    </p:column> 
+
+                    <p:column headerText="Ações" style="width: 10%">
+                        <h:commandButton action="#{produtoMB.editar}" value="Editar" image="assets/imagem/icon/editar-b.png"  class="btn btn-success" style="margin-right: 5px">
+                            <f:setPropertyActionListener target="#{produtoMB.produto}" value="#{umProduto}" />                        
+                        </h:commandButton>
+                        <h:commandButton action="#{produtoMB.delete}" value="Excluir" image="assets/imagem/icon/excluir-b.png" class="btn btn-danger">
+                            <f:setPropertyActionListener target="#{produtoMB.produto}" value="#{umProduto}" />                        
+                        </h:commandButton>
+
+                    </p:column>                    
+                </p:dataTable>  <!-- Lista -->
+            </h:form>
+        </div> <!-- /Formulário/Lista -->
+
+        <!-- Botão voltar -->
+        <div class="row-fluid" id="divBtnVoltar">
+            <a href="javascript:window.history.go(-1)" class="btn"><img src="assets/imagem/icon/voltar.png"/> Voltar</a>
+        </div> <!-- /Botão voltar -->
+    </ui:define> 
+
+</ui:composition>  

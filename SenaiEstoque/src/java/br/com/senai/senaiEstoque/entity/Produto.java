@@ -15,6 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -34,9 +35,9 @@ public class Produto implements Serializable {
     private Integer quantidade;
     @OneToOne(mappedBy = "produto", cascade = {CascadeType.ALL})
     private Foto foto;
-    @OneToOne(mappedBy = "produto", cascade = {CascadeType.ALL})
+    @ManyToOne
     private Fornecedor fornecedor;
-    @OneToOne(mappedBy = "produto", cascade = {CascadeType.ALL})
+    @ManyToOne
     private Marca marca;
     @OneToMany(mappedBy = "produto", cascade = {CascadeType.ALL})
     private List<Saida> listaSaida = new ArrayList<Saida>();
@@ -131,10 +132,10 @@ public class Produto implements Serializable {
         return listaCaracteristicas;
     }
 
-    public void setListaCaracteristicas(List<Caracteristica> listaCaracteristicas) {
-        this.listaCaracteristicas = listaCaracteristicas;
+    public void setListaCaracteristicas(Caracteristica caracteristica) {
+        listaCaracteristicas.add(caracteristica);
     }
-
+    
     @Override
     public int hashCode() {
         int hash = 3;
