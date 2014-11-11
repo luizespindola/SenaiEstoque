@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>  
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"  
+                template="./template.xhtml"  
+                xmlns:h="http://java.sun.com/jsf/html"  
+                xmlns:p="http://primefaces.org/ui"  
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml"
+                >  
+
+    <ui:define name="Conteudo">  
+
+        <!-- Titulo -->
+        <div class="row-fluid tituloCategoria">
+            <h1>Usuários</h1>
+        </div><!-- /Titulo -->
+
+        <!-- Formulário / Lista -->
+        <div class="row-fluid">
+            <h:form>  
+
+                <!-- Botão cadastrar novo -->
+                <div class="row-fluid">
+                    <h:commandButton action="#{usuarioMB.novo}" value="Cadastrar novo usuario" class="btn btn-success btnNovo pull-right"/>
+                </div><!-- /Botão cadastrar novo -->
+
+                <!-- Lista -->
+                <p:dataTable value="#{usuarioMB.all}" var="umUsuario">
+                    <p:column headerText="Marca" width="30">
+                        <h:outputText value="#{umUsuario.nome}" />                             
+                    </p:column>                  
+
+                    <p:column headerText="Ações" style="width: 10%">
+                        <h:commandButton action="#{usuarioMB.editar}" value="Editar" image="assets/imagem/icon/editar-b.png"  class="btn btn-success" style="margin-right: 5px">
+                            <f:setPropertyActionListener target="#{usuarioMB.usuario}" value="#{umUsuario}" />                        
+                        </h:commandButton>
+                        <h:commandButton action="#{usuarioMB.delete}" value="Excluir" image="assets/imagem/icon/excluir-b.png" class="btn btn-danger">
+                            <f:setPropertyActionListener target="#{usuarioMB.usuario}" value="#{umUsuario}" />                        
+                        </h:commandButton>
+
+                    </p:column>                    
+                </p:dataTable><!-- /Lista -->
+            </h:form>
+        </div><!-- Formulário / Lista -->
+
+        <!-- Botão voltar -->
+        <div class="row-fluid" id="divBtnVoltar">
+            <a href="javascript:window.history.go(-1)" class="btn"><img src="assets/imagem/icon/voltar.png"/> Voltar</a>
+        </div> <!-- /Botão voltar -->
+
+    </ui:define> 
+
+</ui:composition>  

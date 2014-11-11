@@ -27,8 +27,8 @@ public class ValorCaracteristicaMB implements Serializable {
     private ValorCaracteristicaController valorCaracteristicaController;
     private ValorCaracteristica valorCaracteristica = new ValorCaracteristica();
 
-    public ValorCaracteristicaMB(ValorCaracteristicaController valorCaracteristicaController) {
-        this.valorCaracteristicaController = valorCaracteristicaController;
+    public ValorCaracteristicaMB() {
+        valorCaracteristicaController = new ValorCaracteristicaController();
     }
 
     public ValorCaracteristica getValorCaracteristica() {

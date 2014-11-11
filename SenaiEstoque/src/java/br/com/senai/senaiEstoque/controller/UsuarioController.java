@@ -20,23 +20,9 @@ public class UsuarioController {
 
     private final UsuarioDao usuarioDao = new UsuarioDao();
 
-    public boolean cadastrar(LoginHolder loginHolder) {
+    public boolean salvar(Usuario usuario) {
 
-        if (loginHolder.getSenha().equals(loginHolder.getResenha())) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Campo senha e re-senha são diferentes"));
-            return false;
-        }
-
-        Usuario usuario = new Usuario();
-        if (loginHolder.getId() != 0) {
-            usuario.setId(loginHolder.getId());
-        }
-
-        usuario.setNome(loginHolder.getNome());
-        usuario.setSenha(loginHolder.getSenha());
-        usuario.setTipoUsuario(loginHolder.getTipoUsuario());
-
-        if (usuarioDao.insert(usuario) == true) {
+        if (usuarioDao.salvar(usuario) == true) {
             return true;
         } else {
             return false;

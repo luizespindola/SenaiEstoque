@@ -24,25 +24,29 @@ import javax.faces.context.FacesContext;
 public class UsuarioMB implements Serializable {
 
     private Usuario usuario = new Usuario();
-    private LoginHolder loginHolder = new LoginHolder();
+    UsuarioController usuarioController;
 
-    public LoginHolder getLoginHolder() {
-        return loginHolder;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setLoginHolder(LoginHolder loginHolder) {
-        this.loginHolder = loginHolder;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
-    public String insert() {
-        UsuarioController usuarioController = new UsuarioController();
-        
-        if (usuarioController.cadastrar(loginHolder) == true) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
-        } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
+    public UsuarioMB() {
+        usuarioController = new UsuarioController();
+    }
+
+    public String salvar() {
+        try {
+            usuarioController.salvar(usuario);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Salvo com sucesso"));
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível salvar " + e.getMessage()));
+        } finally {
+            return "listUsuario.xhtml";
         }
-        return "listTipoUsuario.xhtml";
     }
 
     public String novo() {
@@ -55,7 +59,6 @@ public class UsuarioMB implements Serializable {
     }
 
     public String delete() {
-        UsuarioController usuarioController = new UsuarioController();
         if (usuarioController.delete(usuario) == true) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
         } else {
@@ -65,7 +68,6 @@ public class UsuarioMB implements Serializable {
     }
 
     public List<Usuario> getAll() {
-        UsuarioController usuarioController = new UsuarioController();
         return usuarioController.getAll();
     }
 
