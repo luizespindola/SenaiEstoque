@@ -14,11 +14,11 @@ import java.util.List;
  * @author User
  */
 public class PermissaoController {
-    
-    private final PermissaoDao permissaoDao=new PermissaoDao();
 
-    public boolean insert(Permissao permissao) {
-        if (permissaoDao.insert(permissao) == true) {
+    private final PermissaoDao permissaoDao = new PermissaoDao();
+
+    public boolean salvar(Permissao permissao) {
+        if (permissaoDao.salvar(permissao) == true) {
             return true;
         } else {
             return false;
@@ -26,7 +26,7 @@ public class PermissaoController {
     }
 
     public boolean delete(Permissao permissao) {
-        if (permissaoDao.delete(permissao)== true) {
+        if (permissaoDao.delete(permissao) == true) {
             return true;
         } else {
             return false;
@@ -39,6 +39,6 @@ public class PermissaoController {
 
     public List<Permissao> getAll() {
         return permissaoDao.getAll();
-    } 
-    
+    }
+
 }

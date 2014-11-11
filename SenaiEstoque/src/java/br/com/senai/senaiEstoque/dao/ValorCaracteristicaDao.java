@@ -17,7 +17,7 @@ import org.hibernate.Session;
  */
 public class ValorCaracteristicaDao {
 
-    public boolean insert(ValorCaracteristica valorCaracteristica) {
+    public boolean salvar(ValorCaracteristica valorCaracteristica) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(valorCaracteristica);
@@ -52,12 +52,12 @@ public class ValorCaracteristicaDao {
 
     public List<ValorCaracteristica> getAllByIdCaracteristica(Integer id) {
         List<ValorCaracteristica> listaValorCaracteristica = new ArrayList<ValorCaracteristica>();
-        
+
         Session session = HibernateUtil.getSessionFactory().openSession();
-        
+
         Query query = session.createQuery("FROM ValorCaracteristica WHERE caracteristica_id = :id");
         query.setParameter("id", id);
-        
+
         listaValorCaracteristica = query.list();
 
         session.close();

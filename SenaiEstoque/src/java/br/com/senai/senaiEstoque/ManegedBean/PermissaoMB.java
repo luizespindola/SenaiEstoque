@@ -22,7 +22,12 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class PermissaoMB implements Serializable {
 
+    private PermissaoController permissaoController;
     private Permissao permissao = new Permissao();
+
+    public PermissaoMB() {
+        permissaoController = new PermissaoController();
+    }
 
     public Permissao getPermissao() {
         return permissao;
@@ -32,12 +37,12 @@ public class PermissaoMB implements Serializable {
         this.permissao = permissao;
     }
 
-    public String insert() {
-        PermissaoController permissaoController = new PermissaoController();
-        if (permissaoController.insert(permissao) == true) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
-        } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
+    public String salvar() {
+        try {
+            permissaoController.salvar(permissao);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Salvo com sucesso"));
+        } catch (Exception ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível salvar"));
         }
         return "listPermissao.xhtml";
     }
@@ -52,17 +57,17 @@ public class PermissaoMB implements Serializable {
     }
 
     public String delete() {
-        PermissaoController permissaoController = new PermissaoController();
-        if (permissaoController.delete(permissao) == true) {
+        try {
+            permissaoController.delete(permissao);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
-        } else {
+        } catch (Exception ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
         }
         return "listPermissao.xhtml";
     }
 
     public List<Permissao> getAll() {
-        PermissaoController permissaoController = new PermissaoController();
+        permissaoController = new PermissaoController();
         return permissaoController.getAll();
     }
 

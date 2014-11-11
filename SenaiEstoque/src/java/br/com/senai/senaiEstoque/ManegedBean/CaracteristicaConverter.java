@@ -1,10 +1,7 @@
 package br.com.senai.senaiEstoque.ManegedBean;
 
-
 import br.com.senai.senaiEstoque.controller.CaracteristicaController;
-import br.com.senai.senaiEstoque.controller.FornecedorController;
 import br.com.senai.senaiEstoque.entity.Caracteristica;
-import br.com.senai.senaiEstoque.entity.Fornecedor;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;

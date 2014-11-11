@@ -26,7 +26,7 @@ public class FornecedorDao {
         } catch (Exception ex) {
             return false;
         } finally {
-           session.close();
+            session.close();
         }
         return true;
     }

@@ -51,10 +51,10 @@ public class CaracteristicaDao {
     }
 
     public List<Caracteristica> getAll() {
-        List<Caracteristica> listaCaracteristicas=new ArrayList<Caracteristica>();
+        List<Caracteristica> listaCaracteristicas = new ArrayList<Caracteristica>();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT c FROM Caracteristica c");
-        listaCaracteristicas=query.list();
+        listaCaracteristicas = query.list();
         session.close();
         return listaCaracteristicas;
     }

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.senai.senaiEstoque.dao;
 
 import br.com.senai.senaiEstoque.entity.Marca;
@@ -17,21 +16,21 @@ import org.hibernate.Session;
  * @author luiz_espindola
  */
 public class MarcaDao {
-    
-       public boolean salvar(Marca marca){
+
+    public boolean salvar(Marca marca) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(marca);
-        try{
+        try {
             session.getTransaction().commit();
-        }catch(Exception ex){
+        } catch (Exception ex) {
             return false;
-        }finally{
+        } finally {
             session.close();
         }
         return true;
     }
-    
+
     public boolean delete(Marca marca) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
@@ -51,17 +50,13 @@ public class MarcaDao {
         return marca;
     }
 
-
     public List<Marca> getAll() {
-        List<Marca> listaMarcas=new ArrayList<Marca>();
+        List<Marca> listaMarcas = new ArrayList<Marca>();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT m FROM Marca m");
-        listaMarcas=query.list();
+        listaMarcas = query.list();
         session.close();
         return listaMarcas;
     }
-    
+
 }
-
-    
-

@@ -15,32 +15,32 @@ import java.util.List;
  * @author User
  */
 public class EntradaController {
-        
+
     private final EntradaDao entradaDao = new EntradaDao();
 
     public boolean salvar(Entrada entrada) {
-        Integer valor=0;
-        if(entrada.getId()!=null){
-            valor=entradaDao.getById(entrada.getId()).getQuantidade();          
+        Integer valor = 0;
+        if (entrada.getId() != null) {
+            valor = entradaDao.getById(entrada.getId()).getQuantidade();
         }
         if (entradaDao.salvar(entrada) == true) {
-            Produto produto=entrada.getProduto();
-            produto.setQuantidade(produto.getQuantidade()-valor);
-            produto.setQuantidade(produto.getQuantidade()+entrada.getQuantidade());
-            ProdutoController produtoController=new ProdutoController();
+            Produto produto = entrada.getProduto();
+            produto.setQuantidade(produto.getQuantidade() - valor);
+            produto.setQuantidade(produto.getQuantidade() + entrada.getQuantidade());
+            ProdutoController produtoController = new ProdutoController();
             produtoController.salvar(produto);
             return true;
         } else {
             return false;
         }
-        
+
     }
 
     public boolean delete(Entrada entrada) {
         if (entradaDao.delete(entrada) == true) {
-            Produto produto=entrada.getProduto();
-            produto.setQuantidade(produto.getQuantidade()-entrada.getQuantidade());
-            ProdutoController produtoController=new ProdutoController();
+            Produto produto = entrada.getProduto();
+            produto.setQuantidade(produto.getQuantidade() - entrada.getQuantidade());
+            ProdutoController produtoController = new ProdutoController();
             produtoController.salvar(produto);
             return true;
         } else {
@@ -55,10 +55,8 @@ public class EntradaController {
     public List<Entrada> getAll() {
         return entradaDao.getAll();
     }
-    
+
     public List<Entrada> getAllByIdProduto(Integer id) {
         return entradaDao.getAllByIdProduto(id);
     }
 }
-
-    

@@ -14,11 +14,11 @@ import java.util.List;
  * @author User
  */
 public class FotoController {
-    
+
     private final FotoDao fotoDao = new FotoDao();
 
-    public boolean insert(Foto foto) {
-        if (fotoDao.insert(foto) == true) {
+    public boolean salvar(Foto foto) {
+        if (fotoDao.salvar(foto) == true) {
             return true;
         } else {
             return false;
@@ -39,5 +39,5 @@ public class FotoController {
 
     public List<Foto> getAll() {
         return fotoDao.getAll();
-    }    
+    }
 }

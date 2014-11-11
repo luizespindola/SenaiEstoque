@@ -38,9 +38,10 @@ public class ProdutoMB implements Serializable {
     }
 
     public String salvar() {
-        if (produtoController.salvar(produto) == true) {
+        try {
+            produtoController.salvar(produto);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Salvo com sucesso"));
-        } else {
+        } catch (Exception ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível salvar"));
         }
         return "listProduto.xhtml";
@@ -56,15 +57,17 @@ public class ProdutoMB implements Serializable {
     }
 
     public String delete() {
-        if (produtoController.delete(produto) == true) {
+        try {
+            produtoController.delete(produto);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
-        } else {
+        } catch (Exception ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
         }
         return "listProduto.xhtml";
     }
 
     public List<Produto> getAll() {
+        produtoController = new ProdutoController();
         return produtoController.getAll();
     }
 

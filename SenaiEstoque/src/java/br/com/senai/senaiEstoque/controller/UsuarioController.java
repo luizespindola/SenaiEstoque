@@ -31,7 +31,7 @@ public class UsuarioController {
         if (loginHolder.getId() != 0) {
             usuario.setId(loginHolder.getId());
         }
-        
+
         usuario.setNome(loginHolder.getNome());
         usuario.setSenha(loginHolder.getSenha());
         usuario.setTipoUsuario(loginHolder.getTipoUsuario());

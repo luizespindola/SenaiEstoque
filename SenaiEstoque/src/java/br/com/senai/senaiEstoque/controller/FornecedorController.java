@@ -14,7 +14,7 @@ import java.util.List;
  * @author User
  */
 public class FornecedorController {
-    
+
     private final FornecedorDao fornecedorDao = new FornecedorDao();
 
     public boolean salvar(Fornecedor fornecedor) {
@@ -40,5 +40,5 @@ public class FornecedorController {
     public List<Fornecedor> getAll() {
         return fornecedorDao.getAll();
     }
-    
+
 }

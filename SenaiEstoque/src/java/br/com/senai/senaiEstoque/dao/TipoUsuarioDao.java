@@ -17,7 +17,7 @@ import org.hibernate.Session;
  */
 public class TipoUsuarioDao {
 
-    public boolean insert(TipoUsuario tipoUsuario) {
+    public boolean salvar(TipoUsuario tipoUsuario) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(tipoUsuario);
@@ -51,10 +51,10 @@ public class TipoUsuarioDao {
     }
 
     public List<TipoUsuario> getAll() {
-        List<TipoUsuario> listaTipoUsuarios=new ArrayList<TipoUsuario>();
+        List<TipoUsuario> listaTipoUsuarios = new ArrayList<TipoUsuario>();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT t FROM TipoUsuario t");
-        listaTipoUsuarios=query.list();
+        listaTipoUsuarios = query.list();
         session.close();
         return listaTipoUsuarios;
     }

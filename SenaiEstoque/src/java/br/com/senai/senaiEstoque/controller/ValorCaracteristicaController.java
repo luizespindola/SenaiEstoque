@@ -17,8 +17,8 @@ public class ValorCaracteristicaController {
 
     private final ValorCaracteristicaDao valorCaracteristicaDao = new ValorCaracteristicaDao();
 
-    public boolean insert(ValorCaracteristica valorCaracteristica) {
-        if (valorCaracteristicaDao.insert(valorCaracteristica) == true) {
+    public boolean salvar(ValorCaracteristica valorCaracteristica) {
+        if (valorCaracteristicaDao.salvar(valorCaracteristica) == true) {
             return true;
         } else {
             return false;

@@ -22,7 +22,12 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class TipoUsuarioMB implements Serializable {
 
+    private TipoUsuarioController tipoUsuarioController;
     private TipoUsuario tipoUsuario = new TipoUsuario();
+
+    public TipoUsuarioMB() {
+        tipoUsuarioController = new TipoUsuarioController();
+    }
 
     public TipoUsuario getTipoUsuario() {
         return tipoUsuario;
@@ -33,11 +38,12 @@ public class TipoUsuarioMB implements Serializable {
     }
 
     public String insert() {
-        TipoUsuarioController tipoUsuarioController = new TipoUsuarioController();
-        if (tipoUsuarioController.insert(tipoUsuario) == true) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
-        } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
+
+        try {
+            tipoUsuarioController.salvar(tipoUsuario);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Salvo com sucesso"));
+        } catch (Exception ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível salvar"));
         }
         return "listTipoUsuario.xhtml";
     }
@@ -52,17 +58,17 @@ public class TipoUsuarioMB implements Serializable {
     }
 
     public String delete() {
-        TipoUsuarioController tipoUsuarioController = new TipoUsuarioController();
-        if (tipoUsuarioController.delete(tipoUsuario) == true) {
+        try {
+            tipoUsuarioController.delete(tipoUsuario);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
-        } else {
+        } catch(Exception ex){
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
         }
         return "listTipoUsuario.xhtml";
     }
 
     public List<TipoUsuario> getAll() {
-        TipoUsuarioController tipoUsuarioController = new TipoUsuarioController();
+        tipoUsuarioController = new TipoUsuarioController();
         return tipoUsuarioController.getAll();
     }
 

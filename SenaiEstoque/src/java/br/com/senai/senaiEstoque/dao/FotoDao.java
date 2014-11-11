@@ -17,7 +17,7 @@ import org.hibernate.Session;
  */
 public class FotoDao {
 
-    public boolean insert(Foto foto) {
+    public boolean salvar(Foto foto) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(foto);
@@ -51,10 +51,10 @@ public class FotoDao {
     }
 
     public List<Foto> getAll() {
-        List<Foto> listaFotos=new ArrayList<Foto>();
+        List<Foto> listaFotos = new ArrayList<Foto>();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT f FROM Foto f");
-        listaFotos=query.list();
+        listaFotos = query.list();
         session.close();
         return listaFotos;
     }

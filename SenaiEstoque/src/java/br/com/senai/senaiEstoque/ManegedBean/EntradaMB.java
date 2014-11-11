@@ -38,9 +38,10 @@ public class EntradaMB implements Serializable {
     }
 
     public String salvar() {
-        if (entradaController.salvar(entrada) == true) {
+        try {
+            entradaController.salvar(entrada);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
-        } else {
+        } catch (Exception ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
         }
         return "listEntrada.xhtml";
@@ -56,15 +57,17 @@ public class EntradaMB implements Serializable {
     }
 
     public String delete() {
-        if (entradaController.delete(entrada) == true) {
+        try {
+            entradaController.delete(entrada);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
-        } else {
+        } catch (Exception ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
         }
         return "listEntrada.xhtml";
     }
 
     public List<Entrada> getAll() {
+        entradaController = new EntradaController();
         return entradaController.getAll();
     }
 

@@ -17,7 +17,7 @@ import org.hibernate.Session;
  */
 public class PermissaoDao {
 
-    public boolean insert(Permissao permissao) {
+    public boolean salvar(Permissao permissao) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(permissao);
@@ -51,10 +51,10 @@ public class PermissaoDao {
     }
 
     public List<Permissao> getAll() {
-        List<Permissao> listaPermissaos=new ArrayList<Permissao>();
+        List<Permissao> listaPermissaos = new ArrayList<Permissao>();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT p FROM Permissao p");
-        listaPermissaos=query.list();
+        listaPermissaos = query.list();
         session.close();
         return listaPermissaos;
     }

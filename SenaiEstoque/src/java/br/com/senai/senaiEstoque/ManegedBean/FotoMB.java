@@ -23,6 +23,11 @@ import javax.faces.context.FacesContext;
 public class FotoMB implements Serializable {
 
     private Foto foto = new Foto();
+    private FotoController fotoController;
+
+    public FotoMB() {
+        fotoController = new FotoController();
+    }
 
     public Foto getFoto() {
         return foto;
@@ -32,12 +37,12 @@ public class FotoMB implements Serializable {
         this.foto = foto;
     }
 
-    public String insert() {
-        FotoController fotoController = new FotoController();
-        if (fotoController.insert(foto) == true) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
-        } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
+    public String salvar() {
+        try {
+            fotoController.salvar(foto);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Salvo com sucesso"));
+        } catch (Exception ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível salvar"));
         }
         return "listFoto.xhtml";
     }
@@ -52,17 +57,17 @@ public class FotoMB implements Serializable {
     }
 
     public String delete() {
-        FotoController fotoController = new FotoController();
-        if (fotoController.delete(foto) == true) {
+        try {
+            fotoController.delete(foto);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
-        } else {
+        } catch (Exception ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
         }
         return "listFoto.xhtml";
     }
 
     public List<Foto> getAll() {
-        FotoController fotoController = new FotoController();
+        fotoController = new FotoController();
         return fotoController.getAll();
     }
 

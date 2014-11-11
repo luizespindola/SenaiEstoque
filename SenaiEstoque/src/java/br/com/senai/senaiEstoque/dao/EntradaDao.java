@@ -51,22 +51,22 @@ public class EntradaDao {
     }
 
     public List<Entrada> getAll() {
-        List<Entrada> listaEntradas=new ArrayList<Entrada>();
+        List<Entrada> listaEntradas = new ArrayList<Entrada>();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT e FROM Entrada e");
-        listaEntradas=query.list();
+        listaEntradas = query.list();
         session.close();
         return listaEntradas;
     }
-    
+
     public List<Entrada> getAllByIdProduto(Integer id) {
         List<Entrada> listaEntrada = new ArrayList<Entrada>();
-        
+
         Session session = HibernateUtil.getSessionFactory().openSession();
-        
+
         Query query = session.createQuery("FROM Entrada WHERE produto_id = :id");
         query.setParameter("id", id);
-        
+
         listaEntrada = query.list();
 
         session.close();

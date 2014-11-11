@@ -39,9 +39,10 @@ public class CaracteristicaMB implements Serializable {
     }
 
     public String salvar() {
-        if (caracteristicaController.salvar(caracteristica) == true) {
+        try {
+            caracteristicaController.salvar(caracteristica);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Salvo com sucesso"));
-        } else {
+        } catch (Exception ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível salvar"));
         }
         return "editValorCaracteristica.xhtml";
@@ -57,9 +58,10 @@ public class CaracteristicaMB implements Serializable {
     }
 
     public String delete() {
-        if (caracteristicaController.delete(caracteristica) == true) {
+        try {
+            caracteristicaController.delete(caracteristica);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
-        } else {
+        } catch (Exception ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
         }
 
@@ -67,6 +69,7 @@ public class CaracteristicaMB implements Serializable {
     }
 
     public List<Caracteristica> getAll() {
+        caracteristicaController = new CaracteristicaController();
         return caracteristicaController.getAll();
     }
 

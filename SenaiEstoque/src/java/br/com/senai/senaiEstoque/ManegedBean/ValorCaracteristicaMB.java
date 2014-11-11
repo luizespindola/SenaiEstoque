@@ -5,7 +5,6 @@
  */
 package br.com.senai.senaiEstoque.ManegedBean;
 
-import br.com.senai.senaiEstoque.controller.CaracteristicaController;
 import br.com.senai.senaiEstoque.controller.ValorCaracteristicaController;
 import br.com.senai.senaiEstoque.entity.ValorCaracteristica;
 import java.io.Serializable;
@@ -25,7 +24,12 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class ValorCaracteristicaMB implements Serializable {
 
+    private ValorCaracteristicaController valorCaracteristicaController;
     private ValorCaracteristica valorCaracteristica = new ValorCaracteristica();
+
+    public ValorCaracteristicaMB(ValorCaracteristicaController valorCaracteristicaController) {
+        this.valorCaracteristicaController = valorCaracteristicaController;
+    }
 
     public ValorCaracteristica getValorCaracteristica() {
         return valorCaracteristica;
@@ -35,10 +39,7 @@ public class ValorCaracteristicaMB implements Serializable {
         this.valorCaracteristica = valorCaracteristica;
     }
 
-    public String insert() {
-
-        ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
-
+    public String salvar() {
         FacesContext facesContext = FacesContext.getCurrentInstance();
         ELContext elContext = facesContext.getELContext();
         ExpressionFactory factory = facesContext.getApplication().getExpressionFactory();
@@ -46,10 +47,11 @@ public class ValorCaracteristicaMB implements Serializable {
 
         valorCaracteristica.setCaracteristica(caracteristicaMB.getCaracteristica());
 
-        if (valorCaracteristicaController.insert(valorCaracteristica) == true) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
-        } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar o valor da categoria"));
+        try {
+            valorCaracteristicaController.salvar(valorCaracteristica);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Salvo com sucesso"));
+        } catch (Exception ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível salvar o valor da caracteristica"));
         }
         valorCaracteristica = new ValorCaracteristica();
 
@@ -66,17 +68,17 @@ public class ValorCaracteristicaMB implements Serializable {
     }
 
     public String delete() {
-        ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
-        if (valorCaracteristicaController.delete(valorCaracteristica) == true) {
+        try {
+            valorCaracteristicaController.delete(valorCaracteristica);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
-        } else {
+        } catch (Exception ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
         }
         return "listValorCaracteristica.xhtml";
     }
 
     public List<ValorCaracteristica> getAll() {
-        ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
+        valorCaracteristicaController = new ValorCaracteristicaController();
         return valorCaracteristicaController.getAll();
     }
 
@@ -85,7 +87,7 @@ public class ValorCaracteristicaMB implements Serializable {
     }
 
     public List<ValorCaracteristica> getAllByIdCaracteristica(Integer id) {
-        ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
+        valorCaracteristicaController = new ValorCaracteristicaController();
         return valorCaracteristicaController.getAllByIdCaracteristica(id);
     }
 

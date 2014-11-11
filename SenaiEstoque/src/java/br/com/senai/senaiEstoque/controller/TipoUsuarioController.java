@@ -17,8 +17,8 @@ public class TipoUsuarioController {
 
     private final TipoUsuarioDao tipoUsuarioDao = new TipoUsuarioDao();
 
-    public boolean insert(TipoUsuario tipoUsuario) {
-        if (tipoUsuarioDao.insert(tipoUsuario) == true) {
+    public boolean salvar(TipoUsuario tipoUsuario) {
+        if (tipoUsuarioDao.salvar(tipoUsuario) == true) {
             return true;
         } else {
             return false;

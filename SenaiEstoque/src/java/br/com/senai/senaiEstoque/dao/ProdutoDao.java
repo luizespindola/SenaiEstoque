@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package br.com.senai.senaiEstoque.dao;
 
 import br.com.senai.senaiEstoque.entity.Produto;
@@ -17,28 +16,28 @@ import org.hibernate.Session;
  * @author luiz_espindola
  */
 public class ProdutoDao {
-    
-    public boolean salvar(Produto produto){
+
+    public boolean salvar(Produto produto) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.saveOrUpdate(produto);
-        try{
+        try {
             session.getTransaction().commit();
-        }catch(Exception ex){
+        } catch (Exception ex) {
             return false;
-        }finally{
-           session.close();
+        } finally {
+            session.close();
         }
         return true;
     }
-    
+
     public boolean delete(Produto produto) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         session.delete(produto);
         session.getTransaction().commit();
         session.close();
-        return  true;
+        return true;
     }
 
     public Produto getById(Integer id) {
@@ -51,14 +50,13 @@ public class ProdutoDao {
         return produto;
     }
 
-
     public List<Produto> getAll() {
-        List<Produto> listaProdutos=new ArrayList<Produto>();
+        List<Produto> listaProdutos = new ArrayList<Produto>();
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT p FROM Produto p");
-        listaProdutos=query.list();
+        listaProdutos = query.list();
         session.close();
         return listaProdutos;
     }
-    
+
 }

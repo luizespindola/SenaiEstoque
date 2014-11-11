@@ -14,7 +14,7 @@ import java.util.List;
  * @author User
  */
 public class ProdutoController {
-    
+
     private final ProdutoDao produtoDao = new ProdutoDao();
 
     public boolean salvar(Produto produto) {
@@ -36,9 +36,9 @@ public class ProdutoController {
     public Produto getById(int id) {
         return produtoDao.getById(id);
     }
-     
+
     public List<Produto> getAll() {
         return produtoDao.getAll();
     }
-    
+
 }

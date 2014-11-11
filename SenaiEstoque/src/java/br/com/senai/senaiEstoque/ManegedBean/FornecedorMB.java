@@ -38,9 +38,10 @@ public class FornecedorMB implements Serializable {
     }
 
     public String salvar() {
-        if (fornecedorController.salvar(fornecedor) == true) {
+        try {
+            fornecedorController.salvar(fornecedor);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Salvo com sucesso"));
-        } else {
+        } catch (Exception ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível salvar"));
         }
         return "listFornecedor.xhtml";
@@ -56,15 +57,17 @@ public class FornecedorMB implements Serializable {
     }
 
     public String delete() {
-        if (fornecedorController.delete(fornecedor) == true) {
+        try {
+            fornecedorController.delete(fornecedor);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
-        } else {
+        } catch (Exception ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
         }
         return "listFornecedor.xhtml";
     }
 
     public List<Fornecedor> getAll() {
+        fornecedorController = new FornecedorController();
         return fornecedorController.getAll();
     }
 

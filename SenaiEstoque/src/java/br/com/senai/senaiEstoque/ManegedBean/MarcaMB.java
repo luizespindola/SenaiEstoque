@@ -67,6 +67,7 @@ public class MarcaMB implements Serializable {
     }
 
     public List<Marca> getAll() {
+        marcaController = new MarcaController();
         return marcaController.getAll();
     }
 

@@ -9,24 +9,25 @@ import br.com.senai.senaiEstoque.dao.SaidaDao;
 import br.com.senai.senaiEstoque.entity.Produto;
 import br.com.senai.senaiEstoque.entity.Saida;
 import java.util.List;
+
 /**
  *
  * @author User
  */
 public class SaidaController {
-    
+
     private final SaidaDao saidaDao = new SaidaDao();
 
-    public boolean insert(Saida saida) {
-        Integer valor=0;
-        if(saida.getId()!=null){
-            valor=saidaDao.getById(saida.getId()).getQuantidade();          
+    public boolean salvar(Saida saida) {
+        Integer valor = 0;
+        if (saida.getId() != null) {
+            valor = saidaDao.getById(saida.getId()).getQuantidade();
         }
-        if (saidaDao.insert(saida) == true) {
-            Produto produto=saida.getProduto();
-            produto.setQuantidade(produto.getQuantidade()+valor);
-            produto.setQuantidade(produto.getQuantidade()-saida.getQuantidade());
-            ProdutoController produtoController=new ProdutoController();
+        if (saidaDao.salvar(saida) == true) {
+            Produto produto = saida.getProduto();
+            produto.setQuantidade(produto.getQuantidade() + valor);
+            produto.setQuantidade(produto.getQuantidade() - saida.getQuantidade());
+            ProdutoController produtoController = new ProdutoController();
             produtoController.salvar(produto);
             return true;
         } else {
@@ -36,9 +37,9 @@ public class SaidaController {
 
     public boolean delete(Saida saida) {
         if (saidaDao.delete(saida) == true) {
-            Produto produto=saida.getProduto();
-            produto.setQuantidade(produto.getQuantidade()+saida.getQuantidade());
-            ProdutoController produtoController=new ProdutoController();
+            Produto produto = saida.getProduto();
+            produto.setQuantidade(produto.getQuantidade() + saida.getQuantidade());
+            ProdutoController produtoController = new ProdutoController();
             produtoController.salvar(produto);
             return true;
         } else {
@@ -49,9 +50,9 @@ public class SaidaController {
     public Saida getById(int id) {
         return saidaDao.getById(id);
     }
-     
+
     public List<Saida> getAll() {
         return saidaDao.getAll();
     }
-    
+
 }

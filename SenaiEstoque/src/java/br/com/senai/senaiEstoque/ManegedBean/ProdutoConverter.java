@@ -13,13 +13,13 @@ public class ProdutoConverter implements Converter {
     @Override
     public Object getAsObject(FacesContext fc, UIComponent uic, String string) {
         Integer id = Integer.parseInt(string);
-        ProdutoController produtoController=new ProdutoController();
+        ProdutoController produtoController = new ProdutoController();
         return produtoController.getById(id);
     }
 
     @Override
     public String getAsString(FacesContext fc, UIComponent uic, Object o) {
-        Produto produto=(Produto) o;
+        Produto produto = (Produto) o;
         return produto.getId().toString();
     }
 

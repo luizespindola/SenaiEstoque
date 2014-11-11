@@ -22,7 +22,12 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class SaidaMB implements Serializable {
 
+    private SaidaController saidaController;
     private Saida saida = new Saida();
+
+    public SaidaMB() {
+        saidaController = new SaidaController();
+    }
 
     public Saida getSaida() {
         return saida;
@@ -32,12 +37,12 @@ public class SaidaMB implements Serializable {
         this.saida = saida;
     }
 
-    public String insert() {
-        SaidaController saidaController = new SaidaController();
-        if (saidaController.insert(saida) == true) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Cadastrado com sucesso"));
-        } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível cadastrar"));
+    public String salvar() {
+        try {
+            saidaController.salvar(saida);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Salvo com sucesso"));
+        } catch (Exception ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível salvar"));
         }
         return "listSaida.xhtml";
     }
@@ -52,17 +57,17 @@ public class SaidaMB implements Serializable {
     }
 
     public String delete() {
-        SaidaController saidaController = new SaidaController();
-        if (saidaController.delete(saida) == true) {
+        try {
+            saidaController.delete(saida);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
-        } else {
+        } catch (Exception ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
         }
         return "listSaida.xhtml";
     }
 
     public List<Saida> getAll() {
-        SaidaController saidaController = new SaidaController();
+        saidaController = new SaidaController();
         return saidaController.getAll();
     }
 

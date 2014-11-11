@@ -29,7 +29,7 @@
                     <h:panelGrid columns="2" cellpadding="5">
                         <h:outputLabel  value="Valor Caracteristica:" for="valor" />
                         <h:inputText id="valor" value="#{valorCaracteristicaMB.valorCaracteristica.nome}" required="true" requiredMessage="Preencha o campo valor caracteristica" class="input-medium"/>
-                        <h:commandButton  class="btn btn-success btnSalvar" value="Salvar" action="#{valorCaracteristicaMB.insert}" />
+                        <h:commandButton  class="btn btn-success btnSalvar" value="Salvar" action="#{valorCaracteristicaMB.salvar()}" />
                     </h:panelGrid>
                 </div>
             </h:form>

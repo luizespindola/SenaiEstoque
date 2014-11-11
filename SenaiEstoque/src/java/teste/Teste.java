@@ -50,13 +50,13 @@ public class Teste {
         permissao.setEditarPermissao("Sim");
         permissao.setVisualizar("Sim");
         PermissaoDao permissaoDao = new PermissaoDao();
-        permissaoDao.insert(permissao);
+        permissaoDao.salvar(permissao);
 
         TipoUsuario tipoUsuario = new TipoUsuario();
         tipoUsuario.setNome("FODAO");
         tipoUsuario.setPermissao(permissao);
         TipoUsuarioDao tipoUsuarioDao = new TipoUsuarioDao();
-        tipoUsuarioDao.insert(tipoUsuario);
+        tipoUsuarioDao.salvar(tipoUsuario);
 
         Usuario usuario = new Usuario();
         usuario.setNome("Luiz");
@@ -82,7 +82,7 @@ public class Teste {
         Foto foto = new Foto();
         foto.setEndereco("foto1");
         FotoDao fotoDao = new FotoDao();
-        fotoDao.insert(foto);
+        fotoDao.salvar(foto);
 
         Fornecedor fornecedor = new Fornecedor();
         fornecedor.setNome("fornecedor1");
@@ -123,7 +123,7 @@ public class Teste {
         saida.setQuantidade(100);
         saida.setProduto(produto);
         SaidaDao saidaDao = new SaidaDao();
-        saidaDao.insert(saida);
+        saidaDao.salvar(saida);
     }
 
 }
