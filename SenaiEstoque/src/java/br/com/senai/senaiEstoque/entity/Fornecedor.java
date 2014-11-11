@@ -7,13 +7,10 @@ package br.com.senai.senaiEstoque.entity;
 
 import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
 
 /**
  *
@@ -28,8 +25,7 @@ public class Fornecedor implements Serializable{
     private String email;
     private String site;
     private String observacao;
-    @OneToMany(mappedBy = "fornecedor",cascade = CascadeType.ALL)
-    private Produto produto;
+    
 
     public Integer getId() {
         return id;
@@ -69,14 +65,6 @@ public class Fornecedor implements Serializable{
 
     public void setObservacao(String observacao) {
         this.observacao = observacao;
-    }
-
-    public Produto getProduto() {
-        return produto;
-    }
-
-    public void setProduto(Produto produto) {
-        this.produto = produto;
     }
     
     @Override
