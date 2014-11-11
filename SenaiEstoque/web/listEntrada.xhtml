@@ -9,55 +9,55 @@
 
     <ui:define name="Conteudo">  
         <!-- Conteudo -->
-            <h:form> 
-                <!-- Titulo -->
-                <div class="row-fluid tituloCategoria">
-                    <h1>Entradas</h1>
-                </div><!-- /Titulo -->
+        <h:form> 
+            <!-- Titulo -->
+            <div class="row-fluid tituloCategoria">
+                <h1>Entradas</h1>
+            </div><!-- /Titulo -->
 
-                <!-- Mensagen -->
-                <div id="mensagemDeErro" class="row-fluid">
-                    <p:messages id="mensagem"  autoUpdate="true" closable="true" /> 
-                </div><!-- /Mensagen -->
+            <!-- Mensagen -->
+            <div id="mensagemDeErro" class="row-fluid">
+                <p:messages id="mensagem"  autoUpdate="true" closable="true" /> 
+            </div><!-- /Mensagen -->
 
 
-                <!-- Botão adicionar novo -->
-                <div class="row-fluid">
-                    <h:commandButton action="#{entradaMB.novo}" value="Cadastrar nova Entrada" class="btn btn-success btnNovo pull-right"/>
-                </div> <!-- /Botão adicionar novo -->
+            <!-- Botão adicionar novo -->
+            <div class="row-fluid">
+                <h:commandButton action="#{entradaMB.novo}" value="Cadastrar nova Entrada" class="btn btn-success btnNovo pull-right"/>
+            </div> <!-- /Botão adicionar novo -->
 
-                <!-- lista -->
-                <div class="row-fluid">
+            <!-- lista -->
+            <div class="row-fluid">
 
-                    <p:dataTable value="#{entradaMB.all}" var="umaEntrada">
-                        <p:column headerText="Entrada" width="30">
-                            <h:outputText value="#{umaEntrada.produto.nome}" />                             
-                        </p:column>  
-                        <p:column headerText="Data da entrada" width="30">
-                            <h:outputText value="#{umaEntrada.dataEntrada}" />                             
-                        </p:column> 
-                        <p:column headerText="Quantidade" width="30">
-                            <h:outputText value="#{umaEntrada.quantidade}" />                             
-                        </p:column> 
-                        
-                        <!-- Acões: Editar / Excluir -->
-                        <p:column headerText="Ações" style="width: 10%">
-                            <h:commandButton action="#{entradaMB.editar}" value="Editar" image="assets/imagem/icon/editar-b.png"  class="btn btn-success" style="margin-right: 5px">
-                                <f:setPropertyActionListener target="#{entradaMB.entrada}" value="#{umaEntrada}" />                        
-                            </h:commandButton>
-                            <h:commandButton action="#{entradaMB.delete}" value="Excluir" image="assets/imagem/icon/excluir-b.png" class="btn btn-danger">
-                                <f:setPropertyActionListener target="#{entradaMB.entrada}" value="#{umaEntrada}" />                        
-                            </h:commandButton>
-                        </p:column> <!-- /Acões: Editar / Excluir -->  
+                <p:dataTable value="#{entradaMB.all}" var="umaEntrada">
+                    <p:column headerText="Entrada" width="30">
+                        <h:outputText value="#{umaEntrada.produto.nome}" />                             
+                    </p:column>  
+                    <p:column headerText="Data da entrada" width="30">
+                        <h:outputText value="#{umaEntrada.dataEntrada}" />                             
+                    </p:column> 
+                    <p:column headerText="Quantidade" width="30">
+                        <h:outputText value="#{umaEntrada.quantidade}" />                             
+                    </p:column> 
 
-                    </p:dataTable>
-                </div><!-- /lista -->
-            </h:form>
+                    <!-- Acões: Editar / Excluir -->
+                    <p:column headerText="Ações" style="width: 10%">
+                        <h:commandButton action="#{entradaMB.editar}" value="Editar" image="assets/imagem/icon/editar-b.png"  class="btn btn-success" style="margin-right: 5px">
+                            <f:setPropertyActionListener target="#{entradaMB.entrada}" value="#{umaEntrada}" />                        
+                        </h:commandButton>
+                        <h:commandButton action="#{entradaMB.delete}" value="Excluir" image="assets/imagem/icon/excluir-b.png" class="btn btn-danger">
+                            <f:setPropertyActionListener target="#{entradaMB.entrada}" value="#{umaEntrada}" />                        
+                        </h:commandButton>
+                    </p:column> <!-- /Acões: Editar / Excluir -->  
 
-            <!-- Botão voltar -->
-            <div class="row-fluid" id="divBtnVoltar">
-                <a href="javascript:window.history.go(-1)" class="btn"><img src="assets/imagem/icon/voltar.png"/> Voltar</a>
-            </div> <!-- /Botão voltar -->
+                </p:dataTable>
+            </div><!-- /lista -->
+        </h:form>
+
+        <!-- Botão voltar -->
+        <div class="row-fluid" id="divBtnVoltar">
+            <a href="javascript:window.history.go(-1)" class="btn"><img src="assets/imagem/icon/voltar.png"/> Voltar</a>
+        </div> <!-- /Botão voltar -->
 
     </ui:define> 
 

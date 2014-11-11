@@ -9,52 +9,52 @@
 
     <ui:define name="Conteudo">  
         <!-- Conteudo -->
-            <h:form> 
-                <!-- Titulo -->
-                <div class="row-fluid tituloCategoria">
-                    <h1>Características</h1>
-                </div><!-- /Titulo -->
+        <h:form> 
+            <!-- Titulo -->
+            <div class="row-fluid tituloCategoria">
+                <h1>Características</h1>
+            </div><!-- /Titulo -->
 
-                <!-- Mensagen -->
-                <div id="mensagemDeErro" class="row-fluid">
-                    <p:messages id="mensagem"  autoUpdate="true" closable="true" /> 
-                </div><!-- /Mensagen -->
+            <!-- Mensagen -->
+            <div id="mensagemDeErro" class="row-fluid">
+                <p:messages id="mensagem"  autoUpdate="true" closable="true" /> 
+            </div><!-- /Mensagen -->
 
 
-                <!-- Botão adicionar novo -->
-                <div class="row-fluid">
-                    <h:commandButton action="#{caracteristicaMB.novo}" value="Cadastrar nova Característica" class="btn btn-success btnNovo pull-right"/>
-                </div> <!-- /Botão adicionar novo -->
+            <!-- Botão adicionar novo -->
+            <div class="row-fluid">
+                <h:commandButton action="#{caracteristicaMB.novo}" value="Cadastrar nova Característica" class="btn btn-success btnNovo pull-right"/>
+            </div> <!-- /Botão adicionar novo -->
 
-                <!-- lista -->
-                <div class="row-fluid">
+            <!-- lista -->
+            <div class="row-fluid">
 
-                    <p:dataTable value="#{caracteristicaMB.all}" var="umaCaracteristica">
-                        <p:column headerText="Característica" width="30">
-                            <h:outputText value="#{umaCaracteristica.nome}" />                             
-                        </p:column>  
-                        <p:column headerText="Valor Caracteristica" width="20">
-                            <h:commandButton action="#{caracteristicaMB.listValorCaracterisica(umaCaracteristica,umaCaracteristica.id)}" value="Visualizar Valores" class="btn btn-primary" style="margin-left:40px"/>                            
-                        </p:column>  
+                <p:dataTable value="#{caracteristicaMB.all}" var="umaCaracteristica">
+                    <p:column headerText="Característica" width="30">
+                        <h:outputText value="#{umaCaracteristica.nome}" />                             
+                    </p:column>  
+                    <p:column headerText="Valor Caracteristica" width="20">
+                        <h:commandButton action="#{caracteristicaMB.listValorCaracterisica(umaCaracteristica,umaCaracteristica.id)}" value="Visualizar Valores" class="btn btn-primary" style="margin-left:40px"/>                            
+                    </p:column>  
 
-                        <!-- Acões: Editar / Excluir -->
-                        <p:column headerText="Ações" style="width: 10%">
-                            <h:commandButton action="#{caracteristicaMB.editar}" value="Editar" image="assets/imagem/icon/editar-b.png"  class="btn btn-success" style="margin-right: 5px">
-                                <f:setPropertyActionListener target="#{caracteristicaMB.caracteristica}" value="#{umaCaracteristica}" />                        
-                            </h:commandButton>
-                            <h:commandButton action="#{caracteristicaMB.delete}" value="Excluir" image="assets/imagem/icon/excluir-b.png" class="btn btn-danger">
-                                <f:setPropertyActionListener target="#{caracteristicaMB.caracteristica}" value="#{umaCaracteristica}" />                        
-                            </h:commandButton>
-                        </p:column> <!-- /Acões: Editar / Excluir -->  
+                    <!-- Acões: Editar / Excluir -->
+                    <p:column headerText="Ações" style="width: 10%">
+                        <h:commandButton action="#{caracteristicaMB.editar}" value="Editar" image="assets/imagem/icon/editar-b.png"  class="btn btn-success" style="margin-right: 5px">
+                            <f:setPropertyActionListener target="#{caracteristicaMB.caracteristica}" value="#{umaCaracteristica}" />                        
+                        </h:commandButton>
+                        <h:commandButton action="#{caracteristicaMB.delete}" value="Excluir" image="assets/imagem/icon/excluir-b.png" class="btn btn-danger">
+                            <f:setPropertyActionListener target="#{caracteristicaMB.caracteristica}" value="#{umaCaracteristica}" />                        
+                        </h:commandButton>
+                    </p:column> <!-- /Acões: Editar / Excluir -->  
 
-                    </p:dataTable>
-                </div><!-- /lista -->
-            </h:form>
+                </p:dataTable>
+            </div><!-- /lista -->
+        </h:form>
 
-            <!-- Botão voltar -->
-            <div class="row-fluid" id="divBtnVoltar">
-                <a href="javascript:window.history.go(-1)" class="btn"><img src="assets/imagem/icon/voltar.png"/> Voltar</a>
-            </div> <!-- /Botão voltar -->
+        <!-- Botão voltar -->
+        <div class="row-fluid" id="divBtnVoltar">
+            <a href="javascript:window.history.go(-1)" class="btn"><img src="assets/imagem/icon/voltar.png"/> Voltar</a>
+        </div> <!-- /Botão voltar -->
 
     </ui:define> 
 

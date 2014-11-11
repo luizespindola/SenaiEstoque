@@ -9,36 +9,36 @@
                 >  
     <!-- Conteudo -->
     <ui:define name="Conteudo"> 
-            <!-- Titulo -->
-            <div class="row-fluid tituloCategoria">
-                <h1>Cadastro de Características de produto</h1>
-            </div><!-- /Titulo -->
+        <!-- Titulo -->
+        <div class="row-fluid tituloCategoria">
+            <h1>Cadastro de Características de produto</h1>
+        </div><!-- /Titulo -->
 
-            <!-- Mensagens -->
-            <div id="mensagemDeErro">
-                <p:messages id="mensagem"  autoUpdate="true" closable="true" /> 
-            </div><!-- /Mensagens -->
+        <!-- Mensagens -->
+        <div id="mensagemDeErro">
+            <p:messages id="mensagem"  autoUpdate="true" closable="true" /> 
+        </div><!-- /Mensagens -->
 
-            <!-- Formulário -->
-            <div class="row-fluid">
-                <h:form id="formCaracteristica">
-                    <div class="divTituloPanel">
-                        <h:outputText value="Nova Característica"/>
-                    </div>                
-                    <div class="divPanel">
-                        <h:panelGrid columns="2" cellpadding="5">
-                            <h:outputLabel value="Característica" for="nome" />
-                            <h:inputText id="nome" value="#{caracteristicaMB.caracteristica.nome}" required="true" requiredMessage="Preencha o campo característica" class="input-medium" />
-                            <h:commandButton class="btn btn-success btnSalvar" value="Salvar" action="#{caracteristicaMB.salvar()}"/>          
-                        </h:panelGrid>
-                    </div>
-                </h:form>            
-            </div><!-- /Formulário -->
+        <!-- Formulário -->
+        <div class="row-fluid">
+            <h:form id="formCaracteristica">
+                <div class="divTituloPanel">
+                    <h:outputText value="Nova Característica"/>
+                </div>                
+                <div class="divPanel">
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputLabel value="Característica" for="nome" />
+                        <h:inputText id="nome" value="#{caracteristicaMB.caracteristica.nome}" required="true" requiredMessage="Preencha o campo característica" class="input-medium" />
+                        <h:commandButton class="btn btn-success btnSalvar" value="Salvar" action="#{caracteristicaMB.salvar()}"/>          
+                    </h:panelGrid>
+                </div>
+            </h:form>            
+        </div><!-- /Formulário -->
 
-            <!-- Botão voltar -->
-            <div class="row-fluid" id="divBtnVoltar">
-                <a href="listCaracteristica.xhtml" class="btn"><img src="assets/imagem/icon/voltar.png"/> Voltar</a>
-            </div> <!-- /Botão voltar -->
+        <!-- Botão voltar -->
+        <div class="row-fluid" id="divBtnVoltar">
+            <a href="listCaracteristica.xhtml" class="btn"><img src="assets/imagem/icon/voltar.png"/> Voltar</a>
+        </div> <!-- /Botão voltar -->
 
     </ui:define> <!-- /Conteudo -->
 </ui:composition>  
