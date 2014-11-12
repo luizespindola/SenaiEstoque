@@ -40,13 +40,21 @@ public class Produto implements Serializable {
     @ManyToOne(cascade = CascadeType.ALL)
     private Marca marca;
     @OneToMany(mappedBy = "produto", cascade = {CascadeType.ALL})
-    private List<Saida> listaSaida = new ArrayList<Saida>();
+    private List<Saida> listaSaida;
     @OneToMany(mappedBy = "produto", cascade = {CascadeType.ALL})
-    private List<Entrada> listaEntrada = new ArrayList<Entrada>();
+    private List<Entrada> listaEntrada;
     @ManyToMany(mappedBy = "listaProduto", cascade = {CascadeType.ALL})
-    private List<Caracteristica> listaCaracteristicas = new ArrayList<Caracteristica>();
+    private List<Caracteristica> listaCaracteristicas;
     @ManyToMany(mappedBy = "listaProduto",cascade = {CascadeType.ALL})
-    private List<ValorCaracteristica> listaValorCaracteristicas=new ArrayList<ValorCaracteristica>();
+    private List<ValorCaracteristica> listaValorCaracteristicas;
+
+    public Produto() {
+        this.listaSaida = new ArrayList<Saida>();
+        this.listaEntrada = new ArrayList<Entrada>();
+        this.listaValorCaracteristicas = new ArrayList<ValorCaracteristica>();
+    }
+    
+    
 
     public Integer getId() {
         return id;

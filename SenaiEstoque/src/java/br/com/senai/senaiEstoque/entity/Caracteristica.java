@@ -31,7 +31,13 @@ public class Caracteristica implements Serializable {
     @OneToMany(mappedBy = "caracteristica" ,cascade = {CascadeType.ALL})
     private List<ValorCaracteristica> listaValorCaracteristica = new ArrayList<ValorCaracteristica>();
     @ManyToMany(cascade = CascadeType.ALL)
-    private List<Produto> listaProduto = new ArrayList<Produto>();
+    private List<Produto> listaProduto;
+
+    public Caracteristica() {
+        this.listaProduto = new ArrayList<Produto>();
+    }
+    
+    
 
     public Integer getId() {
         return id;
@@ -81,7 +87,7 @@ public class Caracteristica implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Produto other = (Produto) obj;
+        final Caracteristica other = (Caracteristica) obj;
         if (!Objects.equals(this.id, other.id)) {
             return false;
         }

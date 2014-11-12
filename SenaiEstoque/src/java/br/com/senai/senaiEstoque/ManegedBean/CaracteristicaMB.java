@@ -34,7 +34,7 @@ public class CaracteristicaMB implements Serializable {
         return caracteristica;
     }
 
-    public void setCaracterisitca(Caracteristica caracteristica) {
+    public void setCaracteristica(Caracteristica caracteristica) {
         this.caracteristica = caracteristica;
     }
 
