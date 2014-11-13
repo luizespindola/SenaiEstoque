@@ -32,6 +32,15 @@
                         <h:inputText id="nome" value="#{usuarioMB.usuario.nome}" required="true" requiredMessage="Preencha o campo nome" class="input-medium" />
                         <h:outputLabel value="Login" for="login" />
                         <h:inputText id="login" value="#{usuarioMB.usuario.login}" required="true" requiredMessage="Preencha o campo login" class="input-medium" />
+                        <h:outputLabel value="Tipo de usuário" for="tipoUsuario" />
+                        <p:selectOneMenu id="tipoUsuario" value="#{tipoUsuarioMB.tipoUsuario}">                   
+                            <f:converter converterId="tipoUsuarioConverter" />
+                            <f:selectItems value="#{tipoUsuarioMB.all}"
+                                           var="umTipoUsuario"
+                                           itemLabel="#{umTipoUsuario.nome}"
+                                           itemValue="#{umTipoUsuario}"
+                                           />
+                        </p:selectOneMenu>
                         <h:outputLabel value="Senha" for="senha" />
                         <h:inputSecret id="senha" value="#{usuarioMB.usuario.senha}" required="true" requiredMessage="Preencha o campo senha" class="input-medium" />
                         <h:commandButton class="btn btn-success btnSalvar" value="Salvar" action="#{usuarioMB.salvar}"/>

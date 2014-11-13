@@ -72,7 +72,7 @@ public class Caracteristica implements Serializable {
         this.listaProduto = listaProduto;
     }
 
-     @Override
+    @Override
     public int hashCode() {
         int hash = 3;
         hash = 17 * hash + Objects.hashCode(this.id);

@@ -54,7 +54,7 @@ public class Teste {
 
         TipoUsuario tipoUsuario = new TipoUsuario();
         tipoUsuario.setNome("FODAO");
-        tipoUsuario.setPermissao(permissao);
+       // tipoUsuario.setPermissao(permissao);
         TipoUsuarioDao tipoUsuarioDao = new TipoUsuarioDao();
         tipoUsuarioDao.salvar(tipoUsuario);
 

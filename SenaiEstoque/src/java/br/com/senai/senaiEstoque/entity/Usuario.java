@@ -18,14 +18,15 @@ import javax.persistence.OneToOne;
  * @author User
  */
 @Entity
-public class Usuario implements Serializable{
+public class Usuario implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String nome;
     private String login;
     private String senha;
-    @OneToOne(mappedBy = "usuario",cascade = {CascadeType.ALL})
+    @OneToOne(cascade = {CascadeType.ALL})
     private TipoUsuario tipoUsuario;
 
     public Integer getId() {
@@ -67,6 +68,5 @@ public class Usuario implements Serializable{
     public void setTipoUsuario(TipoUsuario tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
-    
-    
+
 }

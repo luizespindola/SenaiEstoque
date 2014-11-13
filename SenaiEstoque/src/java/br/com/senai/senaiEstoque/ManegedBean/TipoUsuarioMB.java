@@ -37,7 +37,7 @@ public class TipoUsuarioMB implements Serializable {
         this.tipoUsuario = tipoUsuario;
     }
 
-    public String insert() {
+    public String salvar() {
 
         try {
             tipoUsuarioController.salvar(tipoUsuario);
@@ -61,7 +61,7 @@ public class TipoUsuarioMB implements Serializable {
         try {
             tipoUsuarioController.delete(tipoUsuario);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Removido com sucesso"));
-        } catch(Exception ex){
+        } catch (Exception ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível remover"));
         }
         return "listTipoUsuario.xhtml";

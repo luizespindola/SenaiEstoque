@@ -12,29 +12,30 @@
 
         <!-- Titulo -->
         <div class="row-fluid tituloCategoria">
-            <h1>Marcas</h1>
+            <h1>Tipo de usuário</h1>
         </div><!-- /Titulo -->
+
         <!-- Formulário / Lista -->
         <div class="row-fluid">
             <h:form>  
 
                 <!-- Botão cadastrar novo -->
                 <div class="row-fluid">
-                    <h:commandButton action="#{marcaMB.novo}" value="Cadastrar nova Marca" class="btn btn-success btnNovo pull-right"/>
+                    <h:commandButton action="#{tipoUsuarioMB.novo}" value="Cadastrar novo usuário" class="btn btn-success btnNovo pull-right"/>
                 </div><!-- /Botão cadastrar novo -->
 
                 <!-- Lista -->
-                <p:dataTable value="#{marcaMB.all}" var="umaMarca">
-                    <p:column headerText="Marca" width="30">
-                        <h:outputText value="#{umaMarca.nome}" />                             
+                <p:dataTable value="#{tipoUsuarioMB.all}" var="umTipoUsuario">
+                    <p:column headerText="Tipo de Usuário" width="30">
+                        <h:outputText value="#{umTipoUsuario.nome}" />                             
                     </p:column>                  
 
                     <p:column headerText="Ações" style="width: 10%">
-                        <h:commandButton action="#{marcaMB.editar}" value="Editar" image="assets/imagem/icon/editar-b.png"  class="btn btn-success" style="margin-right: 5px">
-                            <f:setPropertyActionListener target="#{marcaMB.marca}" value="#{umaMarca}" />                        
+                        <h:commandButton action="#{tipoUsuarioMB.editar}" value="Editar" image="assets/imagem/icon/editar-b.png"  class="btn btn-success" style="margin-right: 5px">
+                            <f:setPropertyActionListener target="#{tipoUsuarioMB.tipoUsuario}" value="#{umTipoUsuario}" />                        
                         </h:commandButton>
-                        <h:commandButton action="#{marcaMB.delete}" value="Excluir" image="assets/imagem/icon/excluir-b.png" class="btn btn-danger">
-                            <f:setPropertyActionListener target="#{marcaMB.marca}" value="#{umaMarca}" />                        
+                        <h:commandButton action="#{tipoUsuarioMB.delete}" value="Excluir" image="assets/imagem/icon/excluir-b.png" class="btn btn-danger">
+                            <f:setPropertyActionListener target="#{tipoUsuarioMB.tipoUsuario}" value="#{umTipoUsuario}" />                        
                         </h:commandButton>
 
                     </p:column>                    

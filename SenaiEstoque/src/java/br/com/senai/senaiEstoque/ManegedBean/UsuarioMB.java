@@ -6,7 +6,6 @@
 package br.com.senai.senaiEstoque.ManegedBean;
 
 import br.com.senai.senaiEstoque.controller.UsuarioController;
-import br.com.senai.senaiEstoque.entity.LoginHolder;
 import br.com.senai.senaiEstoque.entity.Usuario;
 import java.io.Serializable;
 import java.util.List;
@@ -26,6 +25,10 @@ public class UsuarioMB implements Serializable {
     private Usuario usuario = new Usuario();
     UsuarioController usuarioController;
 
+    public UsuarioMB() {
+        usuarioController = new UsuarioController();
+    }
+
     public Usuario getUsuario() {
         return usuario;
     }
@@ -34,19 +37,25 @@ public class UsuarioMB implements Serializable {
         this.usuario = usuario;
     }
 
-    public UsuarioMB() {
-        usuarioController = new UsuarioController();
-    }
-
     public String salvar() {
-        try {
-            usuarioController.salvar(usuario);
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Salvo com sucesso"));
-        } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível salvar " + e.getMessage()));
-        } finally {
-            return "listUsuario.xhtml";
-        }
+
+//        //Certifica a integridade do tipo de usuário, para que o cliente não invente um novo tipo alterando o html
+//        if (!(usuario.getTipoUsuario().getNome().equals("administrador") || (usuario.getTipoUsuario().getNome().equals("gerenteDeEstoque")))) {
+//
+//            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Ops! tipo de usuário inválido!"));
+//            return "editUsuario.xhtml";
+//
+//        } else {
+
+            try {
+                usuarioController.salvar(usuario);
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Salvo com sucesso"));
+            } catch (Exception e) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível salvar " + e.getMessage()));
+            } finally {
+                return "listUsuario.xhtml";
+            }
+//        }
     }
 
     public String novo() {
