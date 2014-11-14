@@ -8,12 +8,17 @@ package br.com.senai.senaiEstoque.ManegedBean;
 import br.com.senai.senaiEstoque.controller.CaracteristicaController;
 import br.com.senai.senaiEstoque.controller.ValorCaracteristicaController;
 import br.com.senai.senaiEstoque.entity.Caracteristica;
+import br.com.senai.senaiEstoque.entity.ValorCaracteristica;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
+import javax.faces.model.SelectItemGroup;
 
 /**
  *
@@ -87,6 +92,12 @@ public class CaracteristicaMB implements Serializable {
     public void listValorCaracterisica() {
         ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
         caracteristica.setListaValorCaracteristica(valorCaracteristicaController.getAllByIdCaracteristica(this.caracteristica.getId()));
+    }
+
+    public List<ValorCaracteristica> populaValorCaracteristica() {
+        ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
+        return valorCaracteristicaController.getAllByIdCaracteristica(caracteristica.getId());
+
     }
 
 }

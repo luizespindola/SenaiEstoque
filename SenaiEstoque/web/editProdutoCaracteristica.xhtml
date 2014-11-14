@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"  
+                template="/template.xhtml"  
+                xmlns:h="http://java.sun.com/jsf/html"  
+                xmlns:p="http://primefaces.org/ui"  
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml"
+                >  
+
+    <ui:define name="Conteudo"> 
+
+        <!-- Titulo -->
+        <div class="row-fluid tituloCategoria">
+            <h1>Cadastro de Caracteristicas do produto</h1>
+        </div><!-- /Titulo -->
+
+        <!-- Mensagens -->
+        <div class="row-fluid" id="mensagemDeErro">
+            <p:messages id="mensagem"  autoUpdate="true" closable="true" /> 
+        </div><!-- /Mensagens -->
+
+        <!-- Formulário -->
+        <div class="row-fluid">
+            <h:form id="formProduto">
+                <div class="divTituloPanel">
+                    <h:outputText value="Novo"/>
+                </div>                
+                <div class="divPanel">
+                    <h:panelGrid columns="2" cellpadding="5">
+
+                        <p:selectOneMenu id="caracteristica" value="#{caracteristicaMB.caracteristica}">                   
+                            <f:converter converterId="caracteristicaConverter" />
+                            <f:selectItems value="#{caracteristicaMB.all}"
+                                           var="umaCaracteristica"
+                                           itemLabel="#{umaCaracteristica.nome}"
+                                           itemValue="#{umaCaracteristica}"
+                                           />
+                        </p:selectOneMenu>
+
+
+                        <h:commandButton class="btn btn-success" value=" >> " action="#"/>
+
+                        <p:selectOneMenu id="caracteristica" value="#{produtoMB.produto.listaValorCaracteristicas}">                   
+                            <f:converter converterId="valorCaracteristicaConverter" />
+                            <f:selectItems value="#{caracteristicaMB.populaValorCaracteristica}"
+                                           var="umValorCaracteristica"
+                                           itemLabel="#{umValorCaracteristica.nome}"
+                                           itemValue="#{umValorCaracteristica}"
+                                           />
+                        </p:selectOneMenu>
+                    </h:panelGrid>
+                </div>
+            </h:form>
+        </div><!-- /Formulário -->
+
+        <!-- Botão voltar -->
+        <div class="row-fluid" id="divBtnVoltar">
+            <a href="javascript:history.go(-1)" class="btn"><img src="assets/imagem/icon/voltar.png"/> Voltar</a>
+        </div> <!-- /Botão voltar -->
+
+
+    </ui:define> 
+</ui:composition> 

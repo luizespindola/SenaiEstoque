@@ -28,7 +28,7 @@ public class Produto implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-     Integer id;
+    Integer id;
     private String nome;
     private Integer codigo;
     private Double precoCusto;
@@ -45,16 +45,23 @@ public class Produto implements Serializable {
     private List<Entrada> listaEntrada;
     @ManyToMany(mappedBy = "listaProduto", cascade = {CascadeType.ALL})
     private List<Caracteristica> listaCaracteristicas;
-    @ManyToMany(mappedBy = "listaProduto",cascade = {CascadeType.ALL})
+    @ManyToMany(mappedBy = "listaProduto", cascade = {CascadeType.ALL})
     private List<ValorCaracteristica> listaValorCaracteristicas;
 
     public Produto() {
-        this.listaSaida = new ArrayList<Saida>();
-        this.listaEntrada = new ArrayList<Entrada>();
-        this.listaValorCaracteristicas = new ArrayList<ValorCaracteristica>();
+        listaSaida = new ArrayList<Saida>();
+        listaEntrada = new ArrayList<Entrada>();
+        listaValorCaracteristicas = new ArrayList<ValorCaracteristica>();
+        listaCaracteristicas = new ArrayList<Caracteristica>();
     }
-    
-    
+
+    public List<ValorCaracteristica> getListaValorCaracteristicas() {
+        return listaValorCaracteristicas;
+    }
+
+    public void setListaValorCaracteristicas(List<ValorCaracteristica> listaValorCaracteristicas) {
+        this.listaValorCaracteristicas = listaValorCaracteristicas;
+    }
 
     public Integer getId() {
         return id;
@@ -143,7 +150,7 @@ public class Produto implements Serializable {
     public void setListaCaracteristicas(Caracteristica caracteristica) {
         listaCaracteristicas.add(caracteristica);
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 3;

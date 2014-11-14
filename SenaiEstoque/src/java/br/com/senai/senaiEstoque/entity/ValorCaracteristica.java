@@ -8,12 +8,14 @@ package br.com.senai.senaiEstoque.entity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+
 /**
  *
  * @author User
@@ -28,7 +30,7 @@ public class ValorCaracteristica implements Serializable {
     @ManyToOne
     private Caracteristica caracteristica;
     @ManyToMany
-    private List<Produto> listaProduto=new ArrayList<Produto>();
+    private List<Produto> listaProduto = new ArrayList<Produto>();
 
     public Integer getId() {
         return id;
@@ -52,6 +54,28 @@ public class ValorCaracteristica implements Serializable {
 
     public void setCaracteristica(Caracteristica caracteristica) {
         this.caracteristica = caracteristica;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 17 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ValorCaracteristica other = (ValorCaracteristica) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
     }
 
 }

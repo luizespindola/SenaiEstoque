@@ -30,14 +30,6 @@ public class Caracteristica implements Serializable {
     private String nome;
     @OneToMany(mappedBy = "caracteristica" ,cascade = {CascadeType.ALL})
     private List<ValorCaracteristica> listaValorCaracteristica = new ArrayList<ValorCaracteristica>();
-    @ManyToMany(cascade = CascadeType.ALL)
-    private List<Produto> listaProduto;
-
-    public Caracteristica() {
-        this.listaProduto = new ArrayList<Produto>();
-    }
-    
-    
 
     public Integer getId() {
         return id;
@@ -63,14 +55,7 @@ public class Caracteristica implements Serializable {
         this.listaValorCaracteristica = listaValorCaracteristica;
     }
 
-        
-    public List<Produto> getListaProduto() {
-        return listaProduto;
-    }
-
-    public void setListaProduto(List<Produto> listaProduto) {
-        this.listaProduto = listaProduto;
-    }
+      
 
     @Override
     public int hashCode() {

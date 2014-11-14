@@ -106,7 +106,7 @@ public class Teste {
         produto.setFornecedor(fornecedor);
         produto.setMarca(marca);
         List<Caracteristica> listaCaracteristicas=new ArrayList<Caracteristica>();
-        produto.setListaCaracteristicas(caracteristica);
+       // produto.setListaCaracteristicas(caracteristica);
         ProdutoDao produtoDao = new ProdutoDao();
         produtoDao.salvar(produto);
                
