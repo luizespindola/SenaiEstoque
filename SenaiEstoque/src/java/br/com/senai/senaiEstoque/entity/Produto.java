@@ -49,9 +49,9 @@ public class Produto implements Serializable {
     private List<ValorCaracteristica> listaValorCaracteristicas;
 
     public Produto() {
-        listaSaida = new ArrayList<Saida>();
-        listaEntrada = new ArrayList<Entrada>();
-        listaValorCaracteristicas = new ArrayList<ValorCaracteristica>();
+        this.listaSaida = new ArrayList<Saida>();
+        this.listaEntrada = new ArrayList<Entrada>();
+        this.listaValorCaracteristicas = new ArrayList<ValorCaracteristica>();
         listaCaracteristicas = new ArrayList<Caracteristica>();
     }
 
