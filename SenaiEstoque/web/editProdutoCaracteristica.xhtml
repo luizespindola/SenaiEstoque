@@ -29,7 +29,7 @@
                 <div class="divPanel">
                     <h:panelGrid columns="2" cellpadding="5">
 
-                        <p:selectOneMenu id="caracteristica" value="#{caracteristicaMB.caracteristica}">                   
+                        <p:selectOneMenu id="caracteristica" value="#{valorCaracteristicaMB.valorCaracteristica.caracteristica}">                   
                             <f:converter converterId="caracteristicaConverter" />
                             <f:selectItems value="#{caracteristicaMB.all}"
                                            var="umaCaracteristica"
@@ -39,11 +39,9 @@
                         </p:selectOneMenu>
 
 
-                        <h:commandButton class="btn btn-success" value=" >> " action="#"/>
-
                         <p:selectOneMenu id="caracteristica" value="#{produtoMB.produto.listaValorCaracteristicas}">                   
                             <f:converter converterId="valorCaracteristicaConverter" />
-                            <f:selectItems value="#{caracteristicaMB.populaValorCaracteristica}"
+                            <f:selectItems value="#{valorCaracteristicaMB.populaValorCaracteristica()}"
                                            var="umValorCaracteristica"
                                            itemLabel="#{umValorCaracteristica.nome}"
                                            itemValue="#{umValorCaracteristica}"

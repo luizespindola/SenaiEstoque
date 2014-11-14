@@ -52,7 +52,7 @@ public class Produto implements Serializable {
         this.listaSaida = new ArrayList<Saida>();
         this.listaEntrada = new ArrayList<Entrada>();
         this.listaValorCaracteristicas = new ArrayList<ValorCaracteristica>();
-        listaCaracteristicas = new ArrayList<Caracteristica>();
+       
     }
 
     public List<ValorCaracteristica> getListaValorCaracteristicas() {

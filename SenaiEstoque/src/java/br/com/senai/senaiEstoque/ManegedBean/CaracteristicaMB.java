@@ -94,10 +94,5 @@ public class CaracteristicaMB implements Serializable {
         caracteristica.setListaValorCaracteristica(valorCaracteristicaController.getAllByIdCaracteristica(this.caracteristica.getId()));
     }
 
-    public List<ValorCaracteristica> populaValorCaracteristica() {
-        ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
-        return valorCaracteristicaController.getAllByIdCaracteristica(caracteristica.getId());
-
-    }
 
 }
