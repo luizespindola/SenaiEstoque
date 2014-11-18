@@ -6,6 +6,7 @@
 package br.com.senai.senaiEstoque.controller;
 
 import br.com.senai.senaiEstoque.dao.ValorCaracteristicaDao;
+import br.com.senai.senaiEstoque.entity.Caracteristica;
 import br.com.senai.senaiEstoque.entity.ValorCaracteristica;
 import java.util.List;
 
@@ -43,6 +44,10 @@ public class ValorCaracteristicaController {
 
     public List<ValorCaracteristica> getAllByIdCaracteristica(Integer id) {
         return valorCaracteristicaDao.getAllByIdCaracteristica(id);
+    }
+    
+    public List<ValorCaracteristica> getAllByCaracteristica(Caracteristica caracteristica) {
+        return valorCaracteristicaDao.getAllByIdCaracteristica(caracteristica);
     }
 
 }

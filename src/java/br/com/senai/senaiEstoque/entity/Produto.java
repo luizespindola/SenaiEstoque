@@ -45,22 +45,15 @@ public class Produto implements Serializable {
     private List<Entrada> listaEntrada;
     @ManyToMany(mappedBy = "listaProduto", cascade = {CascadeType.ALL})
     private List<Caracteristica> listaCaracteristicas;
-    @ManyToMany(mappedBy = "listaProduto", cascade = {CascadeType.ALL})
+    @ManyToMany(cascade = {CascadeType.ALL})
     private List<ValorCaracteristica> listaValorCaracteristicas;
+    private ValorCaracteristica valorCaracteristica;
 
     public Produto() {
         this.listaSaida = new ArrayList<Saida>();
         this.listaEntrada = new ArrayList<Entrada>();
         this.listaValorCaracteristicas = new ArrayList<ValorCaracteristica>();
        
-    }
-
-    public List<ValorCaracteristica> getListaValorCaracteristicas() {
-        return listaValorCaracteristicas;
-    }
-
-    public void setListaValorCaracteristicas(List<ValorCaracteristica> listaValorCaracteristicas) {
-        this.listaValorCaracteristicas = listaValorCaracteristicas;
     }
 
     public Integer getId() {
@@ -151,6 +144,22 @@ public class Produto implements Serializable {
         listaCaracteristicas.add(caracteristica);
     }
 
+    public List<ValorCaracteristica> getListaValorCaracteristicas() {
+        return listaValorCaracteristicas;
+    }
+
+    public void setListaValorCaracteristicas() {
+        this.listaValorCaracteristicas.add(valorCaracteristica);
+    }
+
+    public ValorCaracteristica getValorCaracteristica() {
+        return valorCaracteristica;
+    }
+
+    public void setValorCaracteristica(ValorCaracteristica valorCaracteristica) {
+        this.valorCaracteristica = valorCaracteristica;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 3;

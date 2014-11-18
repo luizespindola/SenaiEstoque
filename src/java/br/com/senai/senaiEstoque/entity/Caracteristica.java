@@ -73,8 +73,7 @@ public class Caracteristica implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 17 * hash + Objects.hashCode(this.id);
+        int hash = 7;
         return hash;
     }
 
@@ -87,9 +86,7 @@ public class Caracteristica implements Serializable {
             return false;
         }
         final Caracteristica other = (Caracteristica) obj;
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
         return true;
     }
+
 }

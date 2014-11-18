@@ -5,6 +5,7 @@
  */
 package br.com.senai.senaiEstoque.ManegedBean;
 
+import br.com.senai.senaiEstoque.controller.CaracteristicaController;
 import br.com.senai.senaiEstoque.controller.ValorCaracteristicaController;
 import br.com.senai.senaiEstoque.entity.Caracteristica;
 import br.com.senai.senaiEstoque.entity.ValorCaracteristica;
@@ -16,6 +17,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import org.primefaces.component.behavior.ajax.AjaxBehavior;
 
 /**
  *
@@ -26,12 +28,28 @@ import javax.faces.context.FacesContext;
 public class ValorCaracteristicaMB implements Serializable {
 
     private ValorCaracteristicaController valorCaracteristicaController;
-    private ValorCaracteristica valorCaracteristica = new ValorCaracteristica();
+    private ValorCaracteristica valorCaracteristica;
+    private List<Caracteristica> caracteristicas;
+    private CaracteristicaController caracteristicaController=new CaracteristicaController();
+    private Caracteristica caracteristica;
+    private List<ValorCaracteristica> valorCaracteristicas;
 
     public ValorCaracteristicaMB() {
         valorCaracteristicaController = new ValorCaracteristicaController();
     }
+    
+    public void init(){
+        caracteristicas=caracteristicaController.getAll();
+    }
 
+    public List<ValorCaracteristica> getValorCaracteristicas() {
+        return valorCaracteristicas;
+    }
+
+    public void setValorCaracteristicas(List<ValorCaracteristica> valorCaracteristicas) {
+        this.valorCaracteristicas = valorCaracteristicas;
+    }
+    
     public ValorCaracteristica getValorCaracteristica() {
         return valorCaracteristica;
     }
@@ -40,6 +58,14 @@ public class ValorCaracteristicaMB implements Serializable {
         this.valorCaracteristica = valorCaracteristica;
     }
 
+    public Caracteristica getCaracteristica() {
+        return caracteristica;
+    }
+
+    public void setCaracteristica(Caracteristica caracteristica) {
+        this.caracteristica = caracteristica;
+    }
+    
     public String salvar() {
         FacesContext facesContext = FacesContext.getCurrentInstance();
         ELContext elContext = facesContext.getELContext();
@@ -91,11 +117,8 @@ public class ValorCaracteristicaMB implements Serializable {
         valorCaracteristicaController = new ValorCaracteristicaController();
         return valorCaracteristicaController.getAllByIdCaracteristica(id);
     }
-
     
-    public List<ValorCaracteristica> populaValorCaracteristica(Caracteristica caracteristica) {
-        valorCaracteristicaController = new ValorCaracteristicaController();
-        return valorCaracteristicaController.getAllByIdCaracteristica(caracteristica.getId());
-
+    public void populaValorCaracteristica(AjaxBehavior event) {
+        valorCaracteristicas=valorCaracteristicaController.getAllByCaracteristica(caracteristica);
     }
 }

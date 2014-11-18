@@ -5,6 +5,7 @@
  */
 package br.com.senai.senaiEstoque.dao;
 
+import br.com.senai.senaiEstoque.entity.Caracteristica;
 import br.com.senai.senaiEstoque.entity.ValorCaracteristica;
 import java.util.ArrayList;
 import java.util.List;
@@ -69,6 +70,19 @@ public class ValorCaracteristicaDao {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("SELECT v FROM ValorCaracteristica v");
         listaValorCaracteristica = query.list();
+        session.close();
+        return listaValorCaracteristica;
+    }
+    
+    public List<ValorCaracteristica> getAllByIdCaracteristica(Caracteristica caracteristica) {
+        List<ValorCaracteristica> listaValorCaracteristica = new ArrayList<ValorCaracteristica>();
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+
+        Query query = session.createQuery("FROM ValorCaracteristica WHERE caracteristica_id = :id");
+        query.setParameter("id", caracteristica.getId());
+        listaValorCaracteristica = query.list();
+
         session.close();
         return listaValorCaracteristica;
     }

@@ -7,6 +7,7 @@ package br.com.senai.senaiEstoque.ManegedBean;
 
 import br.com.senai.senaiEstoque.controller.ProdutoController;
 import br.com.senai.senaiEstoque.entity.Produto;
+import br.com.senai.senaiEstoque.entity.ValorCaracteristica;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;

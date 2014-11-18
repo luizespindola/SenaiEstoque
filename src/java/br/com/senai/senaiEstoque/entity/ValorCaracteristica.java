@@ -30,7 +30,12 @@ public class ValorCaracteristica implements Serializable {
     @ManyToOne
     private Caracteristica caracteristica;
     @ManyToMany
-    private List<Produto> listaProduto = new ArrayList<Produto>();
+    private List<Produto> listaProduto;
+
+    public ValorCaracteristica() {
+        listaProduto = new ArrayList<Produto>();
+    }
+    
 
     public Integer getId() {
         return id;
@@ -55,11 +60,11 @@ public class ValorCaracteristica implements Serializable {
     public void setCaracteristica(Caracteristica caracteristica) {
         this.caracteristica = caracteristica;
     }
+    
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 17 * hash + Objects.hashCode(this.id);
+        int hash = 5;
         return hash;
     }
 
@@ -72,10 +77,9 @@ public class ValorCaracteristica implements Serializable {
             return false;
         }
         final ValorCaracteristica other = (ValorCaracteristica) obj;
-        if (!Objects.equals(this.id, other.id)) {
-            return false;
-        }
         return true;
     }
+
+    
 
 }

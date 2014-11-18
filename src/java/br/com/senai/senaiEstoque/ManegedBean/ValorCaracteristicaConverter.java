@@ -1,7 +1,6 @@
 package br.com.senai.senaiEstoque.ManegedBean;
 
 import br.com.senai.senaiEstoque.controller.ValorCaracteristicaController;
-import br.com.senai.senaiEstoque.entity.Caracteristica;
 import br.com.senai.senaiEstoque.entity.ValorCaracteristica;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -23,5 +22,6 @@ public class ValorCaracteristicaConverter implements Converter {
         ValorCaracteristica valorCaracteristica = (ValorCaracteristica) o;
         return valorCaracteristica.getId().toString();
     }
+    
 
 }
