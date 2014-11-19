@@ -30,22 +30,27 @@
                     <h:panelGrid columns="2" cellpadding="5">
                         <p:selectOneMenu id="caracteristica" value="#{valorCaracteristicaMB.caracteristica}">                   
                             <f:converter converterId="caracteristicaConverter" />
+                            <f:selectItem itemLabel="Selecione uma Caracteristica"
+                                          itemValue="Nenhum" />  
                             <f:selectItems value="#{caracteristicaMB.all}"
                                            var="umaCaracteristica"
                                            itemLabel="#{umaCaracteristica.nome}"
                                            itemValue="#{umaCaracteristica}"
                                            />
-                            <ajax render="valor" event="change" listener="#{valorCaracteristicaMB.populaValorCaracteristica}"/>
+                            <p:ajax update="valor"  listener="#{valorCaracteristicaMB.changeValor}" />  
                         </p:selectOneMenu>
-                        
+
                         <p:selectOneMenu id="valor" value="#{produtoMB.produto.valorCaracteristica}">                   
                             <f:converter converterId="valorCaracteristicaConverter" />
-                            <f:selectItems value="#{valorCaracteristicaMB.all}"
+                            <f:selectItem itemLabel="Selecione uma Subcaracteristica"
+                                          itemValue="Nenhum" />  
+                            <f:selectItems value="#{valorCaracteristicaMB.valorCaracteristicas}"
                                            var="umValorCaracteristica"
                                            itemLabel="#{umValorCaracteristica.nome}"
                                            itemValue="#{umValorCaracteristica}"
                                            />
                         </p:selectOneMenu>
+
                     </h:panelGrid>
                     <h:commandButton  class="btn btn-success btnSalvar" value="Salvar" action="#{produtoMB.salvar}" />
                 </div>

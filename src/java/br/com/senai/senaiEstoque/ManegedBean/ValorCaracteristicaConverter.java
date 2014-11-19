@@ -12,6 +12,11 @@ public class ValorCaracteristicaConverter implements Converter {
 
     @Override
     public Object getAsObject(FacesContext fc, UIComponent uic, String string) {
+
+        if (string.equalsIgnoreCase("Nenhum") || string.equalsIgnoreCase("Nenhuma")) {
+            return new ValorCaracteristica();
+        }
+
         Integer id = Integer.parseInt(string);
         ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
         return valorCaracteristicaController.getById(id);
@@ -19,9 +24,13 @@ public class ValorCaracteristicaConverter implements Converter {
 
     @Override
     public String getAsString(FacesContext fc, UIComponent uic, Object o) {
+
+        if (o instanceof String) {
+            return (String) o;
+        }
+
         ValorCaracteristica valorCaracteristica = (ValorCaracteristica) o;
         return valorCaracteristica.getId().toString();
     }
-    
 
 }

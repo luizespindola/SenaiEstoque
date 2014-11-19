@@ -10,6 +10,7 @@ import br.com.senai.senaiEstoque.controller.ValorCaracteristicaController;
 import br.com.senai.senaiEstoque.entity.Caracteristica;
 import br.com.senai.senaiEstoque.entity.ValorCaracteristica;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
@@ -30,16 +31,18 @@ public class ValorCaracteristicaMB implements Serializable {
     private ValorCaracteristicaController valorCaracteristicaController;
     private ValorCaracteristica valorCaracteristica;
     private List<Caracteristica> caracteristicas;
-    private CaracteristicaController caracteristicaController=new CaracteristicaController();
+    private CaracteristicaController caracteristicaController = new CaracteristicaController();
     private Caracteristica caracteristica;
     private List<ValorCaracteristica> valorCaracteristicas;
 
     public ValorCaracteristicaMB() {
         valorCaracteristicaController = new ValorCaracteristicaController();
+        valorCaracteristica = new ValorCaracteristica();
+        //caracteristica = new Caracteristica();
     }
-    
-    public void init(){
-        caracteristicas=caracteristicaController.getAll();
+
+    public void init() {
+        caracteristicas = caracteristicaController.getAll();
     }
 
     public List<ValorCaracteristica> getValorCaracteristicas() {
@@ -49,7 +52,7 @@ public class ValorCaracteristicaMB implements Serializable {
     public void setValorCaracteristicas(List<ValorCaracteristica> valorCaracteristicas) {
         this.valorCaracteristicas = valorCaracteristicas;
     }
-    
+
     public ValorCaracteristica getValorCaracteristica() {
         return valorCaracteristica;
     }
@@ -65,7 +68,7 @@ public class ValorCaracteristicaMB implements Serializable {
     public void setCaracteristica(Caracteristica caracteristica) {
         this.caracteristica = caracteristica;
     }
-    
+
     public String salvar() {
         FacesContext facesContext = FacesContext.getCurrentInstance();
         ELContext elContext = facesContext.getELContext();
@@ -117,8 +120,16 @@ public class ValorCaracteristicaMB implements Serializable {
         valorCaracteristicaController = new ValorCaracteristicaController();
         return valorCaracteristicaController.getAllByIdCaracteristica(id);
     }
-    
-    public void populaValorCaracteristica(AjaxBehavior event) {
-        valorCaracteristicas=valorCaracteristicaController.getAllByCaracteristica(caracteristica);
+
+    /*
+     * Action handlers
+     */
+    public void changeValor() {
+        if (caracteristica != null && !caracteristica.equals("")) {
+            valorCaracteristicas = valorCaracteristicaController.getAllByCaracteristica(caracteristica);
+        } else {
+            valorCaracteristicas = new ArrayList<>();
+        }
     }
+
 }

@@ -12,13 +12,25 @@ public class CaracteristicaConverter implements Converter {
 
     @Override
     public Object getAsObject(FacesContext fc, UIComponent uic, String string) {
-        Integer id = Integer.parseInt(string);
+
         CaracteristicaController caracteristicaController = new CaracteristicaController();
+
+        if (string.equalsIgnoreCase("Nenhum") || string.equalsIgnoreCase("Nenhuma")) {
+            return new Caracteristica();
+        }
+
+        Integer id = Integer.parseInt(string);
         return caracteristicaController.getById(id);
+
     }
 
     @Override
     public String getAsString(FacesContext fc, UIComponent uic, Object o) {
+
+        if (o instanceof String) {
+            return (String) o;
+        }
+
         Caracteristica caracteristica = (Caracteristica) o;
         return caracteristica.getId().toString();
     }
