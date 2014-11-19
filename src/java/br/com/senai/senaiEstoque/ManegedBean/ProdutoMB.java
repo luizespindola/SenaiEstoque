@@ -45,7 +45,7 @@ public class ProdutoMB implements Serializable {
         } catch (Exception ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível salvar"));
         }
-        return "listProduto.xhtml";
+        return "editProdutoCaracteristica.xhtml";
     }
 
     public String novo() {

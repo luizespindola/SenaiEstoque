@@ -6,6 +6,7 @@
 package br.com.senai.senaiEstoque.dao;
 
 import br.com.senai.senaiEstoque.entity.Caracteristica;
+import br.com.senai.senaiEstoque.entity.Produto;
 import br.com.senai.senaiEstoque.entity.ValorCaracteristica;
 import java.util.ArrayList;
 import java.util.List;
@@ -86,5 +87,6 @@ public class ValorCaracteristicaDao {
         session.close();
         return listaValorCaracteristica;
     }
+    
 
 }

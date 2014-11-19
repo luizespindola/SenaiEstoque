@@ -6,6 +6,7 @@
 package br.com.senai.senaiEstoque.dao;
 
 import br.com.senai.senaiEstoque.entity.Produto;
+import br.com.senai.senaiEstoque.entity.ValorCaracteristica;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Query;
@@ -57,6 +58,17 @@ public class ProdutoDao {
         listaProdutos = query.list();
         session.close();
         return listaProdutos;
+    }
+
+    public List<ValorCaracteristica> getValoresCaracteristicaByProduto(Produto produto) {
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.getTransaction().begin();
+        produto = (Produto) session.get(Produto.class, produto.getId());
+        session.getTransaction().commit();
+        session.close();
+
+        return produto.getListaValorCaracteristicas();
     }
 
 }
