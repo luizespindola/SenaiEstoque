@@ -38,7 +38,6 @@ public class ValorCaracteristicaMB implements Serializable {
     public ValorCaracteristicaMB() {
         valorCaracteristicaController = new ValorCaracteristicaController();
         valorCaracteristica = new ValorCaracteristica();
-        //caracteristica = new Caracteristica();
     }
 
     public void init() {

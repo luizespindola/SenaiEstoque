@@ -6,6 +6,7 @@
 package br.com.senai.senaiEstoque.ManegedBean;
 
 import br.com.senai.senaiEstoque.controller.ProdutoController;
+import br.com.senai.senaiEstoque.entity.Caracteristica;
 import br.com.senai.senaiEstoque.entity.Produto;
 import br.com.senai.senaiEstoque.entity.ValorCaracteristica;
 import java.io.Serializable;
@@ -24,6 +25,17 @@ import javax.faces.context.FacesContext;
 public class ProdutoMB implements Serializable {
 
     private Produto produto = new Produto();
+
+    public ValorCaracteristica getValorCaracteristica() {
+        return produto.getValorCaracteristica();
+    }
+
+    public void setValorCaracteristica(ValorCaracteristica valorCaracteristica) {
+        produto.setListaValorCaracteristicas(valorCaracteristica);
+        CaracteristicaMB caracteristicaMB = new CaracteristicaMB();
+        caracteristicaMB.setCaracteristica(new Caracteristica());
+
+    }
     private ProdutoController produtoController;
 
     public ProdutoMB() {
@@ -74,6 +86,10 @@ public class ProdutoMB implements Serializable {
 
     public String listProduto() {
         return "listProduto.xhtml";
+    }
+
+    public List<ValorCaracteristica> getLista() {
+        return produto.getListaValorCaracteristicas();
     }
 
 }

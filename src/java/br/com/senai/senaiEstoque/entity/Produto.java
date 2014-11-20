@@ -151,6 +151,10 @@ public class Produto implements Serializable {
     public void setListaValorCaracteristicas() {
         this.listaValorCaracteristicas.add(valorCaracteristica);
     }
+    
+    public void setListaValorCaracteristicas(ValorCaracteristica valorCaracteristica) {
+        this.listaValorCaracteristicas.add(valorCaracteristica);
+    }
 
     public ValorCaracteristica getValorCaracteristica() {
         return valorCaracteristica;

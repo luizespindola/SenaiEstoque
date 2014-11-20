@@ -41,7 +41,7 @@
                         </p:selectOneMenu>
 
                         <!-- na entidade produto, tem uma lista e um objeto valor caracteristica, e aquie sta setando no objeto, porém este relacionamento esta meio confuso-->
-                        <p:selectOneMenu id="valor" value="#{produtoMB.produto.valorCaracteristica}">                   
+                        <p:selectOneMenu id="valor" value="#{produtoMB.valorCaracteristica}">                   
                             <f:converter converterId="valorCaracteristicaConverter" />
                             <f:selectItem itemLabel="Selecione uma Subcaracteristica"
                                           itemValue="Nenhum" />  
@@ -57,17 +57,20 @@
                 </div>
                 <div>
                     <!-- Lista -->
-                    <p:dataTable value="" var="umaMarca">
-                        <p:column headerText="Marca" width="30">
-                            <h:outputText value="#{umaMarca.nome}" />                             
-                        </p:column>                  
+                    <p:dataTable value="#{produtoMB.produto.listaValorCaracteristicas}" var="umValor">
+                        <p:column headerText="Característica" width="30">
+                            <h:outputText value="#{umValor.caracteristica.nome}" />                             
+                        </p:column>    
+                        <p:column headerText="Subcaracterística" width="30">
+                            <h:outputText value="#{umValor.nome}" />                             
+                        </p:column> 
 
                         <p:column headerText="Ações" style="width: 10%">
-                            <h:commandButton action="#{marcaMB.editar}" value="Editar" image="assets/imagem/icon/editar-b.png"  class="btn btn-success" style="margin-right: 5px">
-                                <f:setPropertyActionListener target="#{marcaMB.marca}" value="#{umaMarca}" />                        
+                            <h:commandButton action="#{umValor.editar}" value="Editar" image="assets/imagem/icon/editar-b.png"  class="btn btn-success" style="margin-right: 5px">
+                                <f:setPropertyActionListener target="#{produtoMB.valorCaracteristica}" value="#{umValor}" />                        
                             </h:commandButton>
                             <h:commandButton action="#{marcaMB.delete}" value="Excluir" image="assets/imagem/icon/excluir-b.png" class="btn btn-danger">
-                                <f:setPropertyActionListener target="#{marcaMB.marca}" value="#{umaMarca}" />                        
+                                <f:setPropertyActionListener target="#{produtoMB.valorCaracteristica}" value="#{umValor}" />                        
                             </h:commandButton>
 
                         </p:column>                    
