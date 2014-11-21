@@ -17,7 +17,8 @@ import javax.persistence.OneToOne;
  * @author User
  */
 @Entity
-public class Permissao implements Serializable{
+public class Permissao implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -65,6 +66,6 @@ public class Permissao implements Serializable{
 
     public void setTipoUsuario(TipoUsuario tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
-    }    
-    
+    }
+
 }

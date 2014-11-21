@@ -8,13 +8,11 @@ package br.com.senai.senaiEstoque.entity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 /**
@@ -28,15 +26,11 @@ public class Caracteristica implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String nome;
-    @OneToMany(mappedBy = "caracteristica" ,cascade = {CascadeType.ALL})
+    @OneToMany(mappedBy = "caracteristica", cascade = {CascadeType.ALL})
     private List<ValorCaracteristica> listaValorCaracteristica = new ArrayList<ValorCaracteristica>();
-    @ManyToMany(cascade = CascadeType.ALL)
-    private List<Produto> listaProduto;
 
     public Caracteristica() {
-        this.listaProduto = new ArrayList<Produto>();
-    }   
-    
+    }
 
     public Integer getId() {
         return id;
@@ -60,15 +54,6 @@ public class Caracteristica implements Serializable {
 
     public void setListaValorCaracteristica(List<ValorCaracteristica> listaValorCaracteristica) {
         this.listaValorCaracteristica = listaValorCaracteristica;
-    }
-
-        
-    public List<Produto> getListaProduto() {
-        return listaProduto;
-    }
-
-    public void setListaProduto(List<Produto> listaProduto) {
-        this.listaProduto = listaProduto;
     }
 
     @Override

@@ -53,8 +53,9 @@
                         </p:selectOneMenu>
 
                     </h:panelGrid>
-                    <h:commandButton  class="btn btn-success btnSalvar" value="Salvar" action="#{produtoMB.salvar}" />
+                    
                 </div>
+                <h:commandButton  class="btn btn-success btnSalvar" value="Salvar" action="#{produtoMB.salvar}" />
                 <div>
                     <!-- Lista -->
                     <p:dataTable value="#{produtoMB.produto.listaValorCaracteristicas}" var="umValor">
@@ -69,7 +70,7 @@
                             <h:commandButton action="#{umValor.editar}" value="Editar" image="assets/imagem/icon/editar-b.png"  class="btn btn-success" style="margin-right: 5px">
                                 <f:setPropertyActionListener target="#{produtoMB.valorCaracteristica}" value="#{umValor}" />                        
                             </h:commandButton>
-                            <h:commandButton action="#{marcaMB.delete}" value="Excluir" image="assets/imagem/icon/excluir-b.png" class="btn btn-danger">
+                            <h:commandButton action="#{umValor.delete}" value="Excluir" image="assets/imagem/icon/excluir-b.png" class="btn btn-danger">
                                 <f:setPropertyActionListener target="#{produtoMB.valorCaracteristica}" value="#{umValor}" />                        
                             </h:commandButton>
 

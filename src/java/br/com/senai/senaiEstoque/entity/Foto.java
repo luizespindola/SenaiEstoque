@@ -17,7 +17,8 @@ import javax.persistence.OneToOne;
  * @author User
  */
 @Entity
-public class Foto implements Serializable{
+public class Foto implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;

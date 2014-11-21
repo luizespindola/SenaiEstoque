@@ -21,9 +21,10 @@ import javax.persistence.TemporalType;
  * @author User
  */
 @Entity
-public class Entrada implements Serializable{
+public class Entrada implements Serializable {
+
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private Integer quantidade;
     @Temporal(TemporalType.DATE)
@@ -53,7 +54,7 @@ public class Entrada implements Serializable{
 
     public void setProduto(Produto produto) {
         this.produto = produto;
-    }    
+    }
 
     public Date getDataEntrada() {
         return dataEntrada;
@@ -62,5 +63,5 @@ public class Entrada implements Serializable{
     public void setDataEntrada(Date dataEntrada) {
         this.dataEntrada = dataEntrada;
     }
-  
+
 }

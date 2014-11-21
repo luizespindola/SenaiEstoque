@@ -8,7 +8,7 @@ package br.com.senai.senaiEstoque.entity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,7 +29,7 @@ public class ValorCaracteristica implements Serializable {
     private String nome;
     @ManyToOne
     private Caracteristica caracteristica;
-    @ManyToMany
+    @ManyToMany(mappedBy = "listaValorCaracteristicas", cascade = {CascadeType.ALL})
     private List<Produto> listaProduto;
 
     public ValorCaracteristica() {

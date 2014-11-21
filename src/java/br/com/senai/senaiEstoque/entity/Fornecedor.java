@@ -17,15 +17,15 @@ import javax.persistence.Id;
  * @author User
  */
 @Entity
-public class Fornecedor implements Serializable{
+public class Fornecedor implements Serializable {
+
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String nome;
     private String email;
     private String site;
     private String observacao;
-    
 
     public Integer getId() {
         return id;
@@ -66,7 +66,7 @@ public class Fornecedor implements Serializable{
     public void setObservacao(String observacao) {
         this.observacao = observacao;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 3;
@@ -88,5 +88,5 @@ public class Fornecedor implements Serializable{
         }
         return true;
     }
-    
+
 }
