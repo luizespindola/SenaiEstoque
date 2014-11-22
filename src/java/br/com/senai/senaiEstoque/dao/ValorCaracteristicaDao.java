@@ -88,5 +88,19 @@ public class ValorCaracteristicaDao {
         return listaValorCaracteristica;
     }
     
+     public List<ValorCaracteristica> getAllByIdProduto(Integer id) {
+        List<ValorCaracteristica> listaValorCaracteristica = new ArrayList<ValorCaracteristica>();
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+
+        Query query = session.createQuery("FROM produto_valorcaracteristica WHERE listaProduto_id = :id");
+        query.setParameter("id", id);
+
+        listaValorCaracteristica = query.list();
+
+        session.close();
+        return listaValorCaracteristica;
+    }
+    
 
 }

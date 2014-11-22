@@ -33,7 +33,7 @@
                         <h:outputLabel value="Login" for="login" />
                         <h:inputText id="login" value="#{usuarioMB.usuario.login}" required="true" requiredMessage="Preencha o campo login" class="input-medium" />
                         <h:outputLabel value="Tipo de usuário" for="tipoUsuario" />
-                        <p:selectOneMenu id="tipoUsuario" value="#{tipoUsuarioMB.tipoUsuario}">                   
+                        <p:selectOneMenu id="tipoUsuario" value="#{usuarioMB.usuario.tipoUsuario}">                   
                             <f:converter converterId="tipoUsuarioConverter" />
                             <f:selectItems value="#{tipoUsuarioMB.all}"
                                            var="umTipoUsuario"

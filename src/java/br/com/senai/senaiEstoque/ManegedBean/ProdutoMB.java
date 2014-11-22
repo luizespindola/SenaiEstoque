@@ -6,6 +6,7 @@
 package br.com.senai.senaiEstoque.ManegedBean;
 
 import br.com.senai.senaiEstoque.controller.ProdutoController;
+import br.com.senai.senaiEstoque.controller.ValorCaracteristicaController;
 import br.com.senai.senaiEstoque.entity.Caracteristica;
 import br.com.senai.senaiEstoque.entity.Produto;
 import br.com.senai.senaiEstoque.entity.ValorCaracteristica;
@@ -90,6 +91,13 @@ public class ProdutoMB implements Serializable {
 
     public List<ValorCaracteristica> getLista() {
         return produto.getListaValorCaracteristicas();
+    }
+    
+    public String listValorCaracterisica(Produto produto, Integer id) {
+//        ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
+//        this.produto = produto;
+//        produto.setListaValorCaracteristicas(valorCaracteristicaController.getAllByIdProduto(id));
+        return "listProdutoCaracteristicas.xhtml";
     }
 
 }

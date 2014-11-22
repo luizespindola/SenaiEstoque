@@ -71,4 +71,5 @@ public class ProdutoDao {
         return produto.getListaValorCaracteristicas();
     }
 
+
 }

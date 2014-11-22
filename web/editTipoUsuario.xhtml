@@ -29,6 +29,14 @@
                     <h:panelGrid columns="2" cellpadding="5">
                         <h:outputLabel value="Tipo de usuário" for="nome" />
                         <h:inputText id="nome" value="#{tipoUsuarioMB.tipoUsuario.nome}" required="true" requiredMessage="Preencha o campo Tipo de usuário" class="input-medium" />
+                        <p:selectOneMenu id="permissao" value="#{tipoUsuarioMB.tipoUsuario.permissao}">                   
+                            <f:converter converterId="permissaoConverter" />
+                            <f:selectItems value="#{permissaoMB.all}"
+                                           var="umPermissao"
+                                           itemLabel="#{umPermissao}"
+                                           itemValue="#{umTipoUsuario}"
+                                           />
+                        </p:selectOneMenu>
                         <h:commandButton class="btn btn-success btnSalvar" value="Salvar" action="#{tipoUsuarioMB.salvar()}"/>
                     </h:panelGrid>
                 </div>

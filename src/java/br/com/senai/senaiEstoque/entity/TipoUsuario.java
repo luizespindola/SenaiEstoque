@@ -25,6 +25,8 @@ public class TipoUsuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String nome;
+    @OneToOne
+    private Permissao permissao;
 
     public Integer getId() {
         return id;
@@ -41,6 +43,15 @@ public class TipoUsuario implements Serializable {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public Permissao getPermissao() {
+        return permissao;
+    }
+
+    public void setPermissao(Permissao permissao) {
+        this.permissao = permissao;
+    }
+    
 
     @Override
     public int hashCode() {

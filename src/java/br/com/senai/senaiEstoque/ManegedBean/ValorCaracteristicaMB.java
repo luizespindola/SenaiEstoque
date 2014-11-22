@@ -119,6 +119,11 @@ public class ValorCaracteristicaMB implements Serializable {
         valorCaracteristicaController = new ValorCaracteristicaController();
         return valorCaracteristicaController.getAllByIdCaracteristica(id);
     }
+    
+    public List<ValorCaracteristica> getAllByIdProduto(Integer id) {
+        valorCaracteristicaController = new ValorCaracteristicaController();
+        return valorCaracteristicaController.getAllByIdProduto(id);
+    }
 
     /*
      * Action handlers

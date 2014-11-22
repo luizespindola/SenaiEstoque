@@ -49,5 +49,9 @@ public class ValorCaracteristicaController {
     public List<ValorCaracteristica> getAllByCaracteristica(Caracteristica caracteristica) {
         return valorCaracteristicaDao.getAllByIdCaracteristica(caracteristica);
     }
+    
+    public List<ValorCaracteristica> getAllByIdProduto(Integer id) {
+        return valorCaracteristicaDao.getAllByIdProduto(id);
+    }
 
 }

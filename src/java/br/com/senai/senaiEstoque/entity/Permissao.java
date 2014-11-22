@@ -6,6 +6,7 @@
 package br.com.senai.senaiEstoque.entity;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,7 +26,7 @@ public class Permissao implements Serializable {
     private String visualizar;
     private String editar;
     private String editarPermissao;
-    @OneToOne
+    @OneToOne(mappedBy = "permissao",cascade = CascadeType.ALL)
     private TipoUsuario tipoUsuario;
 
     public Integer getId() {
@@ -68,4 +69,28 @@ public class Permissao implements Serializable {
         this.tipoUsuario = tipoUsuario;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Permissao other = (Permissao) obj;
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return  visualizar +"    "+ editar +"    "+ editarPermissao;
+    }
+
+    
 }
