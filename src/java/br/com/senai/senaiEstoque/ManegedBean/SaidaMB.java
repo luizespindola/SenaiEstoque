@@ -38,10 +38,10 @@ public class SaidaMB implements Serializable {
     }
 
     public String salvar() {
-        try {
+        if(saidaController.salvar(saida)==true){
             saidaController.salvar(saida);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Salvo com sucesso"));
-        } catch (Exception ex) {
+        } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível salvar"));
         }
         return "listSaida.xhtml";

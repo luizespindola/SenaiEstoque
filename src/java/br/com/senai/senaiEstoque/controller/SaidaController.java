@@ -23,15 +23,19 @@ public class SaidaController {
         if (saida.getId() != null) {
             valor = saidaDao.getById(saida.getId()).getQuantidade();
         }
-        if (saidaDao.salvar(saida) == true) {
-            Produto produto = saida.getProduto();
-            produto.setQuantidade(produto.getQuantidade() + valor);
-            produto.setQuantidade(produto.getQuantidade() - saida.getQuantidade());
-            ProdutoController produtoController = new ProdutoController();
-            produtoController.salvar(produto);
-            return true;
-        } else {
+        Produto produto = saida.getProduto();
+        if (saida.getQuantidade() > produto.getQuantidade()) {
             return false;
+        } else {
+            if (saidaDao.salvar(saida) == true) {
+                produto.setQuantidade(produto.getQuantidade() + valor);
+                produto.setQuantidade(produto.getQuantidade() - saida.getQuantidade());
+                ProdutoController produtoController = new ProdutoController();
+                produtoController.salvar(produto);
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 
