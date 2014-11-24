@@ -26,9 +26,10 @@ import javax.faces.context.FacesContext;
 public class ProdutoMB implements Serializable {
 
     private Produto produto = new Produto();
+    private ValorCaracteristica valorCaracteristica;
 
     public ValorCaracteristica getValorCaracteristica() {
-        return produto.getValorCaracteristica();
+        return valorCaracteristica;
     }
 
     public void setValorCaracteristica(ValorCaracteristica valorCaracteristica) {

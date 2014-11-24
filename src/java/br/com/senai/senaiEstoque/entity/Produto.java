@@ -45,7 +45,7 @@ public class Produto implements Serializable {
     private List<Entrada> listaEntrada;
     @ManyToMany
     private List<ValorCaracteristica> listaValorCaracteristicas;
-    private ValorCaracteristica valorCaracteristica;
+    
 
     public Produto() {
         this.listaSaida = new ArrayList<Saida>();
@@ -138,9 +138,8 @@ public class Produto implements Serializable {
         return listaValorCaracteristicas;
     }
 
-    public void setListaValorCaracteristicas() {
-        this.listaValorCaracteristicas.add(valorCaracteristica);
-    }
+    
+    
 
     public void setListaValorCaracteristicas(ValorCaracteristica valorCaracteristica) {
         this.listaValorCaracteristicas.add(valorCaracteristica);
@@ -150,14 +149,8 @@ public class Produto implements Serializable {
         this.listaValorCaracteristicas=lista;
     }
 
-    public ValorCaracteristica getValorCaracteristica() {
-        return valorCaracteristica;
-    }
-
-    public void setValorCaracteristica(ValorCaracteristica valorCaracteristica) {
-        this.valorCaracteristica = valorCaracteristica;
-    }
-
+    
+    
     @Override
     public int hashCode() {
         int hash = 3;
