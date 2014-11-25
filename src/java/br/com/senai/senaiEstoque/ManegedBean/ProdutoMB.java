@@ -14,6 +14,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
@@ -25,8 +26,19 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class ProdutoMB implements Serializable {
 
+    @ManagedProperty(value = "#{valorCaracteristicaMB}")
+    private ValorCaracteristicaMB valorCaracteristicaMB;
     private Produto produto = new Produto();
     private ValorCaracteristica valorCaracteristica;
+    private ProdutoController produtoController;
+
+    public ValorCaracteristicaMB getValorCaracteristicaMB() {
+        return valorCaracteristicaMB;
+    }
+
+    public void setValorCaracteristicaMB(ValorCaracteristicaMB valorCaracteristicaMB) {
+        this.valorCaracteristicaMB = valorCaracteristicaMB;
+    }
 
     public ValorCaracteristica getValorCaracteristica() {
         return valorCaracteristica;
@@ -38,7 +50,6 @@ public class ProdutoMB implements Serializable {
         caracteristicaMB.setCaracteristica(new Caracteristica());
 
     }
-    private ProdutoController produtoController;
 
     public ProdutoMB() {
         produtoController = new ProdutoController();
@@ -59,6 +70,7 @@ public class ProdutoMB implements Serializable {
         } catch (Exception ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível salvar"));
         }
+        valorCaracteristicaMB.setCaracteristica(null);
         return "editProdutoCaracteristica.xhtml";
     }
 
@@ -93,11 +105,10 @@ public class ProdutoMB implements Serializable {
     public List<ValorCaracteristica> getLista() {
         return produto.getListaValorCaracteristicas();
     }
-    
-    public String listValorCaracterisica(Produto produto, Integer id) {
-//        ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
-//        this.produto = produto;
-//        produto.setListaValorCaracteristicas(valorCaracteristicaController.getAllByIdProduto(id));
+
+    public String listValorCaracterisica() {
+       // ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
+      //  produto.setListaValorCaracteristicas(valorCaracteristicaController.getAllByProduto(produto));
         return "listProdutoCaracteristicas.xhtml";
     }
 

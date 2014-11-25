@@ -101,6 +101,20 @@ public class ValorCaracteristicaDao {
         session.close();
         return listaValorCaracteristica;
     }
+     
+     public List<ValorCaracteristica> getAllByProduto(Produto produto) {
+        List<ValorCaracteristica> listaValorCaracteristica = new ArrayList<ValorCaracteristica>();
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+
+        Query query = session.createQuery("FROM ValorCaracteristica WHERE ValorCaracteristica.produto = :umProduto");
+        query.setParameter("umProduto", produto);
+
+        listaValorCaracteristica = query.list();
+
+        session.close();
+        return listaValorCaracteristica;
+    }
     
 
 }

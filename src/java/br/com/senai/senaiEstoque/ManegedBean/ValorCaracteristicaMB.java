@@ -8,6 +8,7 @@ package br.com.senai.senaiEstoque.ManegedBean;
 import br.com.senai.senaiEstoque.controller.CaracteristicaController;
 import br.com.senai.senaiEstoque.controller.ValorCaracteristicaController;
 import br.com.senai.senaiEstoque.entity.Caracteristica;
+import br.com.senai.senaiEstoque.entity.Produto;
 import br.com.senai.senaiEstoque.entity.ValorCaracteristica;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -120,9 +121,9 @@ public class ValorCaracteristicaMB implements Serializable {
         return valorCaracteristicaController.getAllByIdCaracteristica(id);
     }
     
-    public List<ValorCaracteristica> getAllByIdProduto(Integer id) {
+    public List<ValorCaracteristica> getAllByProduto(Produto produto) {
         valorCaracteristicaController = new ValorCaracteristicaController();
-        return valorCaracteristicaController.getAllByIdProduto(id);
+        return valorCaracteristicaController.getAllByProduto(produto);
     }
 
     /*

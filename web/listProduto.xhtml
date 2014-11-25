@@ -44,9 +44,11 @@
                         <h:outputText value="#{umProduto.marca.nome}" />                             
                     </p:column> 
                     <p:column headerText="Caracteristicas" width="30">
-                        <h:commandButton action="#{produtoMB.listValorCaracterisica(umProduto, umProduto.id)}" value="Visualizar características" class="btn btn-primary" style="margin-left:40px"/>                                                         
+                        <h:commandButton action="#{produtoMB.listValorCaracterisica}" value="Visualizar características" class="btn btn-primary" style="margin-left:40px">      
+                            <f:setPropertyActionListener target="#{produtoMB.produto}" value="#{umProduto}" />    
+                        </h:commandButton>
                     </p:column> 
-                     
+
 
                     <p:column headerText="Ações" style="width: 10%">
                         <h:commandButton action="#{produtoMB.editar}" value="Editar" image="assets/imagem/icon/editar-b.png"  class="btn btn-success" style="margin-right: 5px">
