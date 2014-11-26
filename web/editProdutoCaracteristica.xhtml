@@ -58,7 +58,7 @@
                 <h:commandButton  class="btn btn-success btnSalvar" value="Salvar" action="#{produtoMB.salvar}" />
                 <div>
                     <!-- Lista -->
-                    <p:dataTable value="#{produtoMB.produto.listaValorCaracteristicas}" var="umValor">
+                    <p:dataTable emptyMessage="Não há valores cadastrados para este produto" value="#{produtoMB.produto.listaValorCaracteristicas}" var="umValor">
                         <p:column headerText="Característica" width="30">
                             <h:outputText value="#{umValor.caracteristica.nome}" />                             
                         </p:column>    
@@ -67,10 +67,7 @@
                         </p:column> 
 
                         <p:column headerText="Ações" style="width: 10%">
-                            <h:commandButton action="#{umValor.editar}" value="Editar" image="assets/imagem/icon/editar-b.png"  class="btn btn-success" style="margin-right: 5px">
-                                <f:setPropertyActionListener target="#{produtoMB.valorCaracteristica}" value="#{umValor}" />                        
-                            </h:commandButton>
-                            <h:commandButton action="#{umValor.delete}" value="Excluir" image="assets/imagem/icon/excluir-b.png" class="btn btn-danger">
+                            <h:commandButton action="#{produtoMB.deleteSubcatacteristicaDoProduto}" value="Excluir" image="assets/imagem/icon/excluir-b.png" class="btn btn-danger">
                                 <f:setPropertyActionListener target="#{produtoMB.valorCaracteristica}" value="#{umValor}" />                        
                             </h:commandButton>
 

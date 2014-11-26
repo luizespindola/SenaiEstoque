@@ -22,6 +22,14 @@
         <!-- Formulário -->
         <div class="row-fluid">
             <h:form id="formMarca"> 
+                <div class="row-fluid" id="Div-ajuda" style="margin-bottom:5px">
+                    <div class="pull-right">
+                        <p:commandButton id="imageBtn" value="Ajuda!" type="button" />
+                        <p:overlayPanel id="imagePanel" for="imageBtn" hideEffect="fade">
+                            <p>Aqui você deve cadastrar uma Marca para <br />adicionar posteriormente a um de seus produtos</p>
+                        </p:overlayPanel>
+                    </div>
+                </div>
                 <div class="divTituloPanel">
                     <h:outputText value="Nova Marca"/>
                 </div>                

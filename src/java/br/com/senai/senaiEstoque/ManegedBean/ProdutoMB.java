@@ -93,6 +93,13 @@ public class ProdutoMB implements Serializable {
         return "listProduto.xhtml";
     }
 
+    public void deleteSubcatacteristicaDoProduto() {
+
+        produto.getListaValorCaracteristicas().remove(valorCaracteristica);
+        this.editar();
+        
+    }
+
     public List<Produto> getAll() {
         produtoController = new ProdutoController();
         return produtoController.getAll();
@@ -108,7 +115,7 @@ public class ProdutoMB implements Serializable {
 
     public String listValorCaracterisica() {
        // ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
-      //  produto.setListaValorCaracteristicas(valorCaracteristicaController.getAllByProduto(produto));
+        //  produto.setListaValorCaracteristicas(valorCaracteristicaController.getAllByProduto(produto));
         return "listProdutoCaracteristicas.xhtml";
     }
 

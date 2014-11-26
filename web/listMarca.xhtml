@@ -24,7 +24,7 @@
                 </div><!-- /Botão cadastrar novo -->
 
                 <!-- Lista -->
-                <p:dataTable value="#{marcaMB.all}" var="umaMarca">
+                <p:dataTable emptyMessage="Não há marcas cadastradas em seu sistema" value="#{marcaMB.all}" var="umaMarca">
                     <p:column headerText="Marca" width="30">
                         <h:outputText value="#{umaMarca.nome}" />                             
                     </p:column>     

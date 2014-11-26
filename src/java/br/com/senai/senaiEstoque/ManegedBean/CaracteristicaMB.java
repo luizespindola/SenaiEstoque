@@ -44,13 +44,21 @@ public class CaracteristicaMB implements Serializable {
     }
 
     public String salvar() {
+        String paginaDeRetorno = "editValorCaracteristica.xhtml";
+
+        //Caso esteja editando, retorna para a listagem
+        if (caracteristica != null) {
+            paginaDeRetorno = "listCaracteristica.xhtml";
+        }
+
         try {
             caracteristicaController.salvar(caracteristica);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Salvo com sucesso"));
         } catch (Exception ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível salvar"));
         }
-        return "editValorCaracteristica.xhtml";
+
+        return paginaDeRetorno;
     }
 
     public String novo() {
@@ -93,6 +101,5 @@ public class CaracteristicaMB implements Serializable {
         ValorCaracteristicaController valorCaracteristicaController = new ValorCaracteristicaController();
         caracteristica.setListaValorCaracteristica(valorCaracteristicaController.getAllByIdCaracteristica(this.caracteristica.getId()));
     }
-
 
 }
