@@ -22,9 +22,19 @@
         <!-- Formulário -->
         <div class="row-fluid">
             <h:form id="formValorCaracteristica">
+                <div class="row-fluid" id="Div-ajuda" style="margin-bottom:5px">
+                    <div class="pull-right">
+                        <p:commandButton id="imageBtn" value="Ajuda!" type="button" />
+                        <p:overlayPanel id="imagePanel" for="imageBtn" hideEffect="fade">
+                            <p>Você já cadastrou uma característica, agora você deve cadastrar um valor para sua caracteristica!</p>
+                            <p><strong>Exemplo:</strong></p>
+                            <p>Se sua característica for COR você pode cadastrar varios valores como: Preto, branco azul...</p>
+                        </p:overlayPanel>
+                    </div>
+                </div>
                 <div class="divTituloPanel">
                     <h:outputText value="Cadastro de valores para a característica: #{caracteristicaMB.caracteristica.nome}"/>
-                </div>                
+                </div> 
                 <div class="divPanel">
                     <h:panelGrid columns="2" cellpadding="5">
                         <h:outputLabel  value="Valor Caracteristica:" for="valor" />

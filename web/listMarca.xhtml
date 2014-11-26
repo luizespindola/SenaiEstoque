@@ -29,7 +29,7 @@
                         <h:outputText value="#{umaMarca.nome}" />                             
                     </p:column>     
 
-                    <p:column headerText="Ações" style="width: 10%">
+                    <p:column headerText="Ações" style="width: 13%">
                         <h:commandButton action="#{marcaMB.editar}" value="Editar" image="assets/imagem/icon/editar-b.png"  class="btn btn-success" style="margin-right: 5px">
                             <f:setPropertyActionListener target="#{marcaMB.marca}" value="#{umaMarca}" />                        
                         </h:commandButton>
@@ -41,12 +41,6 @@
                 </p:dataTable><!-- /Lista -->
             </h:form>
         </div><!-- Formulário / Lista -->
-
-        <!-- Botão voltar -->
-        <div class="row-fluid" id="divBtnVoltar">
-            <a href="javascript:window.history.go(-1)" class="btn"><img src="assets/imagem/icon/voltar.png"/> Voltar</a>
-        </div> <!-- /Botão voltar -->
-
     </ui:define> 
 
 </ui:composition>  

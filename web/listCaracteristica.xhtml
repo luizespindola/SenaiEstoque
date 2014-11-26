@@ -29,7 +29,7 @@
             <!-- lista -->
             <div class="row-fluid">
 
-                <p:dataTable value="#{caracteristicaMB.all}" var="umaCaracteristica">
+                <p:dataTable emptyMessage="Não há caracteristicas cadastradas em seu sistema" value="#{caracteristicaMB.all}" var="umaCaracteristica">
                     <p:column headerText="Característica" width="30">
                         <h:outputText value="#{umaCaracteristica.nome}" />                             
                     </p:column>  
@@ -38,7 +38,7 @@
                     </p:column>  
 
                     <!-- Acões: Editar / Excluir -->
-                    <p:column headerText="Ações" style="width: 10%">
+                    <p:column headerText="Ações" style="width: 13%">
                         <h:commandButton action="#{caracteristicaMB.editar}" value="Editar" image="assets/imagem/icon/editar-b.png"  class="btn btn-success" style="margin-right: 5px">
                             <f:setPropertyActionListener target="#{caracteristicaMB.caracteristica}" value="#{umaCaracteristica}" />                        
                         </h:commandButton>
@@ -51,10 +51,7 @@
             </div><!-- /lista -->
         </h:form>
 
-        <!-- Botão voltar -->
-        <div class="row-fluid" id="divBtnVoltar">
-            <a href="javascript:window.history.go(-1)" class="btn"><img src="assets/imagem/icon/voltar.png"/> Voltar</a>
-        </div> <!-- /Botão voltar -->
+     
 
     </ui:define> 
 

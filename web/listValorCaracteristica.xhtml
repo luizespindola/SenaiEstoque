@@ -26,7 +26,7 @@
             </div><!-- /Botão adicionar novo-->
 
 
-            <p:dataTable value="#{valorCaracteristicaMB.getAllByIdCaracteristica(caracteristicaMB.caracteristica.id)}" var="umValor">
+            <p:dataTable emptyMessage="Não há valor cadastrado para a característica: #{caracteristicaMB.caracteristica.nome}" value="#{valorCaracteristicaMB.getAllByIdCaracteristica(caracteristicaMB.caracteristica.id)}" var="umValor">
                 <p:column headerText="Valor Característica" width="90%">
                     <h:outputText value="#{umValor.nome}" />                             
                 </p:column>    

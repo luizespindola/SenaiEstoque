@@ -22,6 +22,16 @@
         <!-- Formulário -->
         <div class="row-fluid">
             <h:form id="formCaracteristica">
+                <div class="row-fluid" id="Div-ajuda" style="margin-bottom:5px">
+                    <div class="pull-right">
+                        <p:commandButton id="imageBtn" value="Ajuda!" type="button" />
+                        <p:overlayPanel id="imagePanel" for="imageBtn" hideEffect="fade">
+                            <p>Aqui você deve cadastrar uma característica, que poderá ser adicionada a um de seus produtos.</p>
+                            <p><strong>Exemplo:</strong></p>
+                            <p>Cor, Tensão, Linguagem</p>
+                        </p:overlayPanel>
+                    </div>
+                </div>
                 <div class="divTituloPanel">
                     <h:outputText value="Nova Característica"/>
                 </div>                
