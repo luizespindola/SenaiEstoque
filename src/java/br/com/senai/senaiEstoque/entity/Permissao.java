@@ -26,7 +26,7 @@ public class Permissao implements Serializable {
     private String visualizar;
     private String editar;
     private String editarPermissao;
-    @OneToOne(mappedBy = "permissao",cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "permissao", cascade = CascadeType.ALL)
     private TipoUsuario tipoUsuario;
 
     public Integer getId() {
@@ -89,8 +89,7 @@ public class Permissao implements Serializable {
 
     @Override
     public String toString() {
-        return  visualizar +"    "+ editar +"    "+ editarPermissao;
+        return visualizar + "    " + editar + "    " + editarPermissao;
     }
 
-    
 }

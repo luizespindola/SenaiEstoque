@@ -9,17 +9,14 @@ import br.com.senai.senaiEstoque.controller.UsuarioController;
 import br.com.senai.senaiEstoque.dao.CaracteristicaDao;
 import br.com.senai.senaiEstoque.dao.EntradaDao;
 import br.com.senai.senaiEstoque.dao.FornecedorDao;
-import br.com.senai.senaiEstoque.dao.FotoDao;
 import br.com.senai.senaiEstoque.dao.MarcaDao;
 import br.com.senai.senaiEstoque.dao.PermissaoDao;
 import br.com.senai.senaiEstoque.dao.ProdutoDao;
 import br.com.senai.senaiEstoque.dao.SaidaDao;
 import br.com.senai.senaiEstoque.dao.TipoUsuarioDao;
-import br.com.senai.senaiEstoque.dao.ValorCaracteristicaDao;
 import br.com.senai.senaiEstoque.entity.Caracteristica;
 import br.com.senai.senaiEstoque.entity.Entrada;
 import br.com.senai.senaiEstoque.entity.Fornecedor;
-import br.com.senai.senaiEstoque.entity.Foto;
 import br.com.senai.senaiEstoque.entity.Marca;
 import br.com.senai.senaiEstoque.entity.Permissao;
 import br.com.senai.senaiEstoque.entity.Produto;
@@ -79,10 +76,6 @@ public class Teste {
         CaracteristicaDao caracteristicaDao = new CaracteristicaDao();
         caracteristicaDao.salvar(caracteristica);
 
-        Foto foto = new Foto();
-        foto.setEndereco("foto1");
-        FotoDao fotoDao = new FotoDao();
-        fotoDao.salvar(foto);
 
         Fornecedor fornecedor = new Fornecedor();
         fornecedor.setNome("fornecedor1");
@@ -102,7 +95,6 @@ public class Teste {
         produto.setNome("ventilador");
         produto.setPrecoCusto(1.1);
         produto.setQuantidade(1000);
-        produto.setFoto(foto);
         produto.setFornecedor(fornecedor);
         produto.setMarca(marca);
         List<Caracteristica> listaCaracteristicas=new ArrayList<Caracteristica>();

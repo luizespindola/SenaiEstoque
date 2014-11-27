@@ -79,7 +79,6 @@ public class HibernateUtility {
                     .setProperty("hibernate.show_sql", "true")
                     //CADASTROS abaixo coloque todas classes que deseja ser modelo para criação do banco de dados
                     .addAnnotatedClass(br.com.senai.senaiEstoque.entity.Produto.class)
-                    .addAnnotatedClass(br.com.senai.senaiEstoque.entity.Foto.class)
                     .addAnnotatedClass(br.com.senai.senaiEstoque.entity.Fornecedor.class)
                     .addAnnotatedClass(br.com.senai.senaiEstoque.entity.Marca.class)
                     .addAnnotatedClass(br.com.senai.senaiEstoque.entity.Saida.class)

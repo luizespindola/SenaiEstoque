@@ -7,7 +7,6 @@ package br.com.senai.senaiEstoque.entity;
 
 import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -51,7 +50,6 @@ public class TipoUsuario implements Serializable {
     public void setPermissao(Permissao permissao) {
         this.permissao = permissao;
     }
-    
 
     @Override
     public int hashCode() {

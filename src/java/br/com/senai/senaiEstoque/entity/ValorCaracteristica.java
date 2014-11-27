@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,7 +35,6 @@ public class ValorCaracteristica implements Serializable {
     public ValorCaracteristica() {
         listaProduto = new ArrayList<Produto>();
     }
-    
 
     public Integer getId() {
         return id;
@@ -61,7 +59,6 @@ public class ValorCaracteristica implements Serializable {
     public void setCaracteristica(Caracteristica caracteristica) {
         this.caracteristica = caracteristica;
     }
-    
 
     @Override
     public int hashCode() {
@@ -80,7 +77,5 @@ public class ValorCaracteristica implements Serializable {
         final ValorCaracteristica other = (ValorCaracteristica) obj;
         return true;
     }
-
-    
 
 }

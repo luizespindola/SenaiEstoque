@@ -34,8 +34,6 @@ public class Produto implements Serializable {
     private Integer codigo;
     private Double precoCusto;
     private Integer quantidade;
-    @OneToOne(mappedBy = "produto", cascade = {CascadeType.ALL})
-    private Foto foto;
     @ManyToOne(cascade = CascadeType.ALL)
     private Fornecedor fornecedor;
     @ManyToOne(cascade = CascadeType.ALL)
@@ -46,7 +44,6 @@ public class Produto implements Serializable {
     private List<Entrada> listaEntrada;
     @ManyToMany(fetch = FetchType.EAGER)
     private List<ValorCaracteristica> listaValorCaracteristicas;
-    
 
     public Produto() {
         this.listaSaida = new ArrayList<Saida>();
@@ -95,14 +92,6 @@ public class Produto implements Serializable {
         this.quantidade = quantidade;
     }
 
-    public Foto getFoto() {
-        return foto;
-    }
-
-    public void setFoto(Foto foto) {
-        this.foto = foto;
-    }
-
     public Fornecedor getFornecedor() {
         return fornecedor;
     }
@@ -139,19 +128,14 @@ public class Produto implements Serializable {
         return listaValorCaracteristicas;
     }
 
-    
-    
-
     public void setListaValorCaracteristicas(ValorCaracteristica valorCaracteristica) {
         this.listaValorCaracteristicas.add(valorCaracteristica);
     }
-    
+
     public void setListaValorCaracteristicas(List<ValorCaracteristica> lista) {
-        this.listaValorCaracteristicas=lista;
+        this.listaValorCaracteristicas = lista;
     }
 
-    
-    
     @Override
     public int hashCode() {
         int hash = 3;

@@ -7,11 +7,7 @@ package br.com.senai.senaiEstoque.controller;
 
 import br.com.senai.senaiEstoque.dao.UsuarioDao;
 import br.com.senai.senaiEstoque.entity.Usuario;
-import br.com.senai.senaiEstoque.entity.LoginHolder;
 import java.util.List;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
-
 /**
  *
  * @author User
