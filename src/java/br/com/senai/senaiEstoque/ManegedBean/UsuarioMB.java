@@ -46,15 +46,14 @@ public class UsuarioMB implements Serializable {
 //            return "editUsuario.xhtml";
 //
 //        } else {
-
-            try {
-                usuarioController.salvar(usuario);
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Salvo com sucesso"));
-            } catch (Exception e) {
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível salvar " + e.getMessage()));
-            } finally {
-                return "listUsuario.xhtml";
-            }
+        try {
+            usuarioController.salvar(usuario);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Salvo com sucesso"));
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível salvar " + e.getMessage()));
+        } finally {
+            return "listUsuario.xhtml";
+        }
 //        }
     }
 

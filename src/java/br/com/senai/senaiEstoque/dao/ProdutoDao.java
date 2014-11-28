@@ -61,7 +61,6 @@ public class ProdutoDao {
     }
 
     public List<ValorCaracteristica> getValoresCaracteristicaByProduto(Produto produto) {
-
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.getTransaction().begin();
         produto = (Produto) session.get(Produto.class, produto.getId());
@@ -70,6 +69,5 @@ public class ProdutoDao {
 
         return produto.getListaValorCaracteristicas();
     }
-
 
 }

@@ -1,14 +1,14 @@
-<?xml version='1.0' encoding='UTF-8' ?>  
-<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"  
-                template="./template.xhtml"  
-                xmlns:h="http://java.sun.com/jsf/html"  
-                xmlns:p="http://primefaces.org/ui"  
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./template.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns="http://www.w3.org/1999/xhtml"
-                >  
+                >
 
-    <ui:define name="Conteudo">  
+    <ui:define name="Conteudo">
 
         <!-- Titulo -->
         <div class="row-fluid tituloCategoria">
@@ -17,7 +17,7 @@
 
         <!-- Formulário / Lista -->
         <div class="row-fluid">
-            <h:form>  
+            <h:form>
 
                 <!-- Botão cadastrar novo -->
                 <div class="row-fluid">
@@ -27,21 +27,21 @@
                 <!-- Lista -->
                 <p:dataTable value="#{tipoUsuarioMB.all}" var="umTipoUsuario">
                     <p:column headerText="Tipo de Usuário" width="30">
-                        <h:outputText value="#{umTipoUsuario.nome}" />                             
-                    </p:column>   
+                        <h:outputText value="#{umTipoUsuario.nome}" />
+                    </p:column>
                     <p:column headerText="Permissões" width="30">
-                        <h:outputText value="#{umTipoUsuario.permissao}" />                             
-                    </p:column>  
+                        <h:outputText value="#{umTipoUsuario.permissao}" />
+                    </p:column>
 
                     <p:column headerText="Ações" style="width: 10%">
                         <h:commandButton action="#{tipoUsuarioMB.editar}" value="Editar" image="assets/imagem/icon/editar-b.png"  class="btn btn-success" style="margin-right: 5px">
-                            <f:setPropertyActionListener target="#{tipoUsuarioMB.tipoUsuario}" value="#{umTipoUsuario}" />                        
+                            <f:setPropertyActionListener target="#{tipoUsuarioMB.tipoUsuario}" value="#{umTipoUsuario}" />
                         </h:commandButton>
                         <h:commandButton action="#{tipoUsuarioMB.delete}" value="Excluir" image="assets/imagem/icon/excluir-b.png" class="btn btn-danger">
-                            <f:setPropertyActionListener target="#{tipoUsuarioMB.tipoUsuario}" value="#{umTipoUsuario}" />                        
+                            <f:setPropertyActionListener target="#{tipoUsuarioMB.tipoUsuario}" value="#{umTipoUsuario}" />
                         </h:commandButton>
 
-                    </p:column>                    
+                    </p:column>
                 </p:dataTable><!-- /Lista -->
             </h:form>
         </div><!-- Formulário / Lista -->
@@ -51,6 +51,6 @@
             <a href="javascript:window.history.go(-1)" class="btn"><img src="assets/imagem/icon/voltar.png"/> Voltar</a>
         </div> <!-- /Botão voltar -->
 
-    </ui:define> 
+    </ui:define>
 
-</ui:composition>  
+</ui:composition>

@@ -1,11 +1,9 @@
-package br.com.senai.senaiEstoque.dao;     
+package br.com.senai.senaiEstoque.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-
-
 
 public class HibernateUtility {
 
@@ -87,7 +85,7 @@ public class HibernateUtility {
                     .addAnnotatedClass(br.com.senai.senaiEstoque.entity.ValorCaracteristica.class)
                     .addAnnotatedClass(br.com.senai.senaiEstoque.entity.Usuario.class)
                     .addAnnotatedClass(br.com.senai.senaiEstoque.entity.TipoUsuario.class)
-                    .addAnnotatedClass(br.com.senai.senaiEstoque.entity.Permissao.class)                   
+                    .addAnnotatedClass(br.com.senai.senaiEstoque.entity.Permissao.class)
                     //MOVIMENTOS
                     .buildSessionFactory();
         } catch (RuntimeException e) {
@@ -98,7 +96,7 @@ public class HibernateUtility {
     }
 
     public static void main(String[] args) {
-    //TODO Usado para teste de conexao SOMENTE
+        //TODO Usado para teste de conexao SOMENTE
         //        try{
         //            List lista = new ArrayList();
         //        

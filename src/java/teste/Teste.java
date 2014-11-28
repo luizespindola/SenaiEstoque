@@ -51,7 +51,7 @@ public class Teste {
 
         TipoUsuario tipoUsuario = new TipoUsuario();
         tipoUsuario.setNome("FODAO");
-       // tipoUsuario.setPermissao(permissao);
+        tipoUsuario.setPermissao(permissao);
         TipoUsuarioDao tipoUsuarioDao = new TipoUsuarioDao();
         tipoUsuarioDao.salvar(tipoUsuario);
 
@@ -61,7 +61,7 @@ public class Teste {
         usuario.setSenha("luiz");
         usuario.setTipoUsuario(tipoUsuario);
         UsuarioController controller = new UsuarioController();
-//        controller.insert(usuario);
+        
 
         System.out.println(controller.getAll());
 
@@ -98,7 +98,6 @@ public class Teste {
         produto.setFornecedor(fornecedor);
         produto.setMarca(marca);
         List<Caracteristica> listaCaracteristicas=new ArrayList<Caracteristica>();
-       // produto.setListaCaracteristicas(caracteristica);
         ProdutoDao produtoDao = new ProdutoDao();
         produtoDao.salvar(produto);
                

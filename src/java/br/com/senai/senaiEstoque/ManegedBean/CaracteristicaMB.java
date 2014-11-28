@@ -8,17 +8,12 @@ package br.com.senai.senaiEstoque.ManegedBean;
 import br.com.senai.senaiEstoque.controller.CaracteristicaController;
 import br.com.senai.senaiEstoque.controller.ValorCaracteristicaController;
 import br.com.senai.senaiEstoque.entity.Caracteristica;
-import br.com.senai.senaiEstoque.entity.ValorCaracteristica;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.model.SelectItem;
-import javax.faces.model.SelectItemGroup;
 
 /**
  *

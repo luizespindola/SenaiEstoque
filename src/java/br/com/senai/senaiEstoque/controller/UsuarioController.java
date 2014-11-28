@@ -8,6 +8,7 @@ package br.com.senai.senaiEstoque.controller;
 import br.com.senai.senaiEstoque.dao.UsuarioDao;
 import br.com.senai.senaiEstoque.entity.Usuario;
 import java.util.List;
+
 /**
  *
  * @author User

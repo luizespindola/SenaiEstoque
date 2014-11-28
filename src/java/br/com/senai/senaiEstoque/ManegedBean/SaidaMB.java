@@ -38,7 +38,7 @@ public class SaidaMB implements Serializable {
     }
 
     public String salvar() {
-        if(saidaController.salvar(saida)==true){
+        if (saidaController.salvar(saida) == true) {
             saidaController.salvar(saida);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Salvo com sucesso"));
         } else {

@@ -19,7 +19,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import org.primefaces.component.behavior.ajax.AjaxBehavior;
 
 /**
  *
@@ -120,7 +119,7 @@ public class ValorCaracteristicaMB implements Serializable {
         valorCaracteristicaController = new ValorCaracteristicaController();
         return valorCaracteristicaController.getAllByIdCaracteristica(id);
     }
-    
+
     public List<ValorCaracteristica> getAllByProduto(Produto produto) {
         valorCaracteristicaController = new ValorCaracteristicaController();
         return valorCaracteristicaController.getAllByProduto(produto);

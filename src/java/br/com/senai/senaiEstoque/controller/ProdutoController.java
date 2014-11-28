@@ -7,7 +7,6 @@ package br.com.senai.senaiEstoque.controller;
 
 import br.com.senai.senaiEstoque.dao.ProdutoDao;
 import br.com.senai.senaiEstoque.entity.Produto;
-import br.com.senai.senaiEstoque.entity.ValorCaracteristica;
 import java.util.List;
 
 /**
@@ -42,5 +41,4 @@ public class ProdutoController {
         return produtoDao.getAll();
     }
 
-    
 }

@@ -52,6 +52,15 @@ public class ValorCaracteristicaDao {
         return valorCaracteristica;
     }
 
+    public List<ValorCaracteristica> getAll() {
+        List<ValorCaracteristica> listaValorCaracteristica = new ArrayList<ValorCaracteristica>();
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Query query = session.createQuery("SELECT v FROM ValorCaracteristica v");
+        listaValorCaracteristica = query.list();
+        session.close();
+        return listaValorCaracteristica;
+    }
+
     public List<ValorCaracteristica> getAllByIdCaracteristica(Integer id) {
         List<ValorCaracteristica> listaValorCaracteristica = new ArrayList<ValorCaracteristica>();
 
@@ -66,15 +75,6 @@ public class ValorCaracteristicaDao {
         return listaValorCaracteristica;
     }
 
-    public List<ValorCaracteristica> getAll() {
-        List<ValorCaracteristica> listaValorCaracteristica = new ArrayList<ValorCaracteristica>();
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        Query query = session.createQuery("SELECT v FROM ValorCaracteristica v");
-        listaValorCaracteristica = query.list();
-        session.close();
-        return listaValorCaracteristica;
-    }
-    
     public List<ValorCaracteristica> getAllByIdCaracteristica(Caracteristica caracteristica) {
         List<ValorCaracteristica> listaValorCaracteristica = new ArrayList<ValorCaracteristica>();
 
@@ -87,8 +87,8 @@ public class ValorCaracteristicaDao {
         session.close();
         return listaValorCaracteristica;
     }
-    
-     public List<ValorCaracteristica> getAllByIdProduto(Integer id) {
+
+    public List<ValorCaracteristica> getAllByIdProduto(Integer id) {
         List<ValorCaracteristica> listaValorCaracteristica = new ArrayList<ValorCaracteristica>();
 
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -101,8 +101,8 @@ public class ValorCaracteristicaDao {
         session.close();
         return listaValorCaracteristica;
     }
-     
-     public List<ValorCaracteristica> getAllByProduto(Produto produto) {
+
+    public List<ValorCaracteristica> getAllByProduto(Produto produto) {
         List<ValorCaracteristica> listaValorCaracteristica = new ArrayList<ValorCaracteristica>();
 
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -115,6 +115,5 @@ public class ValorCaracteristicaDao {
         session.close();
         return listaValorCaracteristica;
     }
-    
 
 }

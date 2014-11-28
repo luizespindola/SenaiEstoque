@@ -46,11 +46,11 @@ public class ValorCaracteristicaController {
     public List<ValorCaracteristica> getAllByIdCaracteristica(Integer id) {
         return valorCaracteristicaDao.getAllByIdCaracteristica(id);
     }
-    
+
     public List<ValorCaracteristica> getAllByCaracteristica(Caracteristica caracteristica) {
         return valorCaracteristicaDao.getAllByIdCaracteristica(caracteristica);
     }
-    
+
     public List<ValorCaracteristica> getAllByProduto(Produto produto) {
         return valorCaracteristicaDao.getAllByProduto(produto);
     }
