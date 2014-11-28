@@ -25,7 +25,7 @@
                 </div><!-- /Botão cadastrar novo -->
 
                 <!-- Lista -->
-                <p:dataTable value="#{tipoUsuarioMB.all}" var="umTipoUsuario">
+                <p:dataTable emptyMessage="Não há tipos de usuários cadastrados em seu sistema" value="#{tipoUsuarioMB.all}" var="umTipoUsuario">
                     <p:column headerText="Tipo de Usuário" width="30">
                         <h:outputText value="#{umTipoUsuario.nome}" />
                     </p:column>

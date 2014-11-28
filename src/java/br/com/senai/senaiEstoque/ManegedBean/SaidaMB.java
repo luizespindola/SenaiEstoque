@@ -38,13 +38,15 @@ public class SaidaMB implements Serializable {
     }
 
     public String salvar() {
+        String paginaDeRetorno="editSaida.xhtml";
         if (saidaController.salvar(saida) == true) {
             saidaController.salvar(saida);
+            paginaDeRetorno="listSaida.xhtml";
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Salvo com sucesso"));
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Não foi possível salvar"));
         }
-        return "listSaida.xhtml";
+        return paginaDeRetorno;
     }
 
     public String novo() {

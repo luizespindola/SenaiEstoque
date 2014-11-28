@@ -24,7 +24,7 @@
                 </div><!-- /Botão adicionar novo -->
 
                 <!-- Lista -->
-                <p:dataTable value="#{fornecedorMB.all}" var="umFornecedor">
+                <p:dataTable emptyMessage="Não há fornecedores cadastrados em seu sistema" value="#{fornecedorMB.all}" var="umFornecedor">
                     <p:column headerText="Fornecedor" width="30">
                         <h:outputText value="#{umFornecedor.nome}" />                             
                     </p:column>    

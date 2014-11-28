@@ -20,7 +20,7 @@
                 <div class="row-fluid">
                     <h:commandButton action="#{permissaoMB.novo}" value="Cadastrar nova permissão" class="btn btn-success btnNovo pull-right"/>
                 </div>
-                <p:dataTable value="#{permissaoMB.all}" var="umaPermissao">
+                <p:dataTable emptyMessage="Não há permissões cadastradas em seu sistema" value="#{permissaoMB.all}" var="umaPermissao">
                     <p:column headerText="Visualizar" width="30">
                         <h:outputText value="#{umaPermissao.visualizar}" />                             
                     </p:column>    
@@ -43,7 +43,12 @@
                 </p:dataTable>
             </h:form>
         </div>
-        <div class="row-fluid span4"></div>
+             
+        <!-- Botão voltar -->
+        <div class="row-fluid" id="divBtnVoltar">
+            <a href="javascript:window.history.go(-1)" class="btn"><img src="assets/imagem/icon/voltar.png"/> Voltar</a>
+        </div> <!-- /Botão voltar -->
+        
     </ui:define> 
 
 </ui:composition> 

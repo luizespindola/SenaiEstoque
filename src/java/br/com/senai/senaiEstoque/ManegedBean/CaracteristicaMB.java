@@ -40,12 +40,10 @@ public class CaracteristicaMB implements Serializable {
 
     public String salvar() {
         String paginaDeRetorno = "editValorCaracteristica.xhtml";
-
         //Caso esteja editando, retorna para a listagem
-        if (caracteristica != null) {
+        if (this.caracteristica != null) {
             paginaDeRetorno = "listCaracteristica.xhtml";
         }
-
         try {
             caracteristicaController.salvar(caracteristica);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Salvo com sucesso"));

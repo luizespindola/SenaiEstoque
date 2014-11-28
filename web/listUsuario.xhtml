@@ -25,7 +25,7 @@
                 </div><!-- /Botão cadastrar novo -->
 
                 <!-- Lista -->
-                <p:dataTable value="#{usuarioMB.all}" var="umUsuario">
+                <p:dataTable emptyMessage="Não há usuários cadastrados em seu sistema" value="#{usuarioMB.all}" var="umUsuario">
                     <p:column headerText="Usuário" width="30">
                         <h:outputText value="#{umUsuario.nome}" />                             
                     </p:column>                  

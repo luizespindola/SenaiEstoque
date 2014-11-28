@@ -26,7 +26,7 @@ public class Usuario implements Serializable {
     private String nome;
     private String login;
     private String senha;
-    @OneToOne(cascade = {CascadeType.ALL})
+    @OneToOne
     private TipoUsuario tipoUsuario;
 
     public Integer getId() {
