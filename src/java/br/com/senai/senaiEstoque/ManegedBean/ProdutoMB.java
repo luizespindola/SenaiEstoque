@@ -27,7 +27,7 @@ public class ProdutoMB implements Serializable {
 
     @ManagedProperty(value = "#{valorCaracteristicaMB}")
     private ValorCaracteristicaMB valorCaracteristicaMB;
-    private Produto produto;
+    private Produto produto=new Produto();
     private ValorCaracteristica valorCaracteristica;
     private ProdutoController produtoController;
     

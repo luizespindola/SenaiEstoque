@@ -30,10 +30,10 @@
             <div class="row-fluid">
 
                 <p:dataTable emptyMessage="Não há saídas cadastradas em seu sistema" value="#{saidaMB.all}" var="umaSaida">
-                    <p:column headerText="Saída" width="30">
+                    <p:column headerText="Produto" width="30">
                         <h:outputText value="#{umaSaida.produto.nome}" />                             
                     </p:column>  
-                    <p:column headerText="Data da entrada" width="30">
+                    <p:column headerText="Data da saída " width="30">
                         <h:outputText value="#{umaSaida.dataSaida}" />                             
                     </p:column> 
                     <p:column headerText="Quantidade" width="30">

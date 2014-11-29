@@ -28,7 +28,10 @@
                 <p:dataTable emptyMessage="Não há usuários cadastrados em seu sistema" value="#{usuarioMB.all}" var="umUsuario">
                     <p:column headerText="Usuário" width="30">
                         <h:outputText value="#{umUsuario.nome}" />                             
-                    </p:column>                  
+                    </p:column>   
+                    <p:column headerText="Tipo de Usuário" width="30">
+                        <h:outputText value="#{umUsuario.tipoUsuario.nome}" />                             
+                    </p:column> 
 
                     <p:column headerText="Ações" style="width: 10%">
                         <h:commandButton action="#{usuarioMB.editar}" value="Editar" image="assets/imagem/icon/editar-b.png"  class="btn btn-success" style="margin-right: 5px">
