@@ -33,9 +33,9 @@ public class Produto implements Serializable {
     private Integer codigo;
     private Double precoCusto;
     private Integer quantidade;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Fornecedor fornecedor;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Marca marca;
     @OneToMany(mappedBy = "produto", cascade = {CascadeType.ALL})
     private List<Saida> listaSaida;
