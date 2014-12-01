@@ -41,7 +41,7 @@ public class CaracteristicaMB implements Serializable {
     public String salvar() {
         String paginaDeRetorno = "editValorCaracteristica.xhtml";
         //Caso esteja editando, retorna para a listagem
-        if (this.caracteristica != null) {
+        if (caracteristica.getId() != null) {
             paginaDeRetorno = "listCaracteristica.xhtml";
         }
         try {

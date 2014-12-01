@@ -27,10 +27,10 @@ public class ProdutoMB implements Serializable {
 
     @ManagedProperty(value = "#{valorCaracteristicaMB}")
     private ValorCaracteristicaMB valorCaracteristicaMB;
-    private Produto produto=new Produto();
+    private Produto produto = new Produto();
     private ValorCaracteristica valorCaracteristica;
     private ProdutoController produtoController;
-    
+
     public ProdutoMB() {
         produtoController = new ProdutoController();
     }
@@ -57,6 +57,10 @@ public class ProdutoMB implements Serializable {
 
     public void setValorCaracteristicaProduto(ValorCaracteristica valorCaracteristica) {
         this.valorCaracteristica = valorCaracteristica;
+    }
+
+    public ValorCaracteristica getValorCaracteristicaProduto() {
+        return valorCaracteristica;
     }
 
     public Produto getProduto() {
@@ -98,10 +102,9 @@ public class ProdutoMB implements Serializable {
     }
 
     public void deleteSubcatacteristicaDoProduto() {
-
         System.out.print(produto.getListaValorCaracteristicas());
         produto.getListaValorCaracteristicas().remove(valorCaracteristica);
-        this.editar();
+        this.salvar();
     }
 
     public List<Produto> getAll() {
