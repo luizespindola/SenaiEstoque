@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"  
+                template="./template.xhtml"  
+                xmlns:h="http://java.sun.com/jsf/html"  
+                xmlns:p="http://primefaces.org/ui"  
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns="http://www.w3.org/1999/xhtml"
+                >  
+
+    <ui:define name="Conteudo">  
+        <!-- Conteudo -->
+        <h:form> 
+            <!-- Titulo -->
+            <div class="row-fluid tituloCategoria">
+                <h1>Estoque</h1>
+            </div><!-- /Titulo -->
+
+            <!-- Mensagen -->
+            <div id="mensagemDeErro" class="row-fluid">
+                <p:messages id="mensagem"  autoUpdate="true" closable="true" /> 
+            </div><!-- /Mensagen -->
+
+            <!-- lista -->
+            <div class="row-fluid">
+
+                <p:dataTable emptyMessage="Seu estoque está vazio" value="#{produtoMB.all}" var="umProduto">
+                    <p:column headerText="Código" width="30">
+                        <h:outputText value="#{umProduto.codigo}" />                             
+                    </p:column>  
+                    <p:column headerText="Produto" width="30">
+                        <h:outputText value="#{umProduto.nome}" />                             
+                    </p:column> 
+                    <p:column headerText="Quantidade" width="30">
+                        <h:outputText value="#{umProduto.quantidade}" />                             
+                    </p:column> 
+
+                    <!-- Acões: Editar / Excluir -->
+                    <p:column headerText="Ações" style="width: 8%">
+                        <h:commandButton action="#{entradaMB.novoEstoque}" onclick="PF('dlg1').show()" value="Nova Entrada" image="assets/imagem/icon/adicionar.png"  class="btnNovo" style="margin-right: 5px">
+                            <f:setPropertyActionListener target="#{entradaMB.entrada.produto}" value="#{umProduto}" />                        
+                        </h:commandButton>
+                        <h:outputText value="|"/>
+                        <h:commandButton action="#{saidaMB.novo}" value="Nova Saída" image="assets/imagem/icon/subtrair.png" class="btnNovo" style="margin-left: 5px">
+                            <f:setPropertyActionListener target="#{saidaMB.saida.produto}" value="#{umProduto}" />                        
+                        </h:commandButton>
+                    </p:column> <!-- /Acões: Editar / Excluir -->  
+
+                </p:dataTable>
+            </div><!-- /lista -->
+
+            <p:dialog header="NovaEntrada" widgetVar="dlg1" showEffect="explode" hideEffect="bounce" height="400">
+                <h:outputText value="#{entradaMB.entrada.produto.nome}" />
+                <h:outputLabel value="Quantidade" for="quantidade" />
+                <h:inputText id="quantidade" value="#{entradaMB.entrada.quantidade}" required="true" requiredMessage="Preencha o campo quantidade" class="input-medium" />
+                <h:outputLabel value="Data da entrada" for="dataEntrada" />
+                <p:calendar id="dataEntrada" value="#{entradaMB.entrada.dataEntrada}" showOn="button" />
+                <h:commandButton class="btn btn-success btnSalvar" value="Salvar" action="#{entradaMB.salvar}"/>
+            </p:dialog>
+
+
+        </h:form>
+
+
+
+        <!-- Botão voltar -->
+        <div class="row-fluid" id="divBtnVoltar">
+            <a href="javascript:window.history.go(-1)" class="btn"><img src="assets/imagem/icon/voltar.png"/> Voltar</a>
+        </div> <!-- /Botão voltar -->
+
+    </ui:define> 
+
+</ui:composition>  
