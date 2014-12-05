@@ -7,6 +7,7 @@ package br.com.senai.senaiEstoque.ManegedBean;
 
 import br.com.senai.senaiEstoque.controller.EntradaController;
 import br.com.senai.senaiEstoque.entity.Entrada;
+import br.com.senai.senaiEstoque.entity.Produto;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -53,8 +54,9 @@ public class EntradaMB implements Serializable {
         return "editEntrada.xhtml";
     }
     
-    public void novoEstoque() {
+    public void novoEstoque(Produto produto) {
         entrada = new Entrada();
+        entrada.setProduto(produto);
     }
 
     public String editar() {
