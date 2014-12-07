@@ -40,5 +40,9 @@ public class MarcaController {
     public List<Marca> getAll() {
         return marcaDao.getAll();
     }
+    
+    public List<Marca> getAllByNome(String busca) {
+        return marcaDao.getAllByNome(busca);
+    }
 
 }

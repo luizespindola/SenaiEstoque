@@ -58,5 +58,20 @@ public class MarcaDao {
         session.close();
         return listaMarcas;
     }
+    
+      public List<Marca> getAllByNome(String busca) {
+        List<Marca> listaMarca = new ArrayList<Marca>();
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+
+        Query query = session.createQuery("FROM Marca WHERE nome = :busca");
+        query.setParameter("busca", busca);
+
+        listaMarca = query.list();
+          System.out.println(listaMarca);
+
+        session.close();
+        return listaMarca;
+    }
 
 }

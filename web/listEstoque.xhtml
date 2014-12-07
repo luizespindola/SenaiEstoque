@@ -37,7 +37,7 @@
 
                     <!-- Acões: Editar / Excluir -->
                     <p:column headerText="Ações" style="width: 8%">
-                        <h:commandButton action="#{entradaMB.novoEstoque(umProduto)}" onclick="PF('NovaEntrada').show()" image="assets/imagem/icon/adicionar.png"  class="btnNovo" style="margin-right: 5px">
+                        <h:commandButton action="#{entradaMB.novo}" value="Nova Entrada" image="assets/imagem/icon/adicionar.png"  class="btnNovo" style="margin-right: 5px">
                             <f:setPropertyActionListener target="#{entradaMB.entrada.produto}" value="#{umProduto}" />                        
                         </h:commandButton>
                         <h:outputText value="|"/>
@@ -47,15 +47,16 @@
                     </p:column> <!-- /Acões: Editar / Excluir -->  
                 </p:dataTable>
             </div><!-- /lista -->
-            <p:dialog header="Nova Entrada" widgetVar="NovaEntrada" modal="true" height="190">
-                <h:outputText value="#{entradaMB.entrada.produto.nome}" />
+            
+          <!--  <p:dialog header="Nova Entrada" widgetVar="NovaEntrada" modal="true" height="190">
+                <h:outputText value="{entradaMB.entrada.produto.nome}"/>
                 <h:outputLabel value="Quantidade" for="quantidade" />
-                <h:inputText id="quantidade" value="#{entradaMB.entrada.quantidade}" class="input-medium" />
+                <h:inputText id="quantidade" value="{entradaMB.entrada.quantidade}" class="input-medium" />
                 <h:outputLabel value="Data da entrada" for="dataEntrada" />
-                <p:calendar id="dataEntrada" value="#{entradaMB.entrada.dataEntrada}" showOn="button" />
+                <p:calendar id="dataEntrada" value="{entradaMB.entrada.dataEntrada}" showOn="button" />
                 <br/>
-                <h:commandButton class="btn btn-success btnSalvar" value="Salvar" action="#{entradaMB.salvar}"/>
-            </p:dialog>
+                <h:commandButton class="btn btn-success btnSalvar" value="Salvar" action="{entradaMB.salvar}"/>
+            </p:dialog>  -->
         </h:form>
 
         <!-- Botão voltar -->
