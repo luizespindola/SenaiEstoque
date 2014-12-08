@@ -18,10 +18,6 @@
         <!-- Formulário/Lista -->
         <div class="row-fluid">
             <h:form>  
-                <!-- Botão adicionar novo -->
-                <div class="row-fluid">
-                    <h:commandButton action="#{produtoMB.novo}" value="Cadastrar novo produto" class="btn btn-success btnNovo pull-right"/>
-                </div><!-- /Botão adicionar novo -->
 
                 <!-- Lista -->
                 <p:dataTable emptyMessage="Não há características cadastradas para esse produto em seu sistema" value="#{produtoMB.produto.listaValorCaracteristicas}" var="umValor">
@@ -32,7 +28,7 @@
                         <h:outputText value="#{umValor.nome}" />                             
                     </p:column>                     
 
-                    <p:column headerText="Ações" style="width: 10%">
+                    <p:column headerText="Ações" style="width: 13%">
                         <h:commandButton action="#{produtoMB.delete}" value="Excluir" image="assets/imagem/icon/excluir-b.png" class="btn btn-danger">
                             <f:setPropertyActionListener target="#{produtoMB.produto}" value="#{umProduto}" />                        
                         </h:commandButton>

@@ -29,6 +29,7 @@ public class ProdutoMB implements Serializable {
     private ValorCaracteristicaMB valorCaracteristicaMB;
     private Produto produto = new Produto();
     private ValorCaracteristica valorCaracteristica;
+    private ValorCaracteristica valorCaracteristicaProduto;
     private ProdutoController produtoController;
 
     public ProdutoMB() {
@@ -56,11 +57,12 @@ public class ProdutoMB implements Serializable {
     }
 
     public void setValorCaracteristicaProduto(ValorCaracteristica valorCaracteristica) {
-        this.valorCaracteristica = valorCaracteristica;
+        this.valorCaracteristicaProduto = valorCaracteristica;
+        System.out.print(valorCaracteristicaProduto.getNome()+" aquiui");
     }
 
     public ValorCaracteristica getValorCaracteristicaProduto() {
-        return valorCaracteristica;
+        return valorCaracteristicaProduto;
     }
 
     public Produto getProduto() {
@@ -101,9 +103,15 @@ public class ProdutoMB implements Serializable {
         return "listProduto.xhtml";
     }
 
-    public void deleteSubcatacteristicaDoProduto() {
-        System.out.print(produto.getListaValorCaracteristicas());
-        produto.getListaValorCaracteristicas().remove(valorCaracteristica);
+    public void deleteSubcatacteristicaDoProduto() {        
+        List<ValorCaracteristica> listaValorCaracteristica = produto.getListaValorCaracteristicas();
+        
+        produto.getListaValorCaracteristicas().removeAll(listaValorCaracteristica);
+        
+        listaValorCaracteristica.remove(valorCaracteristicaProduto);
+                
+        produto.setListaValorCaracteristicas(listaValorCaracteristica);
+        
         this.salvar();
     }
 
