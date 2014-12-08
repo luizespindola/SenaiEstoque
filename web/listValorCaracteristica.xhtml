@@ -27,11 +27,11 @@
 
 
             <p:dataTable emptyMessage="Não há valor cadastrado para a característica: #{caracteristicaMB.caracteristica.nome}" value="#{valorCaracteristicaMB.getAllByIdCaracteristica(caracteristicaMB.caracteristica.id)}" var="umValor">
-                <p:column headerText="Valor Característica" width="90%">
+                <p:column headerText="Valor Característica">
                     <h:outputText value="#{umValor.nome}" />                             
                 </p:column>    
                 <!-- Opções Editar / Excluir -->
-                <p:column headerText="Ações" width="10%">
+                <p:column headerText="Ações" style="width: 13%">
                     <h:commandButton action="#{valorCaracteristicaMB.editar}" value="Editar" image="assets/imagem/icon/editar-b.png"  class="btn btn-success" style="margin-right: 5px">
                         <f:setPropertyActionListener target="#{valorCaracteristicaMB.valorCaracteristica}" value="#{umValor}" />                        
                     </h:commandButton>
@@ -44,7 +44,7 @@
 
         <!-- Botão voltar -->
         <div class="row-fluid" id="divBtnVoltar">
-            <a href="listCaracteristica.xhtml" class="btn"><img src="assets/imagem/icon/voltar.png"/> Voltar para cadastro de característica de produto</a>
+            <a href="listCaracteristica.xhtml" class="btn"><img src="assets/imagem/icon/voltar.png"/>Finalizar</a>
         </div> <!-- /Botão voltar -->
 
     </ui:define> <!-- /Conteudo -->
