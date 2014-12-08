@@ -55,7 +55,7 @@
                     </h:panelGrid>
 
                 </div>
-                <h:commandButton  class="btn btn-success btnSalvar" value="Salvar" action="#{produtoMB.salvar}" />
+                <h:commandButton  style="margin-bottom: 5px" class="btn btn-success btnSalvar" value="Salvar" action="#{produtoMB.salvar}" />
                 <div>
                     <!-- Lista -->
                     <p:dataTable emptyMessage="Não há valores cadastrados para este produto" value="#{produtoMB.produto.listaValorCaracteristicas}" var="umValor">
@@ -66,7 +66,7 @@
                             <h:outputText value="#{umValor.nome}" />                             
                         </p:column> 
 
-                        <p:column headerText="Ações" style="width: 10%">
+                        <p:column headerText="Ações" style="width: 13%">
                             <h:commandButton action="#{produtoMB.deleteSubcatacteristicaDoProduto}" value="Excluir" image="assets/imagem/icon/excluir-b.png" class="btn btn-danger">
                                 <f:setPropertyActionListener target="#{produtoMB.valorCaracteristicaProduto}" value="#{umValor}" />                        
                             </h:commandButton>
