@@ -42,7 +42,7 @@
                         <h:outputLabel value="Site" for="site" />
                         <h:inputText id="site" value="#{fornecedorMB.fornecedor.site}" required="true" requiredMessage="Preencha o campo site" class="input-medium" />
                         <h:outputLabel value="Observação" for="observacao" />
-                        <h:inputTextarea id="observacao" value="#{fornecedorMB.fornecedor.observacao}" required="true" requiredMessage="Preencha o campo observação" class="input-medium" />
+                        <h:inputTextarea id="observacao" value="#{fornecedorMB.fornecedor.observacao}" requiredMessage="Preencha o campo observação" class="input-medium" />
                         <h:commandButton class="btn btn-success" value="Salvar" action="#{fornecedorMB.salvar()}"/>
                     </h:panelGrid>
                 </div>

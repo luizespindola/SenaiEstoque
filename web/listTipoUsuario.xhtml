@@ -21,7 +21,7 @@
 
                 <!-- Botão cadastrar novo -->
                 <div class="row-fluid">
-                    <h:commandButton action="#{tipoUsuarioMB.novo}" value="Cadastrar novo usuário" class="btn btn-success btnNovo pull-right"/>
+                    <h:commandButton action="#{tipoUsuarioMB.novo}" value="Cadastrar novo tipo de usuário" class="btn btn-success btnNovo pull-right"/>
                 </div><!-- /Botão cadastrar novo -->
 
                 <!-- Lista -->
@@ -33,7 +33,7 @@
                         <h:outputText value="#{umTipoUsuario.permissao}" />
                     </p:column>
 
-                    <p:column headerText="Ações" style="width: 10%">
+                    <p:column headerText="Ações" style="width: 13%">
                         <h:commandButton action="#{tipoUsuarioMB.editar}" value="Editar" image="assets/imagem/icon/editar-b.png"  class="btn btn-success" style="margin-right: 5px">
                             <f:setPropertyActionListener target="#{tipoUsuarioMB.tipoUsuario}" value="#{umTipoUsuario}" />
                         </h:commandButton>

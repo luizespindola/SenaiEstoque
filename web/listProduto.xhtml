@@ -26,7 +26,7 @@
                 <!-- Lista -->
                 <p:dataTable emptyMessage="Não há produtos cadastrados em seu sistema" value="#{produtoMB.all}" var="umProduto">
                     <p:column headerText="Produto" >
-                        <h:outputText value="#{umProduto.nome}" />                             
+                        <h:outputText value="#{umProduto.nome}" style="width: 40%" />                             
                     </p:column>    
                     <p:column headerText="Codigo" >
                         <h:outputText value="#{umProduto.codigo}" />                             
@@ -34,7 +34,7 @@
                     <p:column headerText="Preço de custo" >
                         <h:outputText value="#{umProduto.precoCusto}" />                             
                     </p:column> 
-                    <p:column headerText="Quantidade">
+                    <p:column headerText="Qtd">
                         <h:outputText value="#{umProduto.quantidade}" />                             
                     </p:column> 
                     <p:column headerText="Fornecedor" >
@@ -44,7 +44,7 @@
                         <h:outputText value="#{umProduto.marca.nome}" />                             
                     </p:column> 
                     <p:column headerText="Caracteristicas" >
-                        <h:commandButton action="#{produtoMB.listValorCaracterisica}" value="Visualizar características" class="btn btn-primary" style="margin-left:40px">      
+                        <h:commandButton action="#{produtoMB.listValorCaracterisica}" value="Visualizar características" class="btn btn-primary" >      
                             <f:setPropertyActionListener target="#{produtoMB.produto}" value="#{umProduto}" />    
                         </h:commandButton>
                     </p:column> 

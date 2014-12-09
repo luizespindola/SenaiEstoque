@@ -89,6 +89,21 @@ public class Permissao implements Serializable {
 
     @Override
     public String toString() {
+        if (visualizar == null) {
+            visualizar = "";
+        } else {
+            visualizar += " | ";
+        }
+
+        if (editar == null) {
+            editar = "";
+        } else {
+            editar += " | ";
+        }
+        if (editarPermissao == null) {
+            editarPermissao = "";
+        }
+
         return visualizar + "    " + editar + "    " + editarPermissao;
     }
 
